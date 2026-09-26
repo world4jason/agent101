@@ -216,6 +216,52 @@
       </section>
 
       <section class="slide" data-section="operate">
+        <div class="eyebrow">AI 的能力從哪裡來？</div>
+        <h2>Skill、Web Search、RAG、MCP 是四個不同層次</h2>
+        <div class="system-map">
+          <article class="system-card define-card"><div class="num">KNOW-HOW</div><h3>Skill</h3><p>教它「這類事情怎麼做」</p><small>SOP、workflow、examples、scripts。</small></article>
+          <article class="system-card manage-card"><div class="num">FRESH INFO</div><h3>Web Search</h3><p>去公開網路查最新資訊</p><small>新聞、版本、價格、官方文件。</small></article>
+          <article class="system-card verify-card"><div class="num">YOUR KNOWLEDGE</div><h3>RAG</h3><p>先從指定知識庫找資料，再回答</p><small>公司文件、產品知識、歷史 tickets。</small></article>
+          <article class="system-card operate-card"><div class="num">CONNECTION</div><h3>MCP</h3><p>讓 AI 用共同協定連外部工具 / 資料</p><small>Tools、Resources、Prompts；不是搜尋引擎。</small></article>
+        </div>
+        <p class="bottom-callout">記法：Skill = Know-how；Search = Fresh public info；RAG = Retrieval；MCP = Connection。</p>
+      </section>
+
+      <section class="slide" data-section="operate">
+        <div class="eyebrow">它們可以一起工作</div>
+        <h2>不是四選一，而是組成 Agent 的不同零件</h2>
+        <div class="context-layout">
+          <div class="context-window">
+            <div class="window-head">MAIN AGENT</div>
+            <div class="token">Skill：研究 SOP</div>
+            <div class="token fragment">Search：公開網路</div>
+            <div class="token fragment">MCP：GitHub / CRM / DB</div>
+            <div class="token fragment">RAG：公司知識庫</div>
+          </div>
+          <div class="source-truth">
+            <div class="source-title">問題分工</div>
+            <div>怎麼做？ → Skill</div>
+            <div>外面現在怎樣？ → Web Search</div>
+            <div>自己的資料有什麼？ → RAG</div>
+            <div>怎麼接外部系統？ → MCP</div>
+          </div>
+        </div>
+        <p class="bottom-callout">RAG 不等於 Vector DB；MCP 也不等於 RAG。MCP 可以只是把一個 RAG search tool 暴露給 Agent。</p>
+      </section>
+
+      <section class="slide" data-section="operate">
+        <div class="eyebrow">再加上 Subagent</div>
+        <h2>Subagent 是「另一個 worker」，不是另一種資料來源</h2>
+        <div class="gates">
+          <div class="gate"><span>1</span><b>Research</b><small>Web Search：找公開、最新資料。</small></div>
+          <div class="gate fragment"><span>2</span><b>Knowledge</b><small>RAG：查公司 / 專案知識庫。</small></div>
+          <div class="gate fragment"><span>3</span><b>Operator</b><small>MCP：操作 GitHub、CRM、DB、SaaS。</small></div>
+          <div class="gate fragment"><span>4</span><b>Reviewer</b><small>Skill + AC：獨立驗收成果。</small></div>
+        </div>
+        <p class="bottom-callout">初階只需要理解這張分工圖；MCP protocol、embedding、chunking、reranking 放進進階。</p>
+      </section>
+
+      <section class="slide" data-section="operate">
         <div class="eyebrow">Context</div>
         <h2>Context 是工作記憶，不是永久資料庫</h2>
         <div class="context-layout"><div class="context-window"><div class="window-head">CURRENT CONTEXT</div><div class="token fragment">Goal</div><div class="token fragment">Current Ticket</div><div class="token fragment">Relevant Code</div><div class="token fragment">AC</div><div class="token fragment">Recent Evidence</div></div><div class="source-truth"><div class="source-title">DURABLE SOURCE OF TRUTH</div><div>Spec / Docs</div><div>Git / Commits</div><div>Issue / Kanban</div><div>PR / Review</div></div></div>
@@ -272,7 +318,7 @@
       <section class="slide sources-slide" data-section="operate">
         <div class="eyebrow">Reference</div>
         <h2>延伸閱讀</h2>
-        <div class="sources"><a href="https://github.com/anthropics/skills">Anthropic Skills — reusable Agent Skills examples</a><a href="https://github.com/mattpocock/skills">Matt Pocock Skills — small, composable engineering skills</a><a href="https://github.com/obra/superpowers">Superpowers — complete dev methodology built from composable skills</a><a href="https://github.com/JuliusBrussee/caveman">Caveman — terse output skill + optional read-side proxy</a><a href="https://github.com/rtk-ai/rtk">RTK — CLI output filtering proxy</a><a href="https://github.com/ayghri/i-have-adhd">i-have-adhd — action-first response-format skill</a><a href="https://agentskills.io/">Agent Skills specification</a><a href="https://github.com/github/spec-kit">GitHub Spec Kit — Spec-Driven Development</a><a href="https://github.com/bmad-code-org/BMAD-METHOD">BMad Method — Agile AI Driven Development</a><a href="../docs/11-skills-subagents-and-workflows.md">Agent 101 — Skills / Subagents / Workflows</a><a href="../docs/12-methods-and-resource-survey.md">Agent 101 — Methods & Resource Survey</a></div>
+        <div class="sources"><a href="https://github.com/anthropics/skills">Anthropic Skills — reusable Agent Skills examples</a><a href="https://github.com/modelcontextprotocol/modelcontextprotocol">Model Context Protocol — official spec and docs</a><a href="https://github.com/openai/openai-cookbook">OpenAI Cookbook — retrieval / RAG examples</a><a href="https://github.com/mattpocock/skills">Matt Pocock Skills — small, composable engineering skills</a><a href="https://github.com/obra/superpowers">Superpowers — complete dev methodology built from composable skills</a><a href="https://github.com/JuliusBrussee/caveman">Caveman — terse output skill + optional read-side proxy</a><a href="https://github.com/rtk-ai/rtk">RTK — CLI output filtering proxy</a><a href="https://github.com/ayghri/i-have-adhd">i-have-adhd — action-first response-format skill</a><a href="https://agentskills.io/">Agent Skills specification</a><a href="https://github.com/github/spec-kit">GitHub Spec Kit — Spec-Driven Development</a><a href="https://github.com/bmad-code-org/BMAD-METHOD">BMad Method — Agile AI Driven Development</a><a href="../docs/11-skills-subagents-and-workflows.md">Agent 101 — Skills / Subagents / Workflows</a><a href="../docs/12-methods-and-resource-survey.md">Agent 101 — Methods & Resource Survey</a></div>
         <div class="end-mark">AGENT 101</div>
       </section>
     </div>
