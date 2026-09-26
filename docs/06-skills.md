@@ -135,3 +135,29 @@ description: 完成 PR 時，產生可供非技術 reviewer 驗收的 evidence p
 
 - [Anthropic Skills repository](https://github.com/anthropics/skills)
 - [Agent Skills](https://agentskills.io/)
+
+
+---
+
+# Matt Pocock Skills：另一種很適合理解 Skill 的案例
+
+除了 Agent Skills specification，本課也會介紹 [mattpocock/skills](https://github.com/mattpocock/skills)。
+
+它的特色不是用一套大型 framework 接管整個開發流程，而是把工程工作拆成 **小、可組合、可修改的 Skills**。
+
+很適合用來示範：
+
+- `/grill-me`：讓 Agent 反過來訪談你，把模糊需求問清楚。
+- `/grill-with-docs`：一邊釐清，一邊建立 `CONTEXT.md`、shared language、ADR。
+- `/to-spec`：把目前討論整理成 spec。
+- `/to-tickets`：把 spec / plan 拆成可執行 tickets。
+- `/implement`：以 spec / tickets 為依據實作，並串接 TDD / code review。
+- `/tdd`：Red → Green → Refactor。
+- `/diagnosing-bugs`：先建立可重現 feedback loop，再定位與修復。
+- `/code-review`：以 Standards / Spec fidelity 兩個視角，用平行 subagents 獨立 review。
+- `/handoff`：把當前 conversation 壓成可交接文件。
+- `/wayfinder`：把超過單一 session 能承載的大型工作，外部化成 decision tickets。
+
+完整介紹見 [Matt Pocock Skills](14-matt-pocock-skills.md)。
+
+> 注意：網路上流傳的指令清單可能混入其他 skill collection。Matt Pocock 目前的 repo 使用 `/to-spec`、`/to-tickets`、`/diagnosing-bugs`；不要和 `/to-prd`、`/to-issues`、`/diagnose` 混為一談。
