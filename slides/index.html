@@ -4,10 +4,68 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <title>Agent 101 — Readability Flow</title>
+  <title>Agent 101 — 給外行人的 AI 專案協作</title>
   <link rel="stylesheet" href="./styles.css">
   <style>
-    .slide{padding:56px 72px 48px}.slide h2{max-width:1180px}.takeaway{font-size:clamp(30px,3vw,54px);line-height:1.12;font-weight:850;letter-spacing:-.035em;margin:24px 0}.quiet{color:#aeb8c6}.one-line{font-size:26px;line-height:1.45;color:#c7d1df;max-width:1040px}.hero-line{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:42px}.pill{border:1px solid var(--line);border-radius:999px;padding:14px 20px;background:rgba(255,255,255,.035);font-size:20px}.pill.define{border-color:var(--define)}.pill.manage{border-color:var(--manage)}.pill.verify{border-color:var(--verify)}.pill.operate{border-color:var(--operate)}.big-arrow{font-size:34px;color:#718092}.lesson{display:grid;grid-template-columns:1fr 1.1fr;gap:42px;align-items:center}.example-box{border-left:4px solid var(--define);padding:6px 0 6px 28px}.example-box p{font-size:28px;line-height:1.45}.bad-good{display:grid;grid-template-columns:1fr 1fr;gap:32px}.bad-good>div{border-top:4px solid var(--line);padding-top:22px}.bad-good .bad{border-color:var(--bad);background:transparent}.bad-good .good{border-color:var(--good);background:transparent}.simple-list{font-size:28px;line-height:1.65;list-style:none;padding:0;margin:0}.simple-list li{margin:10px 0}.simple-list li:before{content:'→';color:var(--manage);margin-right:14px}.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}.roadmap .step{min-height:150px;border-top:4px solid var(--line);padding:18px;background:rgba(255,255,255,.035)}.step b{font-size:26px;display:block}.step span{display:block;color:#aeb8c6;margin-top:12px;font-size:17px;line-height:1.45}.swimlane{display:grid;grid-template-columns:170px 1fr;gap:12px;margin-top:36px}.lane-label{color:#9aa7b8;font-weight:800;letter-spacing:.08em}.lane-flow{display:flex;gap:12px;flex-wrap:wrap}.lane-flow span{padding:12px 16px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:10px}.checkline{display:grid;gap:16px;max-width:980px}.checkline div{font-size:30px;border-left:4px solid var(--verify);padding-left:22px}.matrix{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:32px}.matrix section{padding:24px;border-top:4px solid var(--line);background:rgba(255,255,255,.025)}.matrix h3{margin-bottom:12px}.relation{position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:32px}.relation div{min-height:130px;border:1px solid var(--line);padding:20px;background:rgba(255,255,255,.03)}.relation b{font-size:24px;display:block}.relation span{color:#aeb8c6;display:block;margin-top:10px;line-height:1.45}.exercise-card{font-size:30px;line-height:1.5;border:1px solid var(--line);padding:30px;max-width:1100px;background:rgba(255,255,255,.035)}.answer{border-left:4px solid var(--verify);padding-left:24px;font-size:28px;line-height:1.5;margin-top:28px}.final-line{font-size:42px;line-height:1.2;font-weight:850;color:var(--verify);margin-top:34px}@media(max-width:900px){.slide{padding:34px 20px 90px}.lesson,.bad-good,.matrix,.roadmap,.relation{grid-template-columns:1fr}.swimlane{grid-template-columns:1fr}.takeaway{font-size:36px}.one-line,.simple-list,.checkline div,.exercise-card{font-size:22px}}
+    .slide{padding:56px 72px 48px}
+    .slide h2{max-width:1180px;margin-bottom:34px}
+    .thesis{font-size:clamp(34px,4vw,64px);line-height:1.12;letter-spacing:-.04em;font-weight:850;max-width:1120px}
+    .support{font-size:clamp(20px,2vw,30px);line-height:1.55;color:#c4ceda;max-width:1040px}
+    .muted{color:#9eabb9}
+    .flow{display:flex;align-items:stretch;gap:0;max-width:1280px;margin-top:36px;overflow-x:auto;padding-bottom:8px}
+    .flow-step{position:relative;min-width:150px;flex:1;padding:18px 16px 14px;border-top:3px solid var(--line)}
+    .flow-step:not(:last-child)::after{content:"→";position:absolute;right:-8px;top:38px;color:#6f7c8c;font-size:24px;z-index:2}
+    .flow-step b{display:block;font-size:20px}
+    .flow-step span{display:block;margin-top:8px;color:#9eabb9;font-size:15px;line-height:1.45}
+    .flow-step.define{border-color:var(--define)}.flow-step.manage{border-color:var(--manage)}.flow-step.verify{border-color:var(--verify)}.flow-step.operate{border-color:var(--operate)}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:42px;max-width:1220px}
+    .half{padding-top:18px;border-top:3px solid var(--line)}
+    .half.bad{border-color:var(--bad)}.half.good{border-color:var(--good)}
+    .half h3{font-size:18px;color:#9eabb9;margin-bottom:18px}
+    .half p{font-size:26px;line-height:1.5}
+    .questions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .questions span{padding:9px 0;margin-right:20px;border-bottom:1px solid #485467;font-size:18px;color:#d5dce5}
+    .scenario{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:center;max-width:1180px;margin-top:26px}
+    .scenario .part{padding-top:16px;border-top:3px solid var(--line)}
+    .scenario b{font-size:15px;color:#9eabb9;display:block;margin-bottom:8px}.scenario strong{font-size:23px;line-height:1.4}.scenario .arr{font-size:28px;color:#718093}
+    .sheet{max-width:1120px;border-left:4px solid var(--manage);padding:6px 0 6px 28px}
+    .sheet .row{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid #27313e}
+    .sheet .row:last-child{border-bottom:0}.sheet b{color:#9eabb9}.sheet span{font-size:21px;line-height:1.45}
+    .statusline{display:flex;gap:0;max-width:1180px;margin-top:38px;overflow-x:auto}
+    .statusline div{min-width:170px;flex:1;padding:20px 18px;border-top:4px solid #3b4655}
+    .statusline div:nth-child(2){border-color:var(--define)}.statusline div:nth-child(3){border-color:var(--manage)}.statusline div:nth-child(4){border-color:var(--verify)}.statusline div:nth-child(5){border-color:#5f6b7a}
+    .statusline b{font-size:20px;display:block}.statusline span{display:block;color:#9eabb9;margin-top:8px;font-size:15px}
+    .handoff{display:grid;grid-template-columns:1fr 80px 1fr;gap:22px;align-items:center;max-width:1180px}
+    .handoff-side{padding-top:20px;border-top:4px solid var(--line)}
+    .handoff-side.agent{border-color:var(--manage)}.handoff-side.human{border-color:var(--verify)}
+    .handoff-side h3{font-size:18px;color:#9eabb9}.handoff-side p{font-size:24px;line-height:1.55}
+    .handoff-arrow{text-align:center;font-size:42px;color:#6f7c8c}
+    .gate-list{display:grid;gap:18px;max-width:1080px}
+    .gate{display:grid;grid-template-columns:52px 220px 1fr;gap:20px;align-items:start;padding:0;background:transparent;border:0;min-height:auto}
+    .gate .n{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--verify);color:#09281f;font-weight:900}
+    .gate b{margin:6px 0 0;font-size:22px}.gate span:last-child{color:#bdc7d3;font-size:20px;line-height:1.5}
+    .exercise{max-width:1120px;padding:28px;border-left:4px solid var(--define);background:rgba(255,255,255,.025)}
+    .exercise p{font-size:27px;line-height:1.55}.choice{display:flex;gap:18px;margin-top:24px}.choice span{padding:12px 18px;border:1px solid var(--line);font-size:18px}.choice .correct{border-color:var(--verify);color:var(--verify)}
+    .ability{display:grid;grid-template-columns:200px 1fr;gap:18px 34px;max-width:1180px}
+    .ability .q{color:#9eabb9;font-size:17px;padding-top:3px}.ability .a{font-size:24px;border-bottom:1px solid #293440;padding:0 0 14px;line-height:1.4}
+    .ability .a b{color:var(--operate)}
+    .durable{display:grid;grid-template-columns:1fr auto 1fr;gap:30px;align-items:center;max-width:1120px}
+    .durable .left,.durable .right{padding-top:18px;border-top:3px solid var(--line)}.durable .left{border-color:#6d7784}.durable .right{border-color:var(--operate)}
+    .durable h3{font-size:18px;color:#9eabb9}.durable p{font-size:24px;line-height:1.5}.durable .mid{font-size:38px;color:#6f7c8c}
+    .methods{display:grid;grid-template-columns:180px 1fr;gap:14px 28px;max-width:1080px}
+    .methods b{font-size:24px;color:var(--operate)}.methods span{font-size:21px;color:#c4ceda;line-height:1.45;border-bottom:1px solid #293440;padding-bottom:12px}
+    .final{font-size:clamp(40px,4.7vw,78px);line-height:1.08;letter-spacing:-.045em;font-weight:900;max-width:1150px}
+    .tiny{font-size:15px;color:#7f8b99;margin-top:24px}
+    @media(max-width:900px){
+      .slide{padding:34px 20px 86px}
+      .two,.handoff,.durable{grid-template-columns:1fr}.handoff-arrow,.durable .mid{transform:rotate(90deg)}
+      .scenario{grid-template-columns:1fr}.scenario .arr{transform:rotate(90deg);text-align:center}
+      .sheet .row{grid-template-columns:1fr;gap:6px}
+      .gate{grid-template-columns:44px 1fr}.gate span:last-child{grid-column:2}
+      .ability,.methods{grid-template-columns:1fr}.ability .a,.methods span{margin-bottom:10px}
+      .flow-step,.statusline div{min-width:220px}
+      .topbar{padding:0 18px;grid-template-columns:110px 1fr 70px}.section-rail{gap:4px}.section-rail span{padding:6px 8px;font-size:10px}
+    }
   </style>
 </head>
 <body>
@@ -15,10 +73,10 @@
     <header class="topbar">
       <div class="brand">AGENT 101</div>
       <div class="section-rail" aria-label="課程章節">
-        <span data-section="define">01 定義工作</span>
-        <span data-section="manage">02 管理執行</span>
-        <span data-section="verify">03 驗收交付</span>
-        <span data-section="operate">04 進階地圖</span>
+        <span data-section="define">定義工作</span>
+        <span data-section="manage">管理執行</span>
+        <span data-section="verify">驗收交付</span>
+        <span data-section="operate">進階</span>
       </div>
       <div class="counter"><span id="current">1</span> / <span id="total">1</span></div>
     </header>
@@ -26,142 +84,199 @@
     <div class="slides">
       <section class="slide title-slide" data-section="define">
         <div class="eyebrow">給非工程背景的人</div>
-        <h1>你不需要會做，<br><span>但要能定義什麼叫做好。</span></h1>
-        <p class="lead">Agent 101 不是工具名詞課。它是一套把想法變成可委派、可追蹤、可驗收工作的流程。</p>
+        <h1>你不用會寫 code，<br><span>也能管 AI 做專案。</span></h1>
+        <p class="lead">關鍵不是 prompt 技巧，而是把工作定義到<strong>可以委派、可以追蹤、可以驗收</strong>。</p>
       </section>
 
       <section class="slide" data-section="define">
-        <div class="eyebrow">先破除誤解</div>
-        <div class="takeaway">AI 不是許願池，是需要被委派與驗收的 worker。</div>
-        <div class="hero-line"><span class="pill define">你定義問題</span><span class="big-arrow">→</span><span class="pill define">AI 協助釐清</span><span class="big-arrow">→</span><span class="pill manage">AI 執行</span><span class="big-arrow">→</span><span class="pill verify">人類驗收</span></div>
-      </section>
-
-      <section class="slide" data-section="define">
-        <div class="eyebrow">課程分層</div>
-        <div class="takeaway">初階講流程；進階才講工具系統。</div>
-        <div class="matrix">
-          <section><h3>Agent 101｜外行人主線</h3><p class="one-line">需求、AC、Issue、Kanban、PR、Preview、驗收、上線。</p></section>
-          <section><h3>Agent 201｜大量使用 Agent 後</h3><p class="one-line">Skill、Subagent、Context、MCP、RAG、Plugin、SDD、BMAD。</p></section>
+        <div class="eyebrow">先建立正確角色</div>
+        <h2>AI 可以幫你做很多事；但「什麼叫完成」仍然要由人決定。</h2>
+        <div class="flow">
+          <div class="flow-step define"><b>你定義問題</b><span>目的、限制、成功條件</span></div>
+          <div class="flow-step manage"><b>AI 協助釐清</b><span>問問題、補缺口、拆工作</span></div>
+          <div class="flow-step manage"><b>AI 執行</b><span>做出可交付成果</span></div>
+          <div class="flow-step verify"><b>你驗收</b><span>看證據，不看「Done」</span></div>
         </div>
       </section>
 
       <section class="slide" data-section="define">
-        <div class="eyebrow">Agent 101 主流程</div>
-        <div class="takeaway">先把工作講清楚，再讓 AI 開始做。</div>
-        <div class="roadmap">
-          <div class="step"><b>想法</b><span>我想改善什麼？</span></div>
-          <div class="step"><b>需求</b><span>誰、問題、範圍、限制。</span></div>
-          <div class="step"><b>AC</b><span>怎樣才算完成？</span></div>
-          <div class="step"><b>執行</b><span>Issue、Kanban、Agent、PR。</span></div>
-          <div class="step"><b>驗收</b><span>Preview、Evidence、Approve。</span></div>
+        <div class="eyebrow">先看整條路</div>
+        <h2>一個外行人管理 AI 專案，其實只需要這一條流程。</h2>
+        <div class="flow">
+          <div class="flow-step define"><b>問題</b><span>我要改善什麼？</span></div>
+          <div class="flow-step define"><b>Requirement</b><span>誰、情境、範圍</span></div>
+          <div class="flow-step define"><b>AC / Example</b><span>怎樣才算完成？</span></div>
+          <div class="flow-step manage"><b>Issue / Kanban</b><span>把工作外部化</span></div>
+          <div class="flow-step manage"><b>Agent / PR</b><span>執行與交付</span></div>
+          <div class="flow-step verify"><b>Preview / Evidence</b><span>拿出可檢查證據</span></div>
+          <div class="flow-step verify"><b>Human Acceptance</b><span>Approve 或退回</span></div>
+          <div class="flow-step verify"><b>Production</b><span>驗收後才上線</span></div>
         </div>
       </section>
 
       <section class="slide" data-section="define">
         <div class="eyebrow">Requirement</div>
-        <div class="takeaway">需求不是「我要一個功能」，而是「我要解決一個情境裡的問題」。</div>
-        <div class="bad-good">
-          <div class="bad"><h3>不夠</h3><p class="one-line">幫我把搜尋做好一點。</p></div>
-          <div class="good"><h3>比較好</h3><p class="one-line">手機使用者現在只能一直滑；這次先做標題關鍵字搜尋，不做推薦與模糊搜尋。</p></div>
+        <h2>先講清楚問題，不要一開始就只丟一個功能名稱。</h2>
+        <div class="two">
+          <div class="half bad">
+            <h3>太模糊</h3>
+            <p>「幫我把搜尋做好一點。」</p>
+          </div>
+          <div class="half good">
+            <h3>可以開始工作的版本</h3>
+            <p>手機使用者現在只能一直滑。這次先做<strong>標題關鍵字搜尋</strong>；不做推薦、不做模糊搜尋。</p>
+          </div>
+        </div>
+        <div class="questions">
+          <span>為什麼做？</span><span>誰要用？</span><span>現在卡在哪？</span><span>這次做什麼？</span><span>這次不做什麼？</span>
         </div>
       </section>
 
       <section class="slide" data-section="define">
-        <div class="eyebrow">Requirement Template</div>
-        <div class="takeaway">外行人只要先會問六個問題。</div>
-        <ul class="simple-list"><li>為什麼做？</li><li>誰要用？</li><li>現在卡在哪？</li><li>這次要做什麼？</li><li>這次不要做什麼？</li><li>怎樣算成功？</li></ul>
-      </section>
-
-      <section class="slide" data-section="define">
-        <div class="eyebrow">Acceptance Criteria</div>
-        <div class="takeaway">AC 要在開工前寫，因為它決定你怎麼驗收。</div>
-        <div class="bad-good">
-          <div class="bad"><h3>不要寫</h3><p class="one-line">手機版要正常。</p></div>
-          <div class="good"><h3>改成</h3><p class="one-line">390px 寬度下不出現水平捲軸；CTA 完整可見；主要文字不重疊。</p></div>
+        <div class="eyebrow">Acceptance Criteria + Example</div>
+        <h2>在開工前先決定怎樣算完成，AI 才不需要猜。</h2>
+        <div class="two">
+          <div class="half bad">
+            <h3>不要寫</h3>
+            <p>「手機版要正常。」</p>
+          </div>
+          <div class="half good">
+            <h3>改成可 Pass / Fail</h3>
+            <p>390px 寬度下：不出現水平捲軸、CTA 完整可見、主要文字不重疊。</p>
+          </div>
         </div>
-      </section>
-
-      <section class="slide" data-section="define">
-        <div class="eyebrow">Examples / BDD</div>
-        <div class="takeaway">不要問 AI「你懂吧」；給它一個可以重現的例子。</div>
-        <div class="example-box"><p>在什麼情況？<br><strong>未登入。</strong></p><p>做什麼？<br><strong>按下收藏。</strong></p><p>應該看到什麼？<br><strong>要求登入，不顯示收藏成功。</strong></p></div>
+        <div class="scenario">
+          <div class="part"><b>Given</b><strong>未登入</strong></div><div class="arr">→</div>
+          <div class="part"><b>When</b><strong>按收藏</strong></div><div class="arr">→</div>
+          <div class="part"><b>Then</b><strong>要求登入，不顯示收藏成功</strong></div>
+        </div>
       </section>
 
       <section class="slide" data-section="manage">
         <div class="eyebrow">Issue</div>
-        <div class="takeaway">Issue 是工作契約，不是一句待辦。</div>
-        <div class="checkline"><div>Goal：為什麼做</div><div>Scope / Non-goals：做什麼、不做什麼</div><div>AC / Examples：怎麼判斷完成</div><div>Evidence：完成後要交什麼證據</div></div>
+        <h2>把剛才談好的內容寫進 Issue；聊天不是專案的 source of truth。</h2>
+        <div class="sheet">
+          <div class="row"><b>Goal</b><span>為什麼要做</span></div>
+          <div class="row"><b>Scope / Non-goals</b><span>這次做什麼、不做什麼</span></div>
+          <div class="row"><b>AC / Example</b><span>怎樣判斷完成</span></div>
+          <div class="row"><b>Evidence</b><span>完成後要拿什麼來驗收</span></div>
+        </div>
       </section>
 
       <section class="slide" data-section="manage">
         <div class="eyebrow">Kanban</div>
-        <div class="takeaway">Agent 說 Done，只代表可以進 Review。</div>
-        <div class="hero-line"><span class="pill">Backlog</span><span class="big-arrow">→</span><span class="pill define">Ready</span><span class="big-arrow">→</span><span class="pill manage">In Progress</span><span class="big-arrow">→</span><span class="pill verify">Review</span><span class="big-arrow">→</span><span class="pill verify">Done</span></div>
+        <h2>Issue 告訴你「做什麼」；Kanban 告訴你「現在做到哪」。</h2>
+        <div class="statusline">
+          <div><b>Backlog</b><span>還沒準備好</span></div>
+          <div><b>Ready</b><span>需求與 AC 已清楚</span></div>
+          <div><b>In Progress</b><span>Human / Agent 正在做</span></div>
+          <div><b>Review</b><span>開始驗收</span></div>
+          <div><b>Done</b><span>通過驗收</span></div>
+        </div>
+        <p class="support" style="margin-top:34px">Agent 說「我做完了」，最多只代表它可以進 <strong>Review</strong>。</p>
       </section>
 
       <section class="slide" data-section="manage">
-        <div class="eyebrow">PR</div>
-        <div class="takeaway">PR 是交付包，不只是工程師看的 code diff。</div>
-        <div class="swimlane"><div class="lane-label">AGENT</div><div class="lane-flow"><span>做了什麼</span><span>對應哪張 Issue</span><span>AC 完成狀態</span></div><div class="lane-label">REVIEWER</div><div class="lane-flow"><span>打開 Preview</span><span>對照 AC</span><span>Approve / Request Changes</span></div></div>
+        <div class="eyebrow">Pull Request</div>
+        <h2>PR 是 Agent 的交付包：把改動和驗收證據一起交出來。</h2>
+        <div class="handoff">
+          <div class="handoff-side agent">
+            <h3>Agent 交付</h3>
+            <p>對應哪張 Issue<br>做了什麼<br>AC 狀態<br>Preview / 截圖 / tests<br>Known limitations</p>
+          </div>
+          <div class="handoff-arrow">→</div>
+          <div class="handoff-side human">
+            <h3>Human Reviewer</h3>
+            <p>自己打開 Preview<br>逐條對照 AC<br>Approve 或 Request Changes</p>
+          </div>
+        </div>
       </section>
 
       <section class="slide" data-section="verify">
-        <div class="eyebrow">驗收流程</div>
-        <div class="takeaway">非技術人員不需要看懂 code，仍然可以驗收成果。</div>
-        <div class="roadmap"><div class="step"><b>有東西</b><span>PR / Preview / Evidence</span></div><div class="step"><b>檢查過</b><span>Build / Test / Security</span></div><div class="step"><b>符合 AC</b><span>自己操作核心情境</span></div><div class="step"><b>真的有用</b><span>產品判斷</span></div><div class="step"><b>才上線</b><span>Merge / Production</span></div></div>
-      </section>
-
-      <section class="slide" data-section="verify">
-        <div class="eyebrow">Evidence Pack</div>
-        <div class="takeaway">不要相信一句 Done；要求可以獨立檢查的證據。</div>
-        <ul class="simple-list"><li>Preview URL：我可以自己操作</li><li>AC Checklist：每條 Pass / Fail</li><li>Before / After：UI 改了什麼</li><li>Automated Checks：基本檢查是否通過</li><li>Known Limitations：還有哪些風險</li></ul>
+        <div class="eyebrow">Human Acceptance</div>
+        <h2>非技術的人不用看懂 code；你只要把驗收拆成四個問題。</h2>
+        <div class="gate-list">
+          <div class="gate"><span class="n">1</span><b>有東西可驗嗎？</b><span>PR、Preview、Evidence 是否齊全。</span></div>
+          <div class="gate fragment"><span class="n">2</span><b>基本檢查過了嗎？</b><span>Build、Test、安全檢查有沒有明顯紅燈。</span></div>
+          <div class="gate fragment"><span class="n">3</span><b>行為符合 AC 嗎？</b><span>自己操作最重要的 scenario。</span></div>
+          <div class="gate fragment"><span class="n">4</span><b>真的解決問題嗎？</b><span>最後才做產品判斷。</span></div>
+        </div>
       </section>
 
       <section class="slide" data-section="verify">
         <div class="eyebrow">練習</div>
-        <div class="takeaway">你會 approve 嗎？</div>
-        <div class="exercise-card">AC 寫著：「未登入按收藏要要求登入。」<br>Agent 只回：「已完成。」沒有 Preview、沒有截圖、沒有測試結果。</div>
-        <div class="answer fragment">答案：Request Changes。沒有可驗證成果，就不能進 Done。</div>
+        <h2>這種「完成」，你會 approve 嗎？</h2>
+        <div class="exercise">
+          <p>AC 寫著：「未登入按收藏要要求登入。」<br><br>Agent 只回：「已完成。」沒有 Preview、沒有截圖、沒有測試結果。</p>
+          <div class="choice"><span>Approve</span><span class="correct fragment">Request Changes</span></div>
+          <p class="fragment muted" style="font-size:20px;margin-top:22px">理由：沒有可獨立檢查的成果，就還沒到 Done。</p>
+        </div>
       </section>
 
       <section class="slide" data-section="verify">
-        <div class="eyebrow">Deployment</div>
-        <div class="takeaway">上線是最後一步，不是 Agent 完成後自動發生的事。</div>
-        <div class="hero-line"><span class="pill manage">PR</span><span class="big-arrow">→</span><span class="pill manage">Preview</span><span class="big-arrow">→</span><span class="pill verify">Human Acceptance</span><span class="big-arrow">→</span><span class="pill verify">Merge</span><span class="big-arrow">→</span><span class="pill define">Production</span></div>
+        <div class="eyebrow">Production</div>
+        <h2>只有 Human Acceptance 過了，才進正式版本。</h2>
+        <div class="flow">
+          <div class="flow-step manage"><b>PR</b><span>交付變更</span></div>
+          <div class="flow-step verify"><b>Preview</b><span>實際操作</span></div>
+          <div class="flow-step verify"><b>Acceptance</b><span>Approve</span></div>
+          <div class="flow-step manage"><b>Merge</b><span>正式採用</span></div>
+          <div class="flow-step verify"><b>Production</b><span>給真正使用者</span></div>
+        </div>
       </section>
 
       <section class="slide" data-section="operate">
-        <div class="eyebrow">進階地圖</div>
-        <div class="takeaway">工具名詞很多，但它們回答的是不同問題。</div>
-        <div class="relation"><div><b>怎麼做？</b><span>Skill</span></div><div><b>誰來做？</b><span>Subagent</span></div><div><b>去哪找？</b><span>Search / RAG</span></div><div><b>怎麼連？</b><span>MCP / Plugin</span></div><div><b>怎麼管？</b><span>GitHub / Kanban / PR</span></div><div><b>怎麼放大？</b><span>SDD / BMAD / Superpowers</span></div></div>
+        <div class="eyebrow">到這裡，Agent 101 已經結束</div>
+        <h2>只學到上一頁，你已經能完整管理一次 Human + AI 協作。</h2>
+        <p class="support">接下來的內容不是「一定要懂」，而是當工作變多、資料變多、Agent 變多時，幫你避免失控的工具。</p>
       </section>
 
       <section class="slide" data-section="operate">
-        <div class="eyebrow">Skill / Plugin / MCP / RAG</div>
-        <div class="takeaway">Skill 是 know-how；MCP 和 Plugin 是連接；RAG 是找知識。</div>
-        <div class="checkline"><div>Skill：教 AI 這類工作怎麼做。</div><div>Plugin：把你的 App / 帳號接進 ChatGPT。</div><div>MCP：外部工具與資料的共同連接標準。</div><div>RAG：先取回相關資料，再讓模型回答。</div></div>
+        <div class="eyebrow">能力地圖</div>
+        <h2>進階工具很多，但它們其實只是在回答幾個不同問題。</h2>
+        <div class="ability">
+          <div class="q">這類事情怎麼做？</div><div class="a"><b>Skill</b>：可重用 SOP / workflow</div>
+          <div class="q">誰來做？</div><div class="a"><b>Subagent</b>：獨立 worker / context</div>
+          <div class="q">公開世界現在怎樣？</div><div class="a"><b>Web Search</b>：最新公開資訊</div>
+          <div class="q">自己的資料裡有什麼？</div><div class="a"><b>RAG</b>：先 retrieval，再回答</div>
+          <div class="q">怎麼接外部系統？</div><div class="a"><b>MCP / Plugin</b>：連 tools、apps、accounts</div>
+        </div>
       </section>
 
       <section class="slide" data-section="operate">
         <div class="eyebrow">Context</div>
-        <div class="takeaway">不要追求永遠不忘記的 Agent；建立忘記也能接手的系統。</div>
-        <div class="hero-line"><span class="pill operate">Spec</span><span class="big-arrow">+</span><span class="pill operate">Issue</span><span class="big-arrow">+</span><span class="pill operate">PR</span><span class="big-arrow">+</span><span class="pill operate">Evidence</span></div>
+        <h2>不要追求「永遠不忘記的 Agent」；要讓工作離開聊天後仍然存在。</h2>
+        <div class="durable">
+          <div class="left"><h3>聊天裡</h3><p>當前討論、暫時假設、執行細節。</p></div>
+          <div class="mid">→</div>
+          <div class="right"><h3>外部狀態</h3><p>Spec、Issue、Commit、PR、Evidence。</p></div>
+        </div>
+        <p class="support" style="margin-top:34px">Context 可以重開；專案狀態不能消失。</p>
       </section>
 
       <section class="slide" data-section="operate">
         <div class="eyebrow">Method Map</div>
-        <div class="takeaway">BDD、TDD、SDD、BMAD 不在同一層。</div>
-        <div class="roadmap"><div class="step"><b>BDD</b><span>對齊行為</span></div><div class="step"><b>TDD</b><span>建立 feedback loop</span></div><div class="step"><b>SDD</b><span>先定義 spec</span></div><div class="step"><b>BMAD</b><span>交付作業系統</span></div><div class="step"><b>GitHub</b><span>留下狀態與證據</span></div></div>
+        <h2>BDD、TDD、SDD、BMAD 不是四個競品，而是處理不同層次的問題。</h2>
+        <div class="methods">
+          <b>BDD</b><span>把期望行為用 examples 對齊。</span>
+          <b>TDD</b><span>建立 Red → Green → Refactor 的 feedback loop。</span>
+          <b>SDD</b><span>工作夠大時，用 spec 驅動 plan / tasks / implementation。</span>
+          <b>BMAD</b><span>工作更複雜時，把 clarify / plan / build / verify 制度化。</span>
+        </div>
       </section>
 
       <section class="slide" data-section="operate">
-        <div class="eyebrow">最後帶走</div>
-        <div class="takeaway">普通人和 AI 合作，最重要的不是會下指令。</div>
-        <div class="final-line">是把模糊想法，變成可以委派、追蹤、驗收的工作。</div>
+        <div class="eyebrow">最後只帶走一句</div>
+        <div class="final">你的工作不是「下 prompt」。<br>是設計一條<strong style="color:var(--verify)">可以被驗證的工作流程</strong>。</div>
+        <p class="support" style="margin-top:34px">先把問題說清楚，先定義完成，再讓 Agent 做；最後用證據驗收。</p>
       </section>
     </div>
 
-    <footer class="controls"><button id="prev" type="button">←</button><div class="progress"><span id="progress"></span></div><button id="next" type="button">→</button></footer>
+    <footer class="controls">
+      <button id="prev" type="button" aria-label="上一頁">←</button>
+      <div class="progress"><span id="progress"></span></div>
+      <button id="next" type="button" aria-label="下一步">→</button>
+    </footer>
   </main>
   <script src="./app.js"></script>
 </body>
