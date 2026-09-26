@@ -276,31 +276,27 @@ Human Acceptance
 
 # 和你貼的「四大階段指令清單」要分開看
 
-你貼的文章裡有一些指令，**不是目前 mattpocock/skills README 裡的現行名稱**。
+前一版教材這裡有一個錯誤：我只看了 Matt Pocock README 的主 reference，因而把幾個 `skills/misc/` 下的 Skill 誤判成「不在目前 repo」。
 
-目前 Matt Pocock repo 裡可以直接確認的是：
+實際搜尋 repo 後可以確認：
 
-| 你貼的名稱 | Matt Pocock 現行 repo 對應 |
-|---|---|
-| `/grill-with-docs` | 有 |
-| `/to-prd` | 現行 repo 是 `/to-spec` |
-| `/to-issues` | 現行 repo 是 `/to-tickets` |
-| `/tdd` | 有 |
-| `/diagnose` | 現行 repo 是 `/diagnosing-bugs` |
-| `/improve-codebase-architecture` | 有 |
-| `/handoff` | 有 |
+| 名稱 | 是否存在 | 正確用途 |
+|---|---|---|
+| `/grill-with-docs` | ✅ 主線 | 深度訪談 + shared language + CONTEXT.md / ADR |
+| `/to-spec` | ✅ 主線 | 把已決定內容整理成 spec |
+| `/to-tickets` | ✅ 主線 | 拆成有 blocking edges、fresh session 可執行的 tickets |
+| `/tdd` | ✅ 主線 | Red → Green → Refactor |
+| `/diagnosing-bugs` | ✅ 主線 | disciplined diagnosis / regression loop |
+| `/improve-codebase-architecture` | ✅ 主線 | 掃描 deepening opportunities |
+| `/handoff` | ✅ 主線 | 產生可攜的 handoff artifact |
+| `/setup-pre-commit` | ✅ misc | Husky / lint-staged / Prettier / type check / tests |
+| `/git-guardrails-claude-code` | ✅ misc | 阻擋危險 Git commands；不是敏感資訊掃描 |
+| `/migrate-to-shoehorn` | ✅ misc | 特定 TypeScript test migration：`as` → `@total-typescript/shoehorn` |
+| `/scaffold-exercises` | ✅ misc | 建立課程 exercise directory / problem / solution 結構 |
 
-而這些名稱目前沒有出現在 Matt Pocock repo 的 README skill reference：
+Matt repo 的 misc README 把後四個描述為「keep around but rarely use, not promoted in the plugin」。
 
-- `/setup-pre-commit`
-- `/git-guardrails`
-- `/migrate-to-shoehorn`
-- `/caveman`
-- `/scaffold-exercises`
-
-它們可能來自別的 skill collection、衍生版本或不同時間點。
-
-所以 Agent 101 不會把它們標成「Matt Pocock Skills」。
+另外，你貼文中的 `/to-prd`、`/to-issues`、`/diagnose` 並不是 Matt Pocock 目前主線 Skill 的正式名稱；對應概念比較接近 `/to-spec`、`/to-tickets`、`/diagnosing-bugs`。
 
 ---
 
