@@ -96,9 +96,7 @@ Clarify
   ↓
 Plan
   ↓
-Build
-  ↓
-Verify
+Build & Verify
   ↓
 Learn / Adjust
   ↺
@@ -114,13 +112,9 @@ Learn / Adjust
 
 怎麼拆、有哪些風險？
 
-### Build
+### Build & Verify
 
-Agent / Human 實作。
-
-### Verify
-
-對照 AC、測試、review。
+Agent / Human 實作，同時以 AC、測試與 review 驗證。
 
 ### Learn
 
