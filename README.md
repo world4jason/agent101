@@ -62,6 +62,7 @@ Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
 - **Web Search = 新鮮公開資訊**：需要最新外部事實時去查網路。
 - **RAG = Retrieval + Generation**：先從指定知識來源取回相關內容，再交給模型回答。
 - **MCP = 外部能力連接標準**：把 tools、resources、prompts 接給 Agent；它本身不是搜尋或資料庫。
+- **ChatGPT Plugin / App / Connector = 產品層整合**：把 Gmail、Drive、GitHub、Slack、Vercel 等外部服務接進 ChatGPT，並以權限控制 read / write actions。
 - **需求 / AC = 工作契約**：先說清楚成功長什麼樣，再開始做。
 - **BDD / Examples = shared understanding**：用具體行為消除「我以為你懂」。
 - **TDD = 測試驅動實作**：好的 AC / examples 可以成為自動化測試的基礎。
@@ -93,6 +94,7 @@ Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
 13. [普通人怎麼和 AI 合作？](docs/13-human-ai-collaboration.md)
 14. [Matt Pocock Skills：小而可組合的工程工作法](docs/14-matt-pocock-skills.md)
 15. [Web Search、MCP、Skill、RAG 到底差在哪？](docs/15-search-mcp-rag.md)
+16. [ChatGPT Plugins / Apps / Connectors：產品層的外部能力](docs/16-chatgpt-plugins.md)
 
 ---
 
