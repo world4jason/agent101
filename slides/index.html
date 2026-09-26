@@ -250,6 +250,36 @@
       </section>
 
       <section class="slide" data-section="operate">
+        <div class="eyebrow">ChatGPT 外掛 / Apps / Connectors</div>
+        <h2>Plugin 是產品層整合：把你的 App 與帳號接進 ChatGPT</h2>
+        <div class="system-map">
+          <article class="system-card define-card"><div class="num">KNOW-HOW</div><h3>Skill</h3><p>教 AI 怎麼做</p><small>SOP / workflow / examples。</small></article>
+          <article class="system-card manage-card"><div class="num">INTEGRATION</div><h3>Plugin</h3><p>把 Gmail、Drive、GitHub、Slack…接進 ChatGPT</p><small>可提供資料，也可能提供 actions。</small></article>
+          <article class="system-card verify-card"><div class="num">PROTOCOL</div><h3>MCP</h3><p>外部工具與資料的共同連接標準</p><small>不是每個 Plugin 都等於 MCP Server。</small></article>
+          <article class="system-card operate-card"><div class="num">KNOWLEDGE</div><h3>RAG</h3><p>先 retrieval，再用找到的 context 回答</p><small>Plugin 可以參與 RAG，但兩者不是同一件事。</small></article>
+        </div>
+        <p class="bottom-callout">記法：Skill = Know-how；Plugin = App integration；MCP = Protocol；RAG = Retrieval pattern。</p>
+      </section>
+
+      <section class="slide" data-section="operate">
+        <div class="eyebrow">Plugin 最重要的是權限</div>
+        <h2>AI 從「查資料」進化到「幫你做事」時，Approval Gate 更重要</h2>
+        <div class="two-lanes">
+          <div class="lane">
+            <div class="lane-title">READ</div>
+            <div class="big-question">幫我查</div>
+            <div class="ac-list"><div>讀 Gmail / Drive</div><div>查 Calendar</div><div>看 GitHub issue / PR</div></div>
+          </div>
+          <div class="lane">
+            <div class="lane-title">WRITE / ACTION</div>
+            <div class="big-question">幫我改</div>
+            <div class="ac-list"><div>寄信 / 建草稿</div><div>新增事件</div><div>建 PR / deploy / 更新 task</div></div>
+          </div>
+        </div>
+        <p class="bottom-callout">外行人不用懂 OAuth，但一定要懂：讀取和修改不是同一個風險層級；高影響操作要有人類確認。</p>
+      </section>
+
+            <section class="slide" data-section="operate">
         <div class="eyebrow">再加上 Subagent</div>
         <h2>Subagent 是「另一個 worker」，不是另一種資料來源</h2>
         <div class="gates">
