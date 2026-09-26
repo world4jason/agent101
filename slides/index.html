@@ -179,6 +179,36 @@
       </section>
 
       <section class="slide" data-section="operate">
+        <div class="eyebrow">Matt Pocock Skills</div>
+        <h2>另一條路：不要讓 framework 接管全部流程，把工程紀律拆成小 Skill</h2>
+        <div class="evidence-grid">
+          <div class="evidence"><b>/grill-with-docs</b><span>需求釐清 + shared language + CONTEXT.md / ADR</span></div>
+          <div class="evidence fragment"><b>/to-spec → /to-tickets</b><span>把討論變成 spec，再拆成可執行 tickets</span></div>
+          <div class="evidence fragment"><b>/implement</b><span>依 spec 實作，串接 TDD 與 code review</span></div>
+          <div class="evidence fragment"><b>/tdd</b><span>Red → Green → Refactor feedback loop</span></div>
+          <div class="evidence fragment"><b>/code-review</b><span>Standards / Spec 兩軸，平行 subagents review</span></div>
+          <div class="evidence fragment"><b>/handoff / wayfinder</b><span>跨 session 交接與超大型工作的 external state</span></div>
+        </div>
+        <p class="bottom-callout">Skill 是能力積木；workflow 是把積木串起來。來源：github.com/mattpocock/skills</p>
+      </section>
+
+      <section class="slide" data-section="operate">
+        <div class="eyebrow">一個可組合的流程</div>
+        <h2>從模糊想法到可驗收交付，可以是一串 Skills</h2>
+        <div class="deploy-flow">
+          <div class="deploy-node">grill-with-docs</div><span>→</span>
+          <div class="deploy-node fragment">to-spec</div><span class="fragment">→</span>
+          <div class="deploy-node fragment">to-tickets</div><span class="fragment">→</span>
+          <div class="deploy-node fragment">implement</div><span class="fragment">→</span>
+          <div class="deploy-node fragment">tdd + code-review</div>
+        </div>
+        <div class="tool-strip">
+          <span>shared language</span><span>durable context</span><span>small feedback loops</span><span>independent review</span>
+        </div>
+        <p class="bottom-callout">注意名稱：Matt Pocock 現行 repo 是 /to-spec、/to-tickets、/diagnosing-bugs，不是 /to-prd、/to-issues、/diagnose。</p>
+      </section>
+
+      <section class="slide" data-section="operate">
         <div class="eyebrow">Context</div>
         <h2>Context 是工作記憶，不是永久資料庫</h2>
         <div class="context-layout"><div class="context-window"><div class="window-head">CURRENT CONTEXT</div><div class="token fragment">Goal</div><div class="token fragment">Current Ticket</div><div class="token fragment">Relevant Code</div><div class="token fragment">AC</div><div class="token fragment">Recent Evidence</div></div><div class="source-truth"><div class="source-title">DURABLE SOURCE OF TRUTH</div><div>Spec / Docs</div><div>Git / Commits</div><div>Issue / Kanban</div><div>PR / Review</div></div></div>
@@ -235,7 +265,7 @@
       <section class="slide sources-slide" data-section="operate">
         <div class="eyebrow">Reference</div>
         <h2>延伸閱讀</h2>
-        <div class="sources"><a href="https://github.com/anthropics/skills">Anthropic Skills — reusable Agent Skills examples</a><a href="https://agentskills.io/">Agent Skills specification</a><a href="https://github.com/github/spec-kit">GitHub Spec Kit — Spec-Driven Development</a><a href="https://github.com/bmad-code-org/BMAD-METHOD">BMad Method — Agile AI Driven Development</a><a href="../docs/11-skills-subagents-and-workflows.md">Agent 101 — Skills / Subagents / Workflows</a><a href="../docs/12-methods-and-resource-survey.md">Agent 101 — Methods & Resource Survey</a></div>
+        <div class="sources"><a href="https://github.com/anthropics/skills">Anthropic Skills — reusable Agent Skills examples</a><a href="https://github.com/mattpocock/skills">Matt Pocock Skills — small, composable engineering skills</a><a href="https://agentskills.io/">Agent Skills specification</a><a href="https://github.com/github/spec-kit">GitHub Spec Kit — Spec-Driven Development</a><a href="https://github.com/bmad-code-org/BMAD-METHOD">BMad Method — Agile AI Driven Development</a><a href="../docs/11-skills-subagents-and-workflows.md">Agent 101 — Skills / Subagents / Workflows</a><a href="../docs/12-methods-and-resource-survey.md">Agent 101 — Methods & Resource Survey</a></div>
         <div class="end-mark">AGENT 101</div>
       </section>
     </div>
