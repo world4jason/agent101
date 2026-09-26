@@ -1,240 +1,285 @@
 # 12｜方法與資源 Survey：Skill、SDD、BMAD、TDD、BDD 與特殊工具
 
-這一章不是要把所有工具都變成必學。
+這一章的目的不是叫大家把所有工具都裝起來，而是先分清楚它們分別解決哪一層問題。
 
-目標是幫學員建立一張地圖：
-
-> **這些工具 / 方法分別解決什麼問題？什麼時候該用？什麼時候不要用？**
+> **Skill、Subagent、BDD、TDD、SDD、BMAD、GitHub、Token 壓縮工具不是同一類東西。**
 
 ---
 
-# 1. 先分層，不要混在一起比較
+# 1. 先分層
 
 | 層級 | 代表方法 / 工具 | 解決的問題 |
 |---|---|---|
-| 行為描述 | BDD / Examples | 使用者在具體情境下應該看到什麼 |
-| 開發紀律 | TDD | 先寫測試，讓實作被測試牽引 |
-| 規格驅動 | SDD / Spec Kit | 先定義 what / why，再決定 how |
-| 交付體系 | BMAD | clarify → plan → build → verify 的完整 delivery loop |
-| 能力封裝 | Skills | 把一類工作的 SOP 變成可重用能力 |
-| 角色分工 | Subagents | 用不同視角規劃、實作、審查、測試 |
-| 執行與稽核 | GitHub / Git / PR | 留下工作紀錄、差異、審查與發布紀錄 |
-
-所以不要問：
-
-> BDD、TDD、SDD、BMAD 哪個比較好？
-
-比較好的問法是：
-
-> 我現在卡的是行為定義、測試紀律、規格、交付流程，還是 Agent 能力重用？
+| 行為探索 / shared understanding | BDD / Examples | 不同角色如何對預期行為形成共同理解 |
+| 開發 feedback loop | TDD | 用 Red → Green → Refactor 驅動實作 |
+| 規格驅動 | SDD / GitHub Spec Kit | 先定義 what / why，再進入 plan / tasks / implementation |
+| 交付方法 | BMAD / Superpowers | 從釐清、規劃、實作、驗證到回饋的工作體系 |
+| 能力封裝 | Agent Skills / Matt Pocock Skills | 把 instructions / scripts / resources 變成可重用能力 |
+| 工作隔離 / delegation | Subagents | 用獨立 context / prompt / tools 執行專責或平行任務 |
+| 執行與稽核 | GitHub / Git / PR | 留下工作狀態、差異、review 與發布紀錄 |
+| Context / token hygiene | RTK / Caveman proxy 等 | 減少工具輸出或可恢復內容進入模型 context 的噪音 |
+| Output style | Caveman skill / i-have-adhd | 改變 Agent 回覆的密度與可行動性 |
 
 ---
 
-# 2. 已確認適合放進 Agent 101 的核心資源
+# 2. 核心資源
 
-## Anthropic Skills
+## Anthropic / Agent Skills
 
-適合放在「Skill 是什麼」章節。
+Skill 可以理解為一個可攜式能力包：instructions、scripts、references / resources。
 
-重點：
+重點是 **progressive disclosure**：Agent 先知道有哪些 Skills，需要時才載入完整內容，而不是一開始把所有 SOP 塞進 context。
 
-- Skill 是 instructions、scripts、resources 的資料夾
-- 目標是讓 Agent 對特定任務有可重複做法
-- 不應該每次都靠 prompt 重新講 SOP
-
-來源：<https://github.com/anthropics/skills>
+來源：
+- <https://github.com/anthropics/skills>
+- <https://agentskills.io/>
 
 ## GitHub Spec Kit / SDD
 
-適合放在「Spec-Driven Development」章節。
+官方核心流程目前是：
 
-重點：
+```text
+Specify → Plan → Tasks → Implement → Converge
+```
 
-- open source toolkit
-- 讓 AI coding agents 使用 structured processes、templates、documented outcomes
-- 核心是先定義 what / why，再進入 how
-- SDD 流程：specify → plan → tasks → implement → converge
-- 也包含 bug fixing 與 idea assessment 的入口
+較完整的 production path 還可以加入 Clarify、Checklist、Analyze 等 quality gates。
+
+`Converge` 不是一般 Git diff review；它會把目前 codebase 對照 spec / plan / tasks，找出未完成或矛盾的地方，必要時追加 tasks，再回到 Implement。
 
 來源：<https://github.com/github/spec-kit>
 
 ## BMAD Method
 
-適合放在「Agent delivery operating model」章節。
+目前官方強調：
 
-重點：
-
-- Agile AI Driven Development
-- 強調不只 coding，而是 what to build、how it holds together、how it changes
 - right-sized process
 - durable context
 - specialized perspectives
 - guided collaboration
 
+教學上比「背所有 persona / command」更值得先理解。
+
 來源：<https://github.com/bmad-code-org/BMAD-METHOD>
 
----
+## Superpowers
 
-# 3. TDD、BDD、SDD、BMAD 怎麼教？
+`obra/superpowers` 把自己定位成：
 
-## BDD：先教
+> complete software development methodology built on composable skills
 
-因為它最貼近非工程師。
-
-它回答：
-
-> 這個情境下，使用者應該看到什麼行為？
-
-適合格式：
+基本流程包含：
 
 ```text
-Given 前提
-When 行為
-Then 結果
+brainstorming
+→ isolated git worktree
+→ writing plans
+→ subagent-driven-development / executing-plans
+→ TDD
+→ code review
+→ finish branch
 ```
 
-適合對象：PM、設計、營運、QA、工程、Agent。
+因此它不是單一「power-user skill」，而是一套比較強 opinionated 的開發方法。
 
-## TDD：用來說明「測試驅動實作」
+來源：<https://github.com/obra/superpowers>
 
-TDD 不需要一開始教大家寫測試程式碼。
+---
 
-先讓大家理解：
+# 3. BDD / TDD 怎麼說才準確？
+
+## BDD
+
+BDD **不等於 Given / When / Then**。
+
+Cucumber 對 BDD 的核心描述是：
+
+- 跨角色協作
+- 建立 shared understanding
+- 用 concrete examples 描述預期行為
+- 在短 feedback loop 中持續驗證
+
+Given / When / Then 是一種把 Example 寫清楚的 Gherkin 表達方式。
+
+其中 Then 應盡量驗證使用者或外部系統可觀察到的結果，而不是深埋在 implementation 裡的內部狀態。
+
+來源：
+- <https://cucumber.io/docs/bdd/>
+- <https://cucumber.io/docs/gherkin/reference/>
+
+## TDD
+
+核心循環：
 
 ```text
-先定義失敗的測試
-      ↓
-寫最少實作讓它通過
-      ↓
-重構
+Red → Green → Refactor
 ```
 
-對非技術人員，TDD 的價值是：
+也就是先建立會失敗的測試，再寫最少實作讓它通過，最後重構。
 
-> 好的驗收條件，會變成可自動化的測試基礎。
+對 Agent 101 的非技術受眾，不需要先學測試語法；先理解「建立 feedback loop」即可。
 
-## SDD：用來管理較大功能
+---
 
-當需求開始大到不能只靠一張 ticket 時，需要 Spec。
+# 4. Matt Pocock Skills：主線與 misc 要分開
+
+Matt Pocock 的主線強調小而可組合的 Skills。
+
+常見主流程：
 
 ```text
-Spec
- ↓
-Plan
- ↓
-Tasks
- ↓
-Implementation
- ↓
-Converge / Verify
+grill-with-docs
+→ to-spec
+→ to-tickets
+→ implement
+→ code-review
 ```
 
-## BMAD：用來管理大型 Agent project
+其中：
 
-當一件事需要產品、UX、架構、測試、實作等多個視角時，才需要更完整的 delivery method。
+- `grill-me` / `grill-with-docs`：訪談使用者，把 plan / design 問清楚；不是 code adversarial review。
+- `to-spec`：把已經決定的內容整理成可跨 session 保存的 spec。
+- `to-tickets`：把工作切成 fresh session 可以完成的 tracer-bullet tickets。
+- `implement`：實作並驅動 TDD / closing review。
+- `code-review`：Standards 與 Spec fidelity 兩條 review 軸，可用平行 subagents。
 
----
+### Matt repo 裡也確實有 misc skills
 
-# 4. 候選 Skill / Tool 清單
+以下不是「網路上誤傳」，而是真的存在於 `skills/misc/`；只是 repo 自己把它們描述成 **rarely use / not promoted in the plugin**：
 
-以下是課程可提到但不建議第一堂深入教的候選。
+| Skill | 正確用途 |
+|---|---|
+| `setup-pre-commit` | 設定 Husky、lint-staged、Prettier、type checking、tests 等 commit-time checks |
+| `git-guardrails-claude-code` | 用 Claude Code hook 阻擋危險 Git 指令，例如 push、reset --hard、clean、branch -D；**不是 secret scanner** |
+| `migrate-to-shoehorn` | 很特定：把測試中的 TypeScript `as` assertions 遷移到 `@total-typescript/shoehorn` |
+| `scaffold-exercises` | 建立 course exercise 的 sections / problems / solutions / explainers；**不是一般新人 onboarding scaffold** |
 
-目前在這份教材中先用「用途類型」整理；實際教學前應再確認最新版 repo、授權、安裝方式與維護狀態。
-
-| 名稱 | 暫定定位 | 課程中怎麼講 |
-|---|---|---|
-| Superpower / Superpowers | power-user skill / workflow 增強 | 可當作「如何把常用能力包成 skill」案例；需確認最新版來源 |
-| GrillMe | adversarial review / challenge assumptions | 可示範 reviewer subagent：專門挑漏洞、問尖銳問題 |
-| Spec Kit | SDD / spec-driven workflow | 核心案例，可教 specify → plan → tasks → implement → converge |
-| SSD | 待確認 | 可能是 SDD 誤寫；若是特定工具，需再確認來源 |
-| BMAD | delivery operating model | 核心案例，但放在後半段 |
-| Caveman | simplification / blunt explanation | 可示範 explainer subagent：把過度抽象的內容翻成白話 |
-| RTK | 待確認 | 名稱可能有多個同名工具；需確認是否為 coding / review / research skill |
-| i-have-adhd | focus / task slicing helper | 可示範「降低認知負荷」類 skill，但不要做醫療宣稱 |
+來源：<https://github.com/mattpocock/skills>
 
 ---
 
-# 5. Survey 時應該看什麼？
+# 5. 特殊工具：先搞清楚它到底縮哪一層
 
-每個資源都應該用同一張表評估。
+## Caveman
 
-## 基本資料
+來源：<https://github.com/JuliusBrussee/caveman>
 
-- Repo / website
-- 作者 / 組織
-- License
-- 最近更新時間
-- 支援工具：Claude Code、Codex、Copilot、Cursor、Gemini CLI 等
+要分成兩件事：
 
-## 它解決什麼問題？
+### Caveman Skill
 
-- Requirement / spec？
-- coding？
-- review？
-- testing？
-- context management？
-- human collaboration？
+主要讓 Agent **說得更短**：
 
-## 它適合誰？
+- 去掉 filler
+- 保留技術名詞、code、error、必要順序
+- 有不同輸出密度
 
-- 非技術人員
-- PM
-- 工程師
-- AI power user
-- team lead
+它本身 **不壓縮 input context**。
 
-## 採用風險
+### Caveman Proxy / Engine
 
-- 是否過度複雜
-- 是否會污染 context
-- 是否維護中
-- 是否有安全風險
-- 是否需要大量工具權限
-- 是否和既有 workflow 衝突
+才會處理 Agent **讀進去的** logs、JSON、diff、test output 等可恢復資料。
 
-## 教學價值
-
-- 適合 demo 嗎？
-- 受眾能在 5 分鐘內理解嗎？
-- 能不能放進 Agent 101 的四大系統？
+所以不要把「Caveman skill」直接講成「context 壓縮」。
 
 ---
 
-# 6. Agent 101 的建議取捨
+## RTK — Rust Token Killer
 
-## 第一堂必講
+來源：<https://github.com/rtk-ai/rtk>
 
-- Skill vs Prompt
-- Subagent vs Skill
-- 開發流程
-- 驗收流程
-- BDD / AC
-- SDD / Spec Kit 概念
-- BMAD 的三個觀念：right-sized process、durable context、specialized perspectives
+RTK 是 **CLI proxy / hook**，不是主要靠 Prompt 的 Skill。
 
-## 第一堂只提，不深入
+它攔截 shell commands，將輸出過濾 / group / truncate / deduplicate 後再交給 Agent。
 
-- Superpower / GrillMe
-- Caveman / RTK / i-have-adhd
-- 各家 agent framework
-- 完整 plugin / marketplace 安裝
+作者的「最高 90%」指的是：
 
-## 不要一開始教
+> **Bash command output bytes 的減少**
 
-- 大量 command
-- 安裝細節
-- 多 Agent 自動編排
-- 完整測試框架語法
-- 長篇 prompt library
+不是：
+
+- 整體 context 減少 90%
+- token bill 減少 90%
+- API 費用減少 90%
+
+這個區分在課堂上應該明講。
 
 ---
 
-# 7. 教學句型
+## i-have-adhd
 
-最容易讓普通人理解的說法：
+來源：<https://github.com/ayghri/i-have-adhd>
 
-> **Skill 是工具箱，Subagent 是職務，Workflow 是工作規則，PR / Preview / Evidence 是驗收憑證。**
+它主要是 **輸出格式 / interaction style Skill**：
 
-以及：
+- 先講下一個 action
+- 多步驟編號
+- suppress tangents
+- 每回合重述 progress / state
+- 給具體時間估計
+- 結尾只留一個 concrete next step
 
-> **普通人不需要會寫 code，仍然可以透過需求、AC、例子與 Preview 驗收，和 AI 有效合作。**
+作者自己寫的是：
+
+> ADHD-friendly outputs. No ADHD diagnosis needed.
+
+所以教材不要說它是治療、診斷或改善 ADHD 的工具；它比較像降低回覆認知負荷的 response-format policy。
+
+---
+
+# 6. Subagent 要怎麼教才準確？
+
+不要把它定義成「職務角色」。
+
+比較精確：
+
+> **Subagent 是主 Agent 派出的獨立專責 worker，通常有自己的 context，並可有自己的 prompt、tools、permissions。**
+
+Planner、Researcher、Builder、Reviewer、QA 都只是常見角色。
+
+它的主要價值包括：
+
+- context isolation
+- parallel work
+- specialized instructions
+- independent review
+
+但「要避免自己做自己驗」不代表任何 review 都必須用 Subagent；Human reviewer、CI、automated tests 也可以構成獨立 Gate。
+
+---
+
+# 7. 教學優先順序
+
+## 第一層：人人都要懂
+
+- Goal / Requirement
+- AC
+- Examples / BDD
+- Ticket / Kanban
+- PR / Preview / Evidence
+- Human Acceptance
+
+## 第二層：開始大量使用 Agent 時
+
+- Skills
+- Subagents
+- Context / Compact
+- fresh bounded execution
+- TDD feedback loop
+
+## 第三層：大型軟體交付
+
+- Spec Kit / SDD
+- Superpowers
+- BMAD
+- 更完整的 Git / CI / deployment
+
+## 第四層：Context / Token 優化
+
+- Caveman
+- RTK
+- handoff
+- context hygiene
+
+原則：
+
+> **先把工作做對，再優化 Agent 做得多快、多省 token。**
