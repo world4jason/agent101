@@ -88,6 +88,7 @@ Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
 11. [Skills、Subagents、開發流程與驗收流程](docs/11-skills-subagents-and-workflows.md)
 12. [方法與資源 Survey：Skill、SDD、BMAD、TDD、BDD 與特殊工具](docs/12-methods-and-resource-survey.md)
 13. [普通人怎麼和 AI 合作？](docs/13-human-ai-collaboration.md)
+14. [Matt Pocock Skills：小而可組合的工程工作法](docs/14-matt-pocock-skills.md)
 
 ---
 
