@@ -78,7 +78,7 @@
           <div class="example block fragment"><strong>Example</strong><span>Given 未登入<br>When 按收藏<br>Then 要求登入</span></div>
           <div class="question block fragment"><strong>Question</strong><span>登入後要不要自動完成剛才的收藏？</span></div>
         </div>
-        <p class="bottom-callout">未知就是 Question，不要讓 Agent 自己把未知補成決策。</p>
+        <p class="bottom-callout">BDD 不等於 Given / When / Then 語法；核心是跨角色用具體例子建立 shared understanding。未知就是 Question，不要讓 Agent 自己把未知補成決策。</p>
       </section>
 
       <section class="slide" data-section="define">
@@ -99,7 +99,7 @@
 
       <section class="slide" data-section="manage">
         <div class="eyebrow">Subagent</div>
-        <h2>Subagent 是責任分工：不要讓同一個 Agent 自己做、自己驗</h2>
+        <h2>Subagent 是獨立 context 的專責 worker：適合隔離研究、實作、Review、QA</h2>
         <div class="gates">
           <div class="gate"><span>1</span><b>Planner</b><small>拆需求、列風險、問問題。</small></div>
           <div class="gate fragment"><span>2</span><b>Builder</b><small>只做明確 ticket，不擴大 scope。</small></div>
@@ -113,9 +113,9 @@
         <h2>Skill 是能力模組；Subagent 是職務角色</h2>
         <div class="two-lanes">
           <div class="lane"><div class="lane-title">Skill</div><div class="big-question">這類事情通常怎麼做？</div><div class="ac-list"><div>投影片 skill</div><div>PR evidence skill</div><div>Survey skill</div></div></div>
-          <div class="lane"><div class="lane-title">Subagent</div><div class="big-question">誰用什麼視角來看？</div><div class="ac-list"><div>Planner</div><div>Builder</div><div>Reviewer / QA</div></div></div>
+          <div class="lane"><div class="lane-title">Subagent</div><div class="big-question">哪個獨立 worker / context 來做？</div><div class="ac-list"><div>可有自己的 prompt / tools / context</div><div>可做 Planner / Researcher / Builder</div><div>也可做 Reviewer / QA</div></div></div>
         </div>
-        <p class="bottom-callout">Skill 解決「方法重用」；Subagent 解決「責任與視角」。</p>
+        <p class="bottom-callout">Skill 解決「方法重用」；Subagent 解決「隔離工作與 context」。角色只是 Subagent 的常見用法之一。</p>
       </section>
 
       <section class="slide" data-section="manage">
@@ -162,7 +162,7 @@
       <section class="slide" data-section="operate">
         <div class="eyebrow">04 Agent Operating System</div>
         <h2>Agent 真正會失控的地方，通常不是模型不夠聰明</h2>
-        <div class="problem-cards"><div class="problem"><b>做事方法每次重講</b><span>需要 Skills</span></div><div class="problem fragment"><b>自己做自己驗</b><span>需要 Subagents</span></div><div class="problem fragment"><b>Context 越堆越長</b><span>需要 Context Management</span></div><div class="problem fragment"><b>大型工作沒有制度</b><span>需要 SDD / BMAD</span></div></div>
+        <div class="problem-cards"><div class="problem"><b>做事方法每次重講</b><span>需要 Skills</span></div><div class="problem fragment"><b>自己做自己驗</b><span>需要獨立 Reviewer：Human / CI / Subagent</span></div><div class="problem fragment"><b>Context 越堆越長</b><span>需要 Context Management</span></div><div class="problem fragment"><b>大型工作沒有制度</b><span>需要 SDD / BMAD</span></div></div>
       </section>
 
       <section class="slide" data-section="operate">
@@ -173,9 +173,16 @@
       </section>
 
       <section class="slide" data-section="operate">
-        <div class="eyebrow">可介紹的 Skill 類型</div>
-        <h2>把 Skill 當成教學案例，而不是一開始全裝</h2>
-        <div class="evidence-grid"><div class="evidence"><b>Spec Kit</b><span>SDD：specify → plan → tasks → implement → converge</span></div><div class="evidence fragment"><b>Superpower</b><span>power-user workflow；教學前需確認最新版來源</span></div><div class="evidence fragment"><b>GrillMe</b><span>adversarial review：專門挑漏洞、問尖銳問題</span></div><div class="evidence fragment"><b>Caveman</b><span>白話化 / blunt explainer</span></div><div class="evidence fragment"><b>RTK</b><span>名稱待確認，先放 survey list</span></div><div class="evidence fragment"><b>i-have-adhd</b><span>task slicing / focus helper；避免醫療宣稱</span></div></div>
+        <div class="eyebrow">工具 / 方法資源地圖</div>
+        <h2>不是全部都是 Skill：先看它位在哪一層</h2>
+        <div class="evidence-grid">
+          <div class="evidence"><b>Spec Kit</b><span>GitHub 的 SDD toolkit：Specify → Plan → Tasks → Implement → Converge</span></div>
+          <div class="evidence fragment"><b>Superpowers</b><span>obra/superpowers：由 composable skills 組成的完整開發方法，含 planning、TDD、subagent review</span></div>
+          <div class="evidence fragment"><b>/grill-me</b><span>Matt Pocock：讓 Agent 反過來訪談你，把 plan / design 的分支問清楚；不是 adversarial code review</span></div>
+          <div class="evidence fragment"><b>Caveman</b><span>JuliusBrussee/caveman：Skill 壓縮 Agent 的輸出文字；Proxy 才處理 Agent 讀入的 tool / log 等內容</span></div>
+          <div class="evidence fragment"><b>RTK</b><span>Rust Token Killer：CLI proxy / hook，過濾 shell command output；「最高 90%」指 Bash output，不是整體帳單</span></div>
+          <div class="evidence fragment"><b>i-have-adhd</b><span>ayghri/i-have-adhd：action-first、編號步驟、抑制岔題的輸出格式 Skill；作者明確寫 no diagnosis needed</span></div>
+        </div>
       </section>
 
       <section class="slide" data-section="operate">
@@ -244,8 +251,8 @@
 
       <section class="slide" data-section="operate">
         <div class="eyebrow">BMAD</div>
-        <h2>把 clarify → plan → build → verify 變成可重複的交付體系</h2>
-        <div class="bmad-loop"><div class="bmad-node">CLARIFY<small>問題是什麼</small></div><div class="loop-arrow">→</div><div class="bmad-node fragment">PLAN<small>拆解與風險</small></div><div class="loop-arrow fragment">→</div><div class="bmad-node fragment">BUILD<small>Agent / Human</small></div><div class="loop-arrow fragment">→</div><div class="bmad-node fragment">VERIFY<small>AC / review</small></div></div>
+        <h2>BMAD：Clarify → Plan → Build & Verify → Learn / Adjust</h2>
+        <div class="bmad-loop"><div class="bmad-node">CLARIFY<small>問題是什麼</small></div><div class="loop-arrow">→</div><div class="bmad-node fragment">PLAN<small>需要多少規劃</small></div><div class="loop-arrow fragment">→</div><div class="bmad-node fragment">BUILD & VERIFY<small>實作與驗證</small></div><div class="loop-arrow fragment">→</div><div class="bmad-node fragment">LEARN / ADJUST<small>把學到的帶回下一輪</small></div></div>
         <div class="bmad-principles"><div class="fragment"><b>Right-sized process</b><span>小改動不要 20 頁 PRD</span></div><div class="fragment"><b>Durable context</b><span>決策留下來，不靠聊天記憶</span></div><div class="fragment"><b>Specialized perspectives</b><span>產品、UX、架構、測試看不同問題</span></div></div>
       </section>
 
@@ -265,7 +272,7 @@
       <section class="slide sources-slide" data-section="operate">
         <div class="eyebrow">Reference</div>
         <h2>延伸閱讀</h2>
-        <div class="sources"><a href="https://github.com/anthropics/skills">Anthropic Skills — reusable Agent Skills examples</a><a href="https://github.com/mattpocock/skills">Matt Pocock Skills — small, composable engineering skills</a><a href="https://agentskills.io/">Agent Skills specification</a><a href="https://github.com/github/spec-kit">GitHub Spec Kit — Spec-Driven Development</a><a href="https://github.com/bmad-code-org/BMAD-METHOD">BMad Method — Agile AI Driven Development</a><a href="../docs/11-skills-subagents-and-workflows.md">Agent 101 — Skills / Subagents / Workflows</a><a href="../docs/12-methods-and-resource-survey.md">Agent 101 — Methods & Resource Survey</a></div>
+        <div class="sources"><a href="https://github.com/anthropics/skills">Anthropic Skills — reusable Agent Skills examples</a><a href="https://github.com/mattpocock/skills">Matt Pocock Skills — small, composable engineering skills</a><a href="https://github.com/obra/superpowers">Superpowers — complete dev methodology built from composable skills</a><a href="https://github.com/JuliusBrussee/caveman">Caveman — terse output skill + optional read-side proxy</a><a href="https://github.com/rtk-ai/rtk">RTK — CLI output filtering proxy</a><a href="https://github.com/ayghri/i-have-adhd">i-have-adhd — action-first response-format skill</a><a href="https://agentskills.io/">Agent Skills specification</a><a href="https://github.com/github/spec-kit">GitHub Spec Kit — Spec-Driven Development</a><a href="https://github.com/bmad-code-org/BMAD-METHOD">BMad Method — Agile AI Driven Development</a><a href="../docs/11-skills-subagents-and-workflows.md">Agent 101 — Skills / Subagents / Workflows</a><a href="../docs/12-methods-and-resource-survey.md">Agent 101 — Methods & Resource Survey</a></div>
         <div class="end-mark">AGENT 101</div>
       </section>
     </div>
