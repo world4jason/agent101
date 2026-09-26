@@ -36,9 +36,9 @@
 
 ### 02｜管理執行
 
-**Kanban → Agent → Branch / Commit → PR**
+**Kanban → Agent / Subagent → Branch / Commit → PR**
 
-工作狀態放在外部系統，不靠某個 Agent 的聊天記憶。
+工作狀態放在外部系統，不靠某個 Agent 的聊天記憶；不同視角交給不同 subagent / reviewer。
 
 ### 03｜驗收交付
 
@@ -48,7 +48,7 @@ Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
 
 ### 04｜Agent Operating System
 
-**Skills → Context Management → SDD → BMAD**
+**Skills → Context Management → SDD / Spec Kit → BMAD → Collaboration**
 
 解決能力如何重用、context 怎麼不要越堆越亂、如何用 spec 與 delivery method 管大型工作。
 
@@ -57,17 +57,19 @@ Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
 ## 核心觀念
 
 - **Agent = worker**：可以接工作，但「它說做完了」不等於真的完成。
+- **Subagent = 責任分工**：Planner、Builder、Reviewer、QA、Researcher 看的問題不同。
+- **Skill = 可重用工作方法**：不要每次重新 prompt SOP。
 - **需求 / AC = 工作契約**：先說清楚成功長什麼樣，再開始做。
 - **BDD / Examples = shared understanding**：用具體行為消除「我以為你懂」。
+- **TDD = 測試驅動實作**：好的 AC / examples 可以成為自動化測試的基礎。
+- **SDD = Spec-Driven Development**：先定義 What / Why，再進入 How。
+- **BMAD = AI-driven delivery operating model**：right-sized process、durable context、specialized perspectives。
 - **Kanban = 外部工作狀態**：知道有哪些事、誰正在做、卡在哪。
 - **Git / GitHub = 工作紀錄與協作基礎設施**：讓修改可追蹤、可比較、可回復。
 - **PR = 交付與驗收點**：不是只給工程師看 code。
 - **Preview + Evidence = 非技術 Reviewer 的驗收介面**。
-- **Skills = 可重用的工作方法**：不要每次重新 prompt SOP。
 - **Context = working memory，不是 source of truth**。
 - **Compact = 摘要，不是無損壓縮**：重要決策要先寫回 durable state。
-- **SDD = Spec-Driven Development**：先定義 What / Why，再進入 How。
-- **BMAD = 更完整的 AI-driven delivery operating model 案例**。
 
 ---
 
@@ -83,6 +85,9 @@ Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
 8. [SDD：Spec-Driven Development](docs/08-sdd.md)
 9. [BMAD：把 Agent 團隊的規劃與交付制度化](docs/09-bmad.md)
 10. [從 Preview 到 Production：部署只需要先懂這些](docs/10-deployment.md)
+11. [Skills、Subagents、開發流程與驗收流程](docs/11-skills-subagents-and-workflows.md)
+12. [方法與資源 Survey：Skill、SDD、BMAD、TDD、BDD 與特殊工具](docs/12-methods-and-resource-survey.md)
+13. [普通人怎麼和 AI 合作？](docs/13-human-ai-collaboration.md)
 
 ---
 
@@ -99,7 +104,7 @@ Issue / Ticket
       ↓
 Kanban
       ↓
-Human / Agent
+Human / Agent / Subagent
       ↓
 Branch + Commit
       ↓
@@ -113,9 +118,10 @@ Merge
       ↓
 Production
 
-而橫跨整條流程的是：
+橫跨整條流程的是：
 
 Skills         = 可重用做事方法
+Subagents      = 規劃、實作、審查、測試的責任分工
 Context        = 這一次工作的 working memory
 Durable State  = Spec / Issue / Git / PR
 SDD            = Spec 驅動實作
