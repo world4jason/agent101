@@ -57,8 +57,11 @@ Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
 ## 核心觀念
 
 - **Agent = worker**：可以接工作，但「它說做完了」不等於真的完成。
-- **Subagent = 責任分工**：Planner、Builder、Reviewer、QA、Researcher 看的問題不同。
+- **Subagent = 獨立專責 worker / context**：Planner、Builder、Reviewer、QA、Researcher 是常見角色。
 - **Skill = 可重用工作方法**：不要每次重新 prompt SOP。
+- **Web Search = 新鮮公開資訊**：需要最新外部事實時去查網路。
+- **RAG = Retrieval + Generation**：先從指定知識來源取回相關內容，再交給模型回答。
+- **MCP = 外部能力連接標準**：把 tools、resources、prompts 接給 Agent；它本身不是搜尋或資料庫。
 - **需求 / AC = 工作契約**：先說清楚成功長什麼樣，再開始做。
 - **BDD / Examples = shared understanding**：用具體行為消除「我以為你懂」。
 - **TDD = 測試驅動實作**：好的 AC / examples 可以成為自動化測試的基礎。
@@ -89,6 +92,7 @@ Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
 12. [方法與資源 Survey：Skill、SDD、BMAD、TDD、BDD 與特殊工具](docs/12-methods-and-resource-survey.md)
 13. [普通人怎麼和 AI 合作？](docs/13-human-ai-collaboration.md)
 14. [Matt Pocock Skills：小而可組合的工程工作法](docs/14-matt-pocock-skills.md)
+15. [Web Search、MCP、Skill、RAG 到底差在哪？](docs/15-search-mcp-rag.md)
 
 ---
 
