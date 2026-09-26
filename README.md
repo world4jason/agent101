@@ -6,41 +6,70 @@
 
 > **當 Agent 可以像團隊成員一樣工作時，怎麼把需求說清楚、拆成工作、追蹤進度、驗收成果，最後安全上線。**
 
-核心觀念：
+## Web Slides
+
+這個 repository 內建一份可直接播放的 HTML 簡報：
+
+**[開啟投影片原始頁面](slides/index.html)**
+
+合併到 `main` 並啟用 GitHub Pages 後，root `index.html` 會導向 `/slides/`。
+
+投影片支援：
+
+- 鍵盤逐步 reveal / fragment 動畫
+- 四個章節的視覺分類
+- 手機版排版
+- Browser Print / PDF
+- 不需要 build step
+
+使用方式見 [slides/README.md](slides/README.md)。
+
+---
+
+## 課程的四個系統
+
+### 01｜定義工作
+
+**Goal → Requirement → AC / Examples → Ticket**
+
+把模糊想法變成另一個 Human / Agent 可以執行，而且你有辦法驗收的工作。
+
+### 02｜管理執行
+
+**Kanban → Agent → Branch / Commit → PR**
+
+工作狀態放在外部系統，不靠某個 Agent 的聊天記憶。
+
+### 03｜驗收交付
+
+**Checks → Preview → Evidence → Human Acceptance → Production**
+
+Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
+
+### 04｜Agent Operating System
+
+**Skills → Context Management → SDD → BMAD**
+
+解決能力如何重用、context 怎麼不要越堆越亂、如何用 spec 與 delivery method 管大型工作。
+
+---
+
+## 核心觀念
 
 - **Agent = worker**：可以接工作，但「它說做完了」不等於真的完成。
 - **需求 / AC = 工作契約**：先說清楚成功長什麼樣，再開始做。
-- **Kanban = 工作狀態**：知道有哪些事、誰正在做、卡在哪。
+- **BDD / Examples = shared understanding**：用具體行為消除「我以為你懂」。
+- **Kanban = 外部工作狀態**：知道有哪些事、誰正在做、卡在哪。
 - **Git / GitHub = 工作紀錄與協作基礎設施**：讓修改可追蹤、可比較、可回復。
 - **PR = 交付與驗收點**：不是只給工程師看 code。
-- **Preview = 非技術人員最重要的驗收介面**：直接操作成果，對照 AC。
-- **Deploy = 把已驗收成果交給真正使用者**。
+- **Preview + Evidence = 非技術 Reviewer 的驗收介面**。
+- **Skills = 可重用的工作方法**：不要每次重新 prompt SOP。
+- **Context = working memory，不是 source of truth**。
+- **Compact = 摘要，不是無損壓縮**：重要決策要先寫回 durable state。
+- **SDD = Spec-Driven Development**：先定義 What / Why，再進入 How。
+- **BMAD = 更完整的 AI-driven delivery operating model 案例**。
 
-## 一張圖看完整體系
-
-需求 / Goal  
-↓  
-Requirement  
-↓  
-AC + 具體例子  
-↓  
-Issue / Ticket  
-↓  
-Kanban  
-↓  
-Human / Agent 執行  
-↓  
-Branch + Commit  
-↓  
-Pull Request  
-↓  
-自動檢查 + Preview + Evidence  
-↓  
-Human Acceptance  
-↓  
-Merge  
-↓  
-Production
+---
 
 ## 教材
 
@@ -49,8 +78,51 @@ Production
 3. [BDD：用具體例子把「我以為」變成可驗收行為](docs/03-bdd-and-example-mapping.md)
 4. [GitHub / Kanban / PR：怎麼管理 Agent 的工作](docs/04-work-management.md)
 5. [沒有技術背景，怎麼驗收 Agent 做得對不對？](docs/05-nontechnical-acceptance.md)
-6. [BMAD 放在哪裡？把它當成 Agent 團隊作業系統案例](docs/06-bmad.md)
-7. [從 Preview 到 Production：部署只需要先懂這些](docs/07-deployment.md)
+6. [Skill：把 Agent 的做事方法變成可重用能力](docs/06-skills.md)
+7. [Context Management：Context 太長、Compact 與 Fresh Context](docs/07-context-management.md)
+8. [SDD：Spec-Driven Development](docs/08-sdd.md)
+9. [BMAD：把 Agent 團隊的規劃與交付制度化](docs/09-bmad.md)
+10. [從 Preview 到 Production：部署只需要先懂這些](docs/10-deployment.md)
+
+---
+
+## 一張圖看完整體系
+
+```text
+Goal / Problem
+      ↓
+Requirement / Spec
+      ↓
+AC + BDD Examples
+      ↓
+Issue / Ticket
+      ↓
+Kanban
+      ↓
+Human / Agent
+      ↓
+Branch + Commit
+      ↓
+Pull Request
+      ↓
+Checks + Preview + Evidence
+      ↓
+Human Acceptance
+      ↓
+Merge
+      ↓
+Production
+
+而橫跨整條流程的是：
+
+Skills         = 可重用做事方法
+Context        = 這一次工作的 working memory
+Durable State  = Spec / Issue / Git / PR
+SDD            = Spec 驅動實作
+BMAD           = Clarify → Plan → Build → Verify 的交付體系
+```
+
+---
 
 ## 實作模板
 
@@ -58,9 +130,9 @@ Production
 - [非技術驗收 Checklist](templates/ACCEPTANCE_CHECKLIST.md)
 - Repository 內也提供 GitHub Issue 與 Pull Request template，可直接實際操作。
 
-## 這堂課不打算先教什麼
+---
 
-第一輪不要求學員會：
+## 這堂課不要求大家先學會
 
 - git CLI 指令大全
 - rebase / cherry-pick / Git internals
@@ -68,10 +140,9 @@ Production
 - Kubernetes
 - database administration
 - Agent framework API
-- BMAD 安裝與全部角色命令
+- BMAD 全部 commands / personas
 - Cucumber 自動化測試程式碼
-
-這些都可以之後再學。
+- 超長 Agent.md / rules 檔
 
 Agent 101 第一階段只要求一件事：
 
