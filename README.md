@@ -128,7 +128,6 @@ BMAD           = Clarify → Plan → Build → Verify 的交付體系
 
 - [需求 / Ticket 模板](templates/TICKET_TEMPLATE.md)
 - [非技術驗收 Checklist](templates/ACCEPTANCE_CHECKLIST.md)
-- Repository 內也提供 GitHub Issue 與 Pull Request template，可直接實際操作。
 
 ---
 
