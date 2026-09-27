@@ -808,6 +808,10 @@ This audit applies to **all learner-visible copy in Slides 1–18**, not only th
 - [x] Slide 12 contains an audience decision moment before the answer is revealed.
 - [x] Slide 13 is a visible Core stop.
 - [x] Slide 18 works after either Core-only or Full routing.
+- [x] Slide 1 does not preload Ticket / AC / Evidence / PR / Merge before their canonical teaching slides.
+- [x] Core Slides 1–13 follow a Chinese-first rule; industry terms get a plain-language hook on first sight.
+- [x] Every learner-visible English term / acronym in Slides 1–18 has been classified as Keep / Translate / Remove in the editorial language audit.
+- [x] Removed jargon from #10 (for example `bounded work`, `checkpoint`, `capability gap`) is absent from learner-visible slide copy.
 - [x] No HTML/CSS, speaker walkthrough, or visual QA is included.
 
 ## Non-goal for #11
