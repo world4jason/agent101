@@ -181,7 +181,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 **Bottom line**
 
 > 模型只對**這一步拿到的 context**做推理。  
-> Agent/App 會把相關指令、檔案、retrieval、tool results 等帶進下一輪；  
+> Agent/App 會把相關指令、檔案、查回來的資料、工具結果等帶進下一輪；  
 > **不代表每一輪都逐字重送全部歷史。**
 
 ---
@@ -203,7 +203,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > 你的電腦 / 專案 / shell
 >
 > **CLOUD**  
-> 平台提供的 sandbox / VM / browser environment
+> 平台提供的隔離工作環境（sandbox / VM / browser）
 
 **Permission gate**
 
@@ -337,7 +337,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Small note**
 
-> 團隊名稱可以不同；先學工作層級，不背一套固定 ontology。
+> 團隊名稱可以不同；先學工作層級，不背一套固定名詞體系。
 
 ---
 
@@ -420,7 +420,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 > Core flow = **Backlog → Doing → Review → Done**  
 > Review 也是 active work。  
-> 每個 worker 的 active Doing：**WIP < 2**。
+> 每個 worker 同時進行中的工作（WIP）：**少於 2 件**。
 
 ---
 
@@ -642,7 +642,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > _examples: AGENTS.md · CLAUDE.md_
 >
 > **2 · CONTEXT**  
-> 目前工作 / 檔案 / retrieved knowledge  
+> 目前工作 / 檔案 / 查回來的專案知識  
 > _example: optional product Memory_
 >
 > **3 · TOOLS**  
@@ -677,7 +677,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 **Title**
 
 > 不要先把工具裝滿；  
-> **先問你缺什麼 capability**
+> **先問你缺什麼能力**
 
 **Need → Capability**
 
