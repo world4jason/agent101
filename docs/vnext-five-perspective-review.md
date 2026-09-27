@@ -10,13 +10,19 @@ Reviewed artifact: merged #9 storyboard, with #10 fixes applied on this branch
 
 **PASS after the storyboard fixes in this issue.**
 
-The 18-slide architecture does not need another restructuring pass. The review found three cross-cutting blockers:
+The 18-slide architecture does not need another restructuring pass. The first review found three cross-cutting blockers:
 
 1. beginner terminology was not always introduced in plain language on first use;
 2. Slides 2–4 used the same topic but did not explicitly require one continuous micro-demo trace;
 3. Slides 16–17 could regress into an equal-weight glossary wall during content/layout implementation.
 
-All three are now fixed in `docs/vnext-storyboard.md`. No blocker is being pushed into #11 silently.
+A direct diff re-review then found three additional small blockers:
+
+4. Slide 7's Human decision gate did not show the criteria used to converge;
+5. Slide 4 expanded LLM imprecisely as “language model” instead of **Large Language Model**;
+6. Slide 3 still violated the beginner-jargon guardrail with `repo / project task surface`.
+
+All six blockers are now fixed in `docs/vnext-storyboard.md`. No blocker is being pushed into #11 silently.
 
 ---
 
@@ -113,17 +119,25 @@ A PM still owns sequencing, value, dependency ordering and readiness.
 
 ## Blocking concern
 
-No new blocker remained after the #9 re-review fixes.
-
-The PM-critical Priority / dependency gate is now explicit on Slide 9, and Slide 7 keeps Human commitment separate from brainstorming.
+**Blocker found in PR re-review:** Slide 7 had a Human decision gate, but did not say what Human evaluates. That risks teaching “AI generates options → Human arbitrarily picks one.”
 
 ## Resolution
 
-Already fixed in #9 storyboard and retained by #10.
+**Fixed in storyboard.**
+
+Slide 7 now requires the Human decision gate to compare:
+
+- expected benefit;
+- cost;
+- risk;
+- reversibility;
+- evidence needed.
+
+The running example explicitly shows that Human owns criteria, trade-offs and the final decision. The existing Priority / dependency gate on Slide 9 remains unchanged.
 
 ## Status
 
-**PASS**
+**PASS after fix**
 
 ---
 
@@ -236,7 +250,7 @@ The storyboard already preserves:
 
 ## Small wording correction from this review
 
-Slide 4 now introduces **LLM (language model)** on first use and avoids requiring a beginner to understand “model call context” before the mental model is established.
+A direct re-review caught that `LLM (language model)` was still imprecise. Slide 4 now introduces **LLM (Large Language Model，大型語言模型)** on first use and avoids requiring a beginner to understand “model call context” before the mental model is established.
 
 ## Deferred to Agent 201 / Appendix
 
@@ -284,7 +298,7 @@ First-use contract is now:
 
 | First use | Beginner-facing introduction |
 |---|---|
-| Slide 4 | **LLM (language model)** = model doing this reasoning step |
+| Slide 4 | **LLM (Large Language Model，大型語言模型)** = model doing this reasoning step |
 | Slide 9 | **Acceptance Criteria (AC)** = observable Pass/Fail completion conditions |
 | Slide 9 | **Evidence** = what reviewer will actually inspect during Review |
 | Slide 10 | **Kanban** = work-state board |
@@ -297,7 +311,10 @@ Beginner-facing storyboard wording also removes or translates:
 - “agentic product”;
 - “task surface”;
 - “bounded goal”;
-- “durable work”.
+- “durable work”;
+- unexplained “repo” on the first practical starting slide.
+
+Slide 3 now says to start in the **專案工作介面** and, if code location must be referenced, use “專案 / 程式碼資料夾” instead of assuming the learner knows `repo`.
 
 ## Status
 
@@ -312,13 +329,16 @@ Beginner-facing storyboard wording also removes or translates:
 | Slides 16–17 could become glossary walls | UI/UX | Yes | Fixed in storyboard: primary architecture slots + subordinate examples |
 | Ticket field density | UI/UX | No | Existing “one real Ticket” visual contract is sufficient |
 | Brainstorm ≠ backlog | PM | Yes historically | Already fixed in Slides 6–7 |
+| Human converge lacked explicit criteria | PM | Yes | Fixed in Slide 7: benefit / cost / risk / reversibility / evidence needed |
 | Complete Ticket ≠ next to build | PM | Yes historically | Fixed in #9: Priority / dependency gate on Slide 9 |
 | Slides 2–4 risk definition fatigue | Speaker | Yes | Fixed: one 60–90 sec continuous LUT micro-demo |
 | Optional Advanced skip path | Speaker | Yes historically | Fixed in #9: 13→18 or 13→14→…→18 |
 | LLM durable-memory overclaim | Agent engineer | Yes historically | Storyboard wording is technically defensible |
+| LLM acronym expanded imprecisely | Agent engineer | Yes | Fixed: Large Language Model / 大型語言模型 on first use |
 | Tool access vs permission | Agent engineer | Yes historically | Slide 5 / 16 preserve distinction |
 | Subagent confused with knowledge source | Agent engineer | Yes historically | Slide 15 canonical definition |
 | Beginner jargon before definition | Beginner | Yes | Fixed first-use terminology contract |
+| Slide 3 still used `repo / project task surface` | Beginner | Yes | Fixed to plain-language 專案工作介面 / 專案・程式碼資料夾 |
 | Deep context/session mechanics in Core | Beginner + Engineer | No—deferred | Explicit Appendix / Agent 201 disposition |
 
 There are **no unresolved blocking concerns** after the storyboard patch in this issue.
