@@ -31,7 +31,7 @@ The five-perspective review adds these constraints without changing the 18-slide
 
 - **Slides 2–4 must use one continuous 60–90 second LUT Gallery micro-demo trace**, not three disconnected examples. The speaker should be able to point back to the same goal/action/observation across all three slides.
 - Beginner-facing terminology is introduced in plain language on first use:
-  - Slide 4: **LLM (language model)**;
+  - Slide 4: **LLM (Large Language Model，大型語言模型)**;
   - Slide 9: **Acceptance Criteria (AC)** and **Evidence = what the reviewer will inspect**;
   - Slide 10: **Kanban = work-state board**;
   - Slide 11: **Pull Request (PR)**.
@@ -84,14 +84,14 @@ problem
 - **Learner question:** Codex / Claude Code / ChatGPT 裡，我到底怎麼開始 Agent work？
 - **One takeaway:** Agent 是能力 / worker，不一定是一個獨立按鈕；在這些工具原本的工作介面裡，直接給一個清楚的目標、限制與「先做什麼」即可開始。
 - **Dominant visual:** 三個 task-entry examples：Codex / Claude Code / ChatGPT Work。
-- **Running example state:** 在 repo / project task surface 給出「先 inspect，不要直接改」的工作。
+- **Running example state:** 在專案工作介面輸入：「先檢查，不要直接改。」如果需要指向程式碼，就說「打開這個專案 / 程式碼資料夾」，不要求初學者先懂 repo。
 - **Prerequisite:** Slide 2 Agent definition.
 - **Transition:** 既然 Agent 可以連做多步，模型到底怎麼延續上一輪工作？
 
-## Slide 4 — LLM（language model）做當下推理；Agent/App 維持 loop
+## Slide 4 — LLM（Large Language Model，大型語言模型）做當下推理；Agent/App 維持 loop
 
 - **Learner question:** 為什麼 Agent 不會在一次 model response 後就停？
-- **One takeaway:** LLM（language model）只對這一步拿到的資訊做推理；Agent/App 組 current input、執行 action、收 observation，再建立下一輪 input。
+- **One takeaway:** LLM（Large Language Model，大型語言模型）只對這一步拿到的資訊做推理；Agent/App 組 current input、執行 action、收 observation，再建立下一輪 input。
 - **Dominant visual:** Current Input → LLM → output/tool request → Action → Observation → next Input ↺。
 - **Running example state:** 延續 Slides 2–3 的同一段 micro-demo：同一個 LUT discovery goal → Agent 讀 repo / UI → 得到 observation → 決定下一步；不要換案例。
 - **Prerequisite:** Slides 2–3.
@@ -119,8 +119,8 @@ problem
 
 - **Learner question:** AI 給了 20 個 idea，要不要全部開 issue？
 - **One takeaway:** Generation 和 Evaluation 要分開；只有 Human consciously selected direction 才變成正式工作項目。
-- **Dominant visual:** idea pool → Human decision gate → Commit / Parking lot。
-- **Running example state:** Commit = Find Similar；Park = Auto-group / Compare / LUT editor。
+- **Dominant visual:** idea pool → Human decision gate → Commit / Parking lot。Decision gate 明確列出比較準則：**Expected benefit / Cost / Risk / Reversibility / Evidence needed**。
+- **Running example state:** Human 用上述 criteria 比較後，Commit = Find Similar；Park = Auto-group / Compare / LUT editor。這裡要讓學員看到 Human owns criteria / trade-offs / final decision，而不是憑感覺挑一個。
 - **Prerequisite:** Slide 6 brainstorm process.
 - **Transition:** 選定方向後，先判斷工作層級，不要立刻丟進 Kanban。
 
