@@ -25,6 +25,19 @@ Canonical-location decisions inherited from #8 are binding:
 - AC is defined once on Slide 9 and reused on Slide 12.
 - Subagent is defined on Slide 15; later references must not redefine it.
 
+## #10 teaching-flow guardrails
+
+The five-perspective review adds these constraints without changing the 18-slide architecture:
+
+- **Slides 2–4 must use one continuous 60–90 second LUT Gallery micro-demo trace**, not three disconnected examples. The speaker should be able to point back to the same goal/action/observation across all three slides.
+- Beginner-facing terminology is introduced in plain language on first use:
+  - Slide 4: **LLM (language model)**;
+  - Slide 9: **Acceptance Criteria (AC)** and **Evidence = what the reviewer will inspect**;
+  - Slide 10: **Kanban = work-state board**;
+  - Slide 11: **Pull Request (PR)**.
+- Avoid internal/product-design jargon such as “agentic product”, “task surface”, “bounded goal”, “durable work” in beginner-facing takeaways unless immediately translated into plain language.
+- Slides 16–17 must not become a glossary wall: architecture slots are primary; named products/protocols are subordinate examples and may be progressively revealed.
+
 ## Running example
 
 **LUT Gallery problem:** users have many LUTs and cannot quickly find a look they like.
@@ -69,18 +82,18 @@ problem
 ## Slide 3 — 不用找通用的「Agent 按鈕」
 
 - **Learner question:** Codex / Claude Code / ChatGPT 裡，我到底怎麼開始 Agent work？
-- **One takeaway:** Agent 是能力 / worker，不一定是一個獨立按鈕；在 agentic product 的 task surface 直接給 bounded goal 即可開始。
+- **One takeaway:** Agent 是能力 / worker，不一定是一個獨立按鈕；在這些工具原本的工作介面裡，直接給一個清楚的目標、限制與「先做什麼」即可開始。
 - **Dominant visual:** 三個 task-entry examples：Codex / Claude Code / ChatGPT Work。
 - **Running example state:** 在 repo / project task surface 給出「先 inspect，不要直接改」的工作。
 - **Prerequisite:** Slide 2 Agent definition.
 - **Transition:** 既然 Agent 可以連做多步，模型到底怎麼延續上一輪工作？
 
-## Slide 4 — LLM 做當下推理；Agent/App 維持 loop
+## Slide 4 — LLM（language model）做當下推理；Agent/App 維持 loop
 
 - **Learner question:** 為什麼 Agent 不會在一次 model response 後就停？
-- **One takeaway:** LLM 只對當下 call 的 context 做推理；Agent/App 組 current input、執行 action、收 observation，再建立下一輪 input。
+- **One takeaway:** LLM（language model）只對這一步拿到的資訊做推理；Agent/App 組 current input、執行 action、收 observation，再建立下一輪 input。
 - **Dominant visual:** Current Input → LLM → output/tool request → Action → Observation → next Input ↺。
-- **Running example state:** current task + project instructions + relevant files → inspect → observation → next step。
+- **Running example state:** 延續 Slides 2–3 的同一段 micro-demo：同一個 LUT discovery goal → Agent 讀 repo / UI → 得到 observation → 決定下一步；不要換案例。
 - **Prerequisite:** Slides 2–3.
 - **Transition:** Agent 決定做什麼，那些 action 實際在哪裡跑？
 
@@ -105,7 +118,7 @@ problem
 ## Slide 7 — Brainstorm output 不是 Backlog
 
 - **Learner question:** AI 給了 20 個 idea，要不要全部開 issue？
-- **One takeaway:** Generation 和 Evaluation 要分開；只有 Human consciously selected direction 才變 durable work。
+- **One takeaway:** Generation 和 Evaluation 要分開；只有 Human consciously selected direction 才變成正式工作項目。
 - **Dominant visual:** idea pool → Human decision gate → Commit / Parking lot。
 - **Running example state:** Commit = Find Similar；Park = Auto-group / Compare / LUT editor。
 - **Prerequisite:** Slide 6 brainstorm process.
@@ -120,19 +133,19 @@ problem
 - **Prerequisite:** Slide 7 committed direction.
 - **Transition:** 最下面那個可執行單位，接著要變成不用猜的 Ticket。
 
-## Slide 9 — 票：Ticket + AC 是工作契約
+## Slide 9 — 票：Ticket + Acceptance Criteria（AC）是工作契約
 
 - **Learner question:** 怎樣才算一張可以交給 Agent 的 Ticket？
-- **One takeaway:** Ticket 至少包含 Title / Goal / Scope / Non-goals / AC / Owner / Priority / Parent or Dependency / Evidence；AC 必須可觀察、可 Pass/Fail。**Ticket 寫完整，不代表現在就應該做**：Human / PM 還要做 Priority / dependency check，確認價值、順序與 readiness。
+- **One takeaway:** Ticket 至少包含 Title / Goal / Scope / Non-goals / Acceptance Criteria（AC）/ Owner / Priority / Parent or Dependency / Evidence；**AC = 可觀察、可 Pass/Fail 的完成條件**，**Evidence = Review 時 reviewer 要實際檢查的證據**。Ticket 寫完整，不代表現在就應該做：Human / PM 還要做 Priority / dependency check，確認價值、順序與 readiness。
 - **Dominant visual:** 一張實際 Ticket + 小型 gate：Ticket + AC → Priority / dependency check → Backlog。
 - **Running example state:** #42「從喜歡的 LUT 找到相似 LUT」；AC 包含結果、empty state、390px behavior；確認它目前沒有 blocker 且優先級足夠後才進 Backlog。
 - **Prerequisite:** Slide 8 bounded Task.
 - **Transition:** 通過 Priority / dependency gate 的 Ticket 才進 Backlog；下一頁只回答它進入執行後「現在在哪個狀態」。
 
-## Slide 10 — 做：Kanban 只回答「現在在哪」
+## Slide 10 — 做：Kanban（工作狀態板）只回答「現在在哪」
 
 - **Learner question:** Agent 開始工作後，我怎麼知道目前進度？
-- **One takeaway:** Core state = Backlog → Doing → Review → Done；active Doing WIP < 2 per worker，Review 也是 active work。
+- **One takeaway:** Kanban 在這堂課只是一張工作狀態板。Core state = Backlog → Doing → Review → Done；active Doing WIP < 2 per worker，Review 也是 active work。
 - **Dominant visual:** 四欄 Kanban，一張 #42 card 向右移。
 - **Running example state:** #42 從 Backlog → Doing → Review。
 - **Prerequisite:** Slide 9 ready Ticket.
@@ -140,8 +153,8 @@ problem
 
 ## Slide 11 — 做：同一張 Ticket 在 GitHub 裡一路走
 
-- **Learner question:** Project / Issue / Branch / Commit / PR 跟我的 Ticket 到底有什麼關係？
-- **One takeaway:** Project → Issue → Branch → Commit → PR 是同一份 bounded work 的管理、隔離、紀錄與交付路徑。
+- **Learner question:** Project / Issue / Branch / Commit / Pull Request（PR）跟我的 Ticket 到底有什麼關係？
+- **One takeaway:** Project → Issue → Branch → Commit → Pull Request（PR）是同一份明確範圍工作的管理、隔離、紀錄與交付路徑。PR 在這裡第一次被定義成「進入 Review / Acceptance 的入口」。
 - **Dominant visual:** continuous sequence；每個 node 下只寫「purpose」。
 - **Running example state:** Project → Issue #42 → branch `feat/42-similar-lut` → commits → PR #71。
 - **Prerequisite:** Slide 10 work state.
@@ -205,7 +218,7 @@ Slide 18 is therefore the closing summary for **both** routes.
 
 - **Learner question:** AGENTS.md、Memory、Web Search、MCP 等到底放在哪？
 - **One takeaway:** Advanced features 不是第二套 Agent architecture；它們只是補到已知 loop 周圍的五個位置。
-- **Dominant visual:** five-slot architecture mapped back to Slide 4。
+- **Dominant visual:** five-slot architecture mapped back to Slide 4；五個 slot 是第一視覺層級，AGENTS.md / Memory / Web Search / MCP 等只作小型 subordinate examples 或逐步 reveal，不做等權重 glossary cards。
 - **Running example state:**  
   - Instructions: project rules / AGENTS.md / CLAUDE.md / Skill examples  
   - Context: current conversation / project files / retrieved knowledge / **optional product Memory**  
