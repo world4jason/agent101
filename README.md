@@ -1,14 +1,14 @@
 # Agent 101
 
-給 PM、營運、設計、行銷，以及沒有工程背景的人看的 Agent 協作入門。
+給 PM、營運、設計、行銷，以及沒有工程背景的人看的 Human + Agent 協作入門。
 
-這份教材不是教你寫程式，而是教你：
+這份教材不是教你背 Agent 名詞，而是讓你能把一個模糊想法變成：
 
-> **當 Agent 可以像團隊成員一樣工作時，怎麼把需求說清楚、拆成工作、追蹤進度、驗收成果，最後安全上線。**
+> **可委派 → 可追蹤 → 可驗收 → 可交付的工作。**
 
 ## Web Slides
 
-這個 repository 內建一份可直接播放的 HTML 簡報：
+這個 repository 內建一份純 HTML / CSS / JavaScript 簡報：
 
 **[開啟投影片原始頁面](slides/index.html)**
 
@@ -17,7 +17,6 @@
 投影片支援：
 
 - 鍵盤逐步 reveal / fragment 動畫
-- 四個章節的視覺分類
 - 手機版排版
 - Browser Print / PDF
 - 不需要 build step
@@ -26,58 +25,97 @@
 
 ---
 
-## 課程的四個系統
+## 這堂課只建立兩個 mental model
 
-### 01｜定義工作
+### A. Agent 怎麼持續工作
 
-**Goal → Requirement → AC / Examples → Ticket**
+```text
+Goal
+ → Act
+ → Observe
+ → Continue
+      ↺
+```
 
-把模糊想法變成另一個 Human / Agent 可以執行，而且你有辦法驗收的工作。
+更技術一點：
 
-### 02｜管理執行
+```text
+Current Input
+ → LLM
+ → output / tool request
+ → Action
+ → Observation
+ → next Input
+```
 
-**Kanban → Agent / Subagent → Branch / Commit → PR**
+重點不是「LLM 自己永久記住專案」，而是周圍的 Agent / App runtime 把下一輪需要的 instructions、task state、files、retrieved information 與 tool results 帶回來。
 
-工作狀態放在外部系統，不靠某個 Agent 的聊天記憶；不同視角交給不同 subagent / reviewer。
+### B. Human + Agent 怎麼把工作交付出去
 
-### 03｜驗收交付
+```text
+想 → 拆 → 票 → 做 → 審 → 合
+```
 
-**Checks → Preview → Evidence → Human Acceptance → Production**
+展開：
 
-Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
-
-### 04｜Agent Operating System
-
-**Skills → Context Management → SDD / Spec Kit → BMAD → Collaboration**
-
-解決能力如何重用、context 怎麼不要越堆越亂、如何用 spec 與 delivery method 管大型工作。
-
----
-
-## 核心觀念
-
-- **Agent = worker**：可以接工作，但「它說做完了」不等於真的完成。
-- **Subagent = 獨立專責 worker / context**：Planner、Builder、Reviewer、QA、Researcher 是常見角色。
-- **Skill = 可重用工作方法**：不要每次重新 prompt SOP。
-- **Web Search = 新鮮公開資訊**：需要最新外部事實時去查網路。
-- **RAG = Retrieval + Generation**：先從指定知識來源取回相關內容，再交給模型回答。
-- **MCP = 外部能力連接標準**：把 tools、resources、prompts 接給 Agent；它本身不是搜尋或資料庫。
-- **ChatGPT Plugin / App / Connector = 產品層整合**：把 Gmail、Drive、GitHub、Slack、Vercel 等外部服務接進 ChatGPT，並以權限控制 read / write actions。
-- **需求 / AC = 工作契約**：先說清楚成功長什麼樣，再開始做。
-- **BDD / Examples = shared understanding**：用具體行為消除「我以為你懂」。
-- **TDD = 測試驅動實作**：好的 AC / examples 可以成為自動化測試的基礎。
-- **SDD = Spec-Driven Development**：先定義 What / Why，再進入 How。
-- **BMAD = AI-driven delivery operating model**：right-sized process、durable context、specialized perspectives。
-- **Kanban = 外部工作狀態**：知道有哪些事、誰正在做、卡在哪。
-- **Git / GitHub = 工作紀錄與協作基礎設施**：讓修改可追蹤、可比較、可回復。
-- **PR = 交付與驗收點**：不是只給工程師看 code。
-- **Preview + Evidence = 非技術 Reviewer 的驗收介面**。
-- **Context = working memory，不是 source of truth**。
-- **Compact = 摘要，不是無損壓縮**：重要決策要先寫回 durable state。
+```text
+Brainstorm / Decide
+ → Milestone / Epic / Story / Task
+ → Ticket + AC
+ → Backlog → Doing → Review → Done
+ → Issue → Branch → Commit → PR
+ → Evidence + AC + Human Review
+ → Merge / Deploy
+```
 
 ---
 
-## 教材
+## Agent 101 Core
+
+Core 只要求學員能完成一個小型 Human + Agent 專案：
+
+1. 用白話解釋 Agent 與 LLM / Agent App 的差異。
+2. 知道不需要先找一個通用的「Create Agent」按鈕。
+3. 先 brainstorm，再由 Human 決定什麼真的進入工作系統。
+4. 先分 Milestone → Epic → Story → Task，再用 Kanban 管狀態。
+5. 寫一張 bounded Ticket，AC 能明確 Pass / Fail。
+6. 理解 Project → Issue → Branch → Commit → PR 的目的。
+7. 用 Evidence + AC 驗收；Agent 說 Done 只代表 ready for review。
+8. Human 接受後才 Merge，之後才算 Done / Deploy。
+
+Slides 1–13 是 Core；到 Slide 13 可以直接停。
+
+---
+
+## Optional / Advanced
+
+只有當 Core 已經懂了，才補：
+
+- PM / UIUX / FE / BE / Reviewer 的責任邊界
+- Subagent = 隔離專責 worker / context
+- Instructions / Context / Tools / Environment / Permissions
+- Skill / Web Search / RAG / MCP / Connector / Plugin
+- SDD / BMAD 這類較大的 delivery discipline
+
+原則是：
+
+> **先有 capability gap，再加能力；不要先把工具名詞裝滿。**
+
+Context compaction、durable sessions、embedding / chunking / reranking、完整 SDD/BMAD mechanics、長篇 Skill repository survey 都屬於 Appendix / Agent 201。
+
+---
+
+## vNext 設計文件
+
+- [Current deck inventory + duplicate map](docs/vnext-inventory.md)
+- [18-slide storyboard / slide contract](docs/vnext-storyboard.md)
+- [Five-perspective review](docs/vnext-five-perspective-review.md)
+
+Parent architecture / source of truth: [Issue #7](https://github.com/world4jason/agent101/issues/7)
+
+---
+
+## 深入教材
 
 1. [先懂體系：Agent 不是魔法，是新的 Worker](docs/01-system.md)
 2. [什麼是需求？什麼是 Acceptance Criteria？](docs/02-requirements-and-ac.md)
@@ -98,64 +136,23 @@ Agent 說 Done 不等於完成；成果必須可以被獨立驗證。
 
 ---
 
-## 一張圖看完整體系
-
-```text
-Goal / Problem
-      ↓
-Requirement / Spec
-      ↓
-AC + BDD Examples
-      ↓
-Issue / Ticket
-      ↓
-Kanban
-      ↓
-Human / Agent / Subagent
-      ↓
-Branch + Commit
-      ↓
-Pull Request
-      ↓
-Checks + Preview + Evidence
-      ↓
-Human Acceptance
-      ↓
-Merge
-      ↓
-Production
-
-橫跨整條流程的是：
-
-Skills         = 可重用做事方法
-Subagents      = 規劃、實作、審查、測試的責任分工
-Context        = 這一次工作的 working memory
-Durable State  = Spec / Issue / Git / PR
-SDD            = Spec 驅動實作
-BMAD           = Clarify → Plan → Build → Verify 的交付體系
-```
-
----
-
 ## 實作模板
 
 - [需求 / Ticket 模板](templates/TICKET_TEMPLATE.md)
 - [非技術驗收 Checklist](templates/ACCEPTANCE_CHECKLIST.md)
 
----
-
 ## 這堂課不要求大家先學會
 
 - git CLI 指令大全
 - rebase / cherry-pick / Git internals
-- CI/CD YAML
-- Kubernetes
-- database administration
+- CI/CD YAML / Kubernetes / database administration
 - Agent framework API
+- Context window / Session / Compact 的實作細節
+- embedding / chunking / reranking
 - BMAD 全部 commands / personas
 - Cucumber 自動化測試程式碼
 - 超長 Agent.md / rules 檔
 
 Agent 101 第一階段只要求一件事：
 
-> **你能不能把一件工作定義到「另一個人或 Agent 做完後，你有辦法客觀判斷對不對」。**
+> **你能不能把工作定義到另一個 Human / Agent 做完後，你有辦法獨立判斷對不對。**
