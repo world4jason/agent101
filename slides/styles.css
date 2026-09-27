@@ -106,3 +106,8 @@ h3{font-size:26px}.lead{font-size:clamp(21px,2vw,34px);line-height:1.55;color:#c
 @media print{
   .roadmap>div,.brainstorm-step,.example-trace,.hierarchy-level,.core-stop,.roles-grid>div,.architecture-grid>div,.capability-map>div{background:#fff;color:#111;border-color:#bbb}
 }
+
+.agent-cycle>.bmad-node:nth-child(1){border-color:var(--define)}
+.agent-cycle>.bmad-node:nth-child(3){border-color:var(--manage)}
+.agent-cycle>.bmad-node:nth-child(5){border-color:var(--verify)}
+.agent-cycle>.bmad-node:nth-child(7){border-color:var(--operate)}
