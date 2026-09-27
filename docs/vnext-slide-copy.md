@@ -14,6 +14,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 - Slides 2–4 use one continuous micro-demo trace.
 - Slides 14–17 are optional; Slide 18 must still work directly after Slide 13.
 - Named advanced tools stay subordinate to the architecture / capability question they answer.
+- **Chinese-first for learner-visible copy:** if an English industry term must be learned, show its plain-language Chinese meaning at first sight; otherwise translate or remove it.
 - Do not add extra definitions during implementation unless a later reviewed issue changes this contract.
 
 ---
@@ -33,7 +34,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Lead**
 
-> 不先學 prompt 技巧，也不先背工具。  
+> 不先學提示詞技巧，也不先背工具。  
 > 先把工作變成 **可委派、可追蹤、可驗收、可交付**。
 
 **Main roadmap**
@@ -45,20 +46,20 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > 分出工作層級  
 >
 > **票**  
-> Ticket + AC  
+> 寫清楚工作與完成條件  
 >
 > **做**  
-> 執行 + 狀態  
+> 開始執行、看狀態  
 >
 > **審**  
-> Evidence + Review  
+> 看證據、判斷是否通過  
 >
 > **合**  
-> Accept + Merge
+> 接受後合併 / 交付
 
 **Bottom line**
 
-> 這堂課只建立兩個 mental model：  
+> 這堂課只建立兩個核心觀念：  
 > **Agent 怎麼持續工作；Human + Agent 怎麼把工作交付出去。**
 
 ---
@@ -67,7 +68,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Eyebrow**
 
-> What is an Agent?
+> Agent 是什麼？
 
 **Title**
 
@@ -75,23 +76,23 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Main loop**
 
-> **GOAL**  
+> **目標（Goal）**  
 > 我要達成什麼？
 >
 > ↓
 >
-> **ACT**  
+> **行動（Act）**  
 > 做下一步
 >
 > ↓
 >
-> **OBSERVE**  
+> **觀察（Observe）**  
 > 看結果
 >
 > ↓
 >
-> **CONTINUE**  
-> 繼續、調整，或停下來問 Human
+> **繼續（Continue）**  
+> 繼續、調整，或停下來問人
 >
 > ↺
 
@@ -103,7 +104,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 **Bottom line**
 
 > Agent 不是「更會聊天的模型」。  
-> 它是能為了目標 **行動 → 觀察 → 繼續** 的 AI worker。
+> 它是能為了目標 **行動 → 觀察 → 繼續** 的 AI 工作者。
 
 ---
 
@@ -111,7 +112,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Eyebrow**
 
-> How do I start?
+> 怎麼開始？
 
 **Title**
 
@@ -144,70 +145,70 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 ---
 
-## Slide 4 — LLM 做推理；Agent/App 維持 loop
+## Slide 4 — LLM 做推理；Agent/App 維持工作循環
 
 **Eyebrow**
 
-> How does it continue?
+> 為什麼它可以繼續做？
 
 **Title**
 
 > **LLM（Large Language Model，大型語言模型）**做這一步推理；  
-> Agent/App 把下一輪需要的資訊組回來
+> Agent/App 維持工作循環，把下一輪需要的資訊組回來
 
 **Main flow**
 
-> **CURRENT INPUT**  
+> **目前輸入（Current Input）**  
 > 這一步需要的資訊
 >
 > → **LLM**  
 > 判斷下一步
 >
-> → **OUTPUT / TOOL REQUEST**
+> → **下一步輸出 / 工具請求**
 >
-> → **ACTION**
+> → **執行動作（Action）**
 >
-> → **OBSERVATION**
+> → **觀察結果（Observation）**
 >
-> ↺ 回到下一輪 Input
+> ↺ 回到下一輪輸入
 
 **Same LUT micro-demo**
 
-> 同一個 goal  
-> → Agent 讀專案 / 現有 UI  
+> 同一個目標  
+> → Agent 讀專案 / 現有介面  
 > → 發現「目前只能逐顆找 LUT」  
-> → 把這個 observation 帶進下一步
+> → 把這個觀察結果帶進下一步
 
 **Bottom line**
 
-> 模型只對**這一步拿到的 context**做推理。  
+> 模型只對**這一步拿到的工作脈絡（context）**做推理。  
 > Agent/App 會把相關指令、檔案、查回來的資料、工具結果等帶進下一輪；  
 > **不代表每一輪都逐字重送全部歷史。**
 
 ---
 
-## Slide 5 — Agent 決定；Environment 執行
+## Slide 5 — Agent 決定；執行環境（Environment）執行
 
 **Eyebrow**
 
-> Agent vs Environment
+> Agent 與執行環境
 
 **Title**
 
 > Agent 決定下一步；  
-> **Environment 決定 action 在哪裡執行**
+> **執行環境（Environment）決定動作在哪裡發生**
 
 **Main comparison**
 
-> **LOCAL**  
-> 你的電腦 / 專案 / shell
+> **本機（Local）**  
+> 你的電腦 / 專案 / 終端機（shell）
 >
-> **CLOUD**  
-> 平台提供的隔離工作環境（sandbox / VM / browser）
+> **雲端（Cloud）**  
+> 平台提供的隔離環境（sandbox）/ 虛擬機（VM）/ 瀏覽器（browser）
 
 **Permission gate**
 
-> **Tool access ≠ Permission**
+> **能用工具 ≠ 有操作權限（Permission）**
 >
 > 看得到工具  
 > ≠  
@@ -215,8 +216,8 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Bottom line**
 
-> Agent = decision / loop  
-> Environment = execution place
+> Agent = 決策與工作循環  
+> 執行環境 = 動作真正發生的位置
 
 ---
 
@@ -224,7 +225,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Eyebrow**
 
-> 想 · Brainstorm
+> 想 · 腦力激盪（Brainstorm）
 
 **Title**
 
@@ -233,18 +234,18 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Main flow**
 
-> **1 · FRAME**  
+> **1 · 定義問題（Frame）**  
 > 「挑 LUT 太慢，我想降低比較成本。」
 >
-> **2 · DIVERGE**  
-> Find Similar · Auto-group · Compare · Search
+> **2 · 發散（Diverge）**  
+> 找相似 · 自動分群 · 並排比較 · 搜尋改善
 >
-> **3 · CHALLENGE / CLUSTER**  
+> **3 · 挑戰 / 分群（Challenge / Cluster）**  
 > 哪些解同一個問題？  
 > 哪些成本太高？  
 > 哪些需要更多資料？
 >
-> **4 · CONVERGE**  
+> **4 · 收斂（Converge）**  
 > 留下值得進一步比較的方案
 
 **Bottom line**
@@ -254,47 +255,47 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 ---
 
-## Slide 7 — Brainstorm output 不是 Backlog
+## Slide 7 — 腦力激盪的結果不是正式工作
 
 **Eyebrow**
 
-> 想 → Commit
+> 想 → 做決策
 
 **Title**
 
-> Brainstorm output 不是 Backlog；  
+> 腦力激盪的結果不是正式工作；  
 > **先做決策**
 
 **Candidate side**
 
-> **CANDIDATES**
+> **候選方案**
 >
-> Find Similar  
-> Auto-group  
-> Compare mode  
+> 找相似（Find Similar）  
+> 自動分群（Auto-group）  
+> 並排比較（Compare）  
 > LUT Editor
 
 **Human decision gate**
 
-> **HUMAN DECISION**
+> **Human 決策準則**
 >
-> Expected benefit  
-> Cost  
-> Risk  
-> Reversibility  
-> Evidence needed
+> 預期效益  
+> 成本  
+> 風險  
+> 可逆性  
+> 還需要什麼證據
 
 **Result**
 
-> **COMMIT**  
+> **採用**  
 > Find Similar
 >
-> **PARK**  
+> **暫放**  
 > Auto-group · Compare · LUT Editor
 
 **Bottom line**
 
-> **Human owns criteria / trade-offs / final decision.**  
+> **準則、取捨與最後決定都由 Human 負責。**  
 > 不是 AI 生很多方案，Human 就隨便挑一個。
 
 ---
@@ -303,7 +304,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Eyebrow**
 
-> 拆 · Work Hierarchy
+> 拆 · 工作層級
 
 **Title**
 
@@ -312,28 +313,28 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Hierarchy**
 
-> **MILESTONE**  
+> **Milestone｜里程碑 / 交付節點**  
 > 降低挑 LUT 的認知負荷
 >
 > ↓
 >
-> **EPIC**  
-> Improve LUT discovery
+> **Epic｜主要能力 / 大主題**  
+> 改善 LUT 探索
 >
 > ↓
 >
-> **STORY**  
+> **Story｜使用者要得到的結果**  
 > 使用者可以從一個喜歡的 LUT 找到相似候選
 >
 > ↓
 >
-> **TASK**  
-> Find Similar entry + result list
+> **Task｜可以直接執行的工作**  
+> 加入「找相似」入口 + 候選結果列表
 
 **Bottom line**
 
-> Hierarchy 回答：**「它屬於哪一層？」**  
-> Kanban 等一下才回答：**「它現在在哪？」**
+> 工作層級回答：**「它屬於哪一層？」**  
+> 下一頁的工作狀態板才回答：**「它現在在哪？」**
 
 **Small note**
 
@@ -341,60 +342,60 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 ---
 
-## Slide 9 — 票：Ticket + AC 是工作契約
+## Slide 9 — 票：工作票（Ticket）+ AC 是工作契約
 
 **Eyebrow**
 
-> 票 · Ticket + Acceptance Criteria
+> 票 · 工作票（Ticket）+ 驗收條件（Acceptance Criteria）
 
 **Title**
 
-> Ticket 要讓別人不用猜；  
-> **AC 要能 Pass / Fail**
+> 工作票（Ticket）要讓別人不用猜；  
+> **AC 要能明確通過 / 不通過**
 
 **Ticket**
 
 > **#42 · 從喜歡的 LUT 找到相似 LUT**
 >
-> **Goal**  
+> **目標（Goal）**  
 > 降低使用者逐顆比較 LUT 的認知負荷。
 >
-> **Scope**  
+> **範圍（Scope）**  
 > 從既有 LUT 找相似候選。
 >
-> **Non-goals**  
+> **明確不做（Non-goals）**  
 > 不做 Auto-group；不做 LUT Editor。
 >
-> **Acceptance Criteria（AC）**  
+> **驗收條件（Acceptance Criteria，AC）**  
 > ① 點「找相似」後會出現候選  
-> ② 資料不足時有明確 Empty State  
+> ② 資料不足時有明確空狀態（Empty State）  
 > ③ 390px 寬度沒有水平捲軸
 >
-> **Owner / Priority / Parent**  
-> Agent A · P1 · Improve LUT discovery
+> **負責人 / 優先順序 / 上層工作**  
+> Agent A · P1 · 改善 LUT 探索
 >
-> **Evidence**  
-> Preview + desktop/mobile screenshots + checks
+> **驗收證據（Evidence）**  
+> 可操作預覽（Preview）+ 桌機 / 手機截圖 + 自動檢查
 
 **Gate after the Ticket**
 
-> Ticket + AC  
-> → **Priority / Dependency Check**  
-> → Backlog
+> 工作票 + AC  
+> → **優先順序 / 相依性檢查**  
+> → 待辦（Backlog）
 
 **Bottom line**
 
-> **AC = 可觀察、可 Pass / Fail 的完成條件。**  
-> **Evidence = Review 時 reviewer 要實際檢查的證據。**  
-> Ticket 寫完整，**不代表現在就應該做**。
+> **AC = 可觀察、可明確通過 / 不通過的完成條件。**  
+> **Evidence = 審查時 reviewer 要實際檢查的證據。**  
+> 工作票寫完整，**不代表現在就應該做**。
 
 ---
 
-## Slide 10 — 做：Kanban 只回答「現在在哪」
+## Slide 10 — 做：Kanban（工作狀態板）只回答「現在在哪」
 
 **Eyebrow**
 
-> 做 · Kanban
+> 做 · Kanban（工作狀態板）
 
 **Title**
 
@@ -403,24 +404,24 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Board**
 
-> **BACKLOG**  
-> #43 Auto-group  
-> #44 Compare mode
+> **待辦（Backlog）**  
+> #43 自動分群  
+> #44 並排比較
 >
-> **DOING · WIP 1/2**  
-> #42 Similar LUT · Agent A
+> **進行中（Doing）· 同時進行 1/2（WIP）**  
+> #42 找相似 LUT · Agent A
 >
-> **REVIEW**  
-> 下一站：PR + Evidence + AC
+> **審查（Review）**  
+> 下一站：PR + 驗收證據 + AC
 >
-> **DONE**  
+> **完成（Done）**  
 > #38 Collection filter
 
 **Bottom line**
 
-> Core flow = **Backlog → Doing → Review → Done**  
-> Review 也是 active work。  
-> 每個 worker 同時進行中的工作（WIP）：**少於 2 件**。
+> 核心流程 = **待辦 → 進行中 → 審查 → 完成**  
+> 審查也是正在進行的工作。  
+> 每個工作者同時進行中的工作（WIP）：**少於 2 件**。
 
 ---
 
@@ -437,120 +438,120 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Main path**
 
-> **PROJECT**  
+> **專案看板（Project）**  
 > 看整體工作與狀態
 >
 > →
 >
-> **ISSUE #42**  
+> **工作票（Issue）#42**  
 > 工作契約 / AC
 >
 > →
 >
-> **BRANCH**  
+> **工作分支（Branch）**  
 > 隔離這張票的改動
 >
 > →
 >
-> **COMMIT**  
-> 可追蹤的 checkpoint
+> **提交紀錄（Commit）**  
+> 可追蹤的版本節點
 >
 > →
 >
-> **PULL REQUEST（PR）#71**  
-> 進入 Review / Acceptance
+> **Pull Request（PR）#71｜送審入口**  
+> 進入審查 / 驗收
 
 **Bottom line**
 
 > PR 在這裡只有一個定義：  
-> **送交 Review / Acceptance 的入口。**
+> **送交審查 / 驗收的入口。**
 
 **Small note**
 
-> 一般 feature work 不直接推 main。
+> 一般功能開發不要直接改 main（主分支）。
 
 ---
 
-## Slide 12 — 審：Agent 說 Done = Ready for Review
+## Slide 12 — 審：Agent 說「完成」= 可以開始審查
 
 **Eyebrow**
 
-> 審 · Review / Acceptance
+> 審 · 審查 / 驗收（Review / Acceptance）
 
 **Title**
 
-> Agent 說「Done」  
-> **只代表可以開始 Review**
+> Agent 說「完成」  
+> **只代表可以開始審查**
 
 **PR #71 evidence**
 
-> **Evidence**  
-> Preview + screenshots + checks ✅
+> **驗收證據（Evidence）**  
+> 可操作預覽 + 截圖 + 自動檢查 ✅
 >
 > **AC 1**  
 > 點「找相似」會出候選 ✅
 >
 > **AC 2**  
-> 資料不足有 Empty State ✅
+> 資料不足有空狀態 ✅
 >
 > **AC 3**  
 > 390px 沒有水平捲軸 ❌
 >
-> **Known limits**  
-> 尚未做 Auto-group；符合 Non-goals
+> **已知限制**  
+> 尚未做自動分群；符合明確不做的範圍
 
 **Audience decision — show before answer**
 
-> **你會 Approve 嗎？**
+> **你會通過（Approve）嗎？**
 >
-> Build / Test 都是綠的，  
+> 建置 / 測試都通過，  
 > 但 AC 3 失敗。
 
 **Reveal after audience answers**
 
-> **REQUEST CHANGES**
+> **退回修改（Request Changes）**
 >
 > 一條已約定的 AC 失敗，  
 > 就還不能過。
 
 **Bottom line**
 
-> Review 看：**Evidence + AC + Scope + Known limits + Human decision**。  
-> Self-report 和 automated checks 都不是自動 acceptance。
+> 審查要看：**驗收證據 + AC + 範圍 + 已知限制 + Human 決定**。  
+> Agent 自己說完成、自動檢查通過，都不等於自動驗收。
 
 ---
 
-## Slide 13 — 合：Accept → Merge → Done
+## Slide 13 — 合：接受 → 合併 → 完成
 
 **Eyebrow**
 
-> 合 · Merge / Deploy
+> 合 · 合併 / 上線（Merge / Deploy）
 
 **Title**
 
-> 被接受、Merge 之後，  
+> 被接受、合併（Merge）之後，  
 > **這張工作才真的完成**
 
 **Main flow**
 
-> Review  
-> → **Human Accept**  
-> → **Merge**  
-> → **Done**  
-> → Deploy / Release（需要時）
+> 審查  
+> → **Human 接受**  
+> → **合併（Merge）**  
+> → **完成（Done）**  
+> → 部署 / 發布（需要時）
 
 **Running example**
 
-> PR #71 修完 mobile AC  
-> → Human accepts  
-> → Merge  
+> PR #71 修完手機版 AC  
+> → Human 接受  
+> → 合併  
 > → GitHub Pages 更新
 
 **Core stop**
 
-> **AGENT 101 CORE COMPLETE**
+> **AGENT 101 核心課程完成**
 >
-> 到這裡，你已經能跑一個小型 Human + Agent 專案：  
+> 到這裡，你已經能跑一個小型「人 + Agent」專案：  
 > **想 → 拆 → 票 → 做 → 審 → 合**
 
 ---
@@ -561,66 +562,66 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Eyebrow**
 
-> Optional · Human Roles
+> 選修 · Human 角色
 
 **Title**
 
-> 先定 Human responsibility；  
+> 先定 Human 的責任；  
 > **再談 Agent 可以扮演什麼角色**
 
 **Responsibility map**
 
-> **PM**  
-> Goal · Priority · Scope · AC · Acceptance
+> **PM｜產品 / 專案負責人**  
+> 目標 · 優先順序 · 範圍 · AC · 驗收
 >
-> **UI/UX**  
-> User flow · State · Interaction · Visual spec
+> **UI/UX｜介面 / 體驗設計**  
+> 使用者流程 · 狀態 · 互動 · 視覺規格
 >
-> **FE**  
-> UI · Client behavior · Integration
+> **FE｜前端**  
+> 介面 · 前端行為 · 串接
 >
-> **BE**  
-> API · Data · Auth · Business logic
+> **BE｜後端**  
+> API · 資料 · 權限驗證 · 商業邏輯
 >
-> **Reviewer / QA**  
-> Independent verification
+> **Reviewer / QA｜審查 / 品質驗證**  
+> 獨立驗證
 
 **Bottom line**
 
 > Agent 可以做某個角色的工作；  
-> **Human accountability 不會因為用了 Agent 就消失。**
+> **Human 的最終責任不會因為用了 Agent 就消失。**
 
 ---
 
-## Slide 15 — Subagent = 隔離專責 worker / context
+## Slide 15 — Subagent = 隔離專責工作者 / 工作脈絡
 
 **Eyebrow**
 
-> Optional · Subagent
+> 選修 · Subagent
 
 **Title**
 
 > Subagent 不是另一種資料來源；  
-> **它是另一個專責 worker / context**
+> **它是另一個專責工作者 / 工作脈絡**
 
 **Assignment formula**
 
-> **Role + Ticket + Boundaries + Tools + Acceptance**
+> **角色 + 工作票 + 邊界 + 工具 + 驗收條件**
 
 **Running example**
 
 > **Reviewer Subagent**
 >
-> Role：Reviewer  
-> Ticket：#42 Similar LUT  
-> Boundary：不改 code，只驗 AC  
-> Tools：Preview · Tests · Diff  
-> Acceptance：交付獨立 Pass / Fail evidence
+> 角色：Reviewer  
+> 工作票：#42 找相似 LUT  
+> 邊界：不改程式碼，只驗 AC  
+> 工具：可操作預覽 · 測試 · 差異（Diff）  
+> 驗收：交付獨立的通過 / 不通過證據
 
 **Bottom line**
 
-> 需要 specialization、independent review、context isolation 時再用。  
-> **不要為了「看起來像 multi-agent」而先拆人。**
+> 需要專業分工、獨立審查或隔離工作脈絡時再用。  
+> **不要為了「看起來像多 Agent」而先拆人。**
 
 ---
 
@@ -628,7 +629,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Eyebrow**
 
-> Optional · Agent Architecture
+> 選修 · Agent 架構
 
 **Title**
 
@@ -637,34 +638,34 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Primary architecture**
 
-> **1 · INSTRUCTIONS**  
+> **1 · 指令（Instructions）**  
 > 專案規則 / Skills  
-> _examples: AGENTS.md · CLAUDE.md_
+> _例：AGENTS.md · CLAUDE.md_
 >
-> **2 · CONTEXT**  
+> **2 · 工作脈絡（Context）**  
 > 目前工作 / 檔案 / 查回來的專案知識  
-> _example: optional product Memory_
+> _例：可選的產品記憶（Memory）_
 >
-> **3 · TOOLS**  
+> **3 · 工具（Tools）**  
 > 可以呼叫的外部能力  
-> _examples: built-in tools · Web Search · MCP · Connectors_
+> _例：內建工具 · Web Search · MCP · Connectors_
 >
-> **4 · ENVIRONMENT**  
-> action 在哪裡執行  
-> _examples: local · cloud sandbox_
+> **4 · 執行環境（Environment）**  
+> 動作在哪裡執行  
+> _例：本機 · 雲端隔離環境_
 >
-> **5 · PERMISSIONS**  
-> 哪些 read / write / action 要 approval
+> **5 · 權限（Permissions）**  
+> 哪些讀取 / 修改 / 執行需要 Human 確認
 
 **Bottom line**
 
-> 回想 Slide 4：**Input → LLM → Action → Observation**。  
+> 回想 Slide 4：**輸入 → LLM → 動作 → 觀察結果**。  
 > 這一頁只是告訴你，能力從哪裡插進去。
 
 **Small note**
 
-> Product Memory 可以提供 context；  
-> **它不是 project source of truth。**
+> 產品記憶（Memory）可以提供工作脈絡；  
+> **它不是專案的正式依據。**
 
 ---
 
@@ -672,37 +673,37 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Eyebrow**
 
-> Optional · Capability Map
+> 選修 · 能力地圖
 
 **Title**
 
 > 不要先把工具裝滿；  
 > **先問你缺什麼能力**
 
-**Need → Capability**
+**需求 → 能力**
 
 > 這類事情每次都要照同一套方法？  
-> **→ Skill**
+> **→ Skill｜可重用工作方法**
 >
 > 要找公司 / 專案私有知識？  
-> **→ RAG**
+> **→ RAG｜先檢索，再回答**
 >
 > 要讓 Agent 接外部工具 / 資料介面？  
-> **→ MCP**
+> **→ MCP｜外部能力連接協定**
 >
 > 要把 SaaS / 帳號能力接進產品？  
-> **→ Connector / Plugin**
+> **→ Connector / Plugin｜產品整合**
 >
-> 要隔離一個專責 worker / context？  
-> **→ Subagent**
+> 要隔離一個專責工作者 / 工作脈絡？  
+> **→ Subagent｜獨立工作者 / 工作脈絡**
 >
-> 大型交付需要更完整的 spec / planning discipline？  
-> **→ SDD / BMAD**
+> 大型交付需要更完整的規格 / 規劃方法？  
+> **→ SDD / BMAD｜大型交付方法**
 
 **Bottom line**
 
-> 這不是 glossary。  
-> **先有 capability gap，再加能力。**
+> 這不是名詞表。  
+> **先遇到能力缺口，再加工具 / 方法。**
 
 ---
 
@@ -710,7 +711,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Eyebrow**
 
-> Takeaway
+> 重點整理
 
 **Title**
 
@@ -726,37 +727,37 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > 把大方向拆成可執行工作
 >
 > **票**  
-> Goal · Scope · AC · Evidence
+> 目標 · 範圍 · AC · 驗收證據
 >
 > **做**  
-> 低 WIP · bounded work · GitHub
+> 低同時進行量（WIP）· 範圍清楚的工作 · GitHub
 >
 > **審**  
-> PR · Evidence · AC · Human Review
+> PR · 驗收證據 · AC · Human 審查
 >
 > **合**  
-> Accept → Merge → Done / Deploy
+> 接受 → 合併 → 完成 / 上線
 
 **One-line LUT trace**
 
 > 挑 LUT 太慢  
-> → Find Similar  
+> → 找相似（Find Similar）  
 > → #42 Ticket  
 > → PR #71  
 > → AC Review  
 > → Merge
 
-**Starter toolbox reference strip**
+**起步工具參考**
 
-> Static site / demo → **GitHub Pages**  
-> Backend / DB / auth → **Supabase**  
-> Product analytics → **PostHog**  
-> DNS / CDN / edge → **Cloudflare**  
-> Transactional email → **Resend**
+> 靜態網站 / Demo → **GitHub Pages**  
+> 後端 / 資料庫 / 登入 → **Supabase**  
+> 產品分析 → **PostHog**  
+> 網域 / 網路加速 → **Cloudflare**  
+> 系統通知信 → **Resend**
 
 **Final line**
 
-> 不是追求「最會寫 code 的 Agent」，  
+> 不是追求「最會寫程式碼的 Agent」，  
 > 而是建立**可以放心委派工作的系統**。
 
 ---
@@ -782,6 +783,18 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 | Web Search | 16 / Tools | Not reclassified on Slide 17 |
 | Capability gaps | 17 | No glossary expansion |
 | Starter toolbox | 18 | Reference strip only |
+
+# Learner-language audit — editorial only, not on-slide
+
+| Disposition | Terms | Rule applied |
+|---|---|---|
+| **Keep — industry term to learn** | Agent, AI, LLM, Ticket, AC, Kanban, WIP, GitHub, Issue, Branch, Commit, Pull Request / PR, Merge, Milestone, Epic, Story, Task, Subagent, Skill, RAG, MCP, Connector / Plugin, SDD / BMAD | Keep the industry term, but give a plain-language Chinese hook at first sight when the audience may not know it. |
+| **Keep — product / proper name** | Codex, Claude Code, ChatGPT Work, LUT Gallery, GitHub Pages, Supabase, PostHog, Cloudflare, Resend, AGENTS.md, CLAUDE.md | Keep as names; explain what they are used for instead of translating the name itself. |
+| **Translate — Chinese first** | Goal / Act / Observe / Continue, Context, Output / Tool Request, Action, Observation, Environment, Permission, Local / Cloud, Frame / Diverge / Challenge / Cluster / Converge, Benefit / Cost / Risk / Reversibility, Backlog / Doing / Review / Done, Owner / Priority / Parent, Evidence / Preview, Approve / Request Changes, role / responsibility / accountability, Instructions / Tools / Permissions, Need / Capability | Chinese meaning is primary; English is secondary or omitted when it adds no learning value. |
+| **Remove — not a learning objective** | mental model, bounded work, durable work, checkpoint, feature work, automated checks, multi-agent, planning discipline, glossary, capability gap, source of truth | Replace with plain Chinese; do not require the learner to acquire this extra jargon. |
+| **Translate when retained for technical orientation** | shell, sandbox, VM, browser, API, SaaS, Diff | Keep only where it helps recognize a real tool/system term, with Chinese meaning first. |
+
+This audit applies to **all learner-visible copy in Slides 1–18**, not only the Core. Future implementation must not reintroduce removed jargon.
 
 # #11 Acceptance check
 
