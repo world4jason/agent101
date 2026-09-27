@@ -59,6 +59,16 @@
   nextBtn.addEventListener('click', next);
   prevBtn.addEventListener('click', prev);
 
+  document.querySelectorAll('[data-jump]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = Number(button.dataset.jump);
+      if (!Number.isFinite(target) || target < 1 || target > slides.length) return;
+      index = target - 1;
+      fragments(slides[index]).forEach(x => x.classList.remove('visible'));
+      update();
+    });
+  });
+
   document.addEventListener('keydown', (e) => {
     if (['INPUT','TEXTAREA','SELECT','BUTTON'].includes(document.activeElement?.tagName)) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); next(); }
