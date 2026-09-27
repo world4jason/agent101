@@ -123,11 +123,11 @@ problem
 ## Slide 9 — 票：Ticket + AC 是工作契約
 
 - **Learner question:** 怎樣才算一張可以交給 Agent 的 Ticket？
-- **One takeaway:** Ticket 至少包含 Title / Goal / Scope / Non-goals / AC / Owner / Priority / Parent or Dependency / Evidence；AC 必須可觀察、可 Pass/Fail。
-- **Dominant visual:** 一張實際 Ticket，而不是欄位百科。
-- **Running example state:** #42「從喜歡的 LUT 找到相似 LUT」；AC 包含結果、empty state、390px behavior。
+- **One takeaway:** Ticket 至少包含 Title / Goal / Scope / Non-goals / AC / Owner / Priority / Parent or Dependency / Evidence；AC 必須可觀察、可 Pass/Fail。**Ticket 寫完整，不代表現在就應該做**：Human / PM 還要做 Priority / dependency check，確認價值、順序與 readiness。
+- **Dominant visual:** 一張實際 Ticket + 小型 gate：Ticket + AC → Priority / dependency check → Backlog。
+- **Running example state:** #42「從喜歡的 LUT 找到相似 LUT」；AC 包含結果、empty state、390px behavior；確認它目前沒有 blocker 且優先級足夠後才進 Backlog。
 - **Prerequisite:** Slide 8 bounded Task.
-- **Transition:** Ticket ready 之後，才進入工作狀態管理。
+- **Transition:** 通過 Priority / dependency gate 的 Ticket 才進 Backlog；下一頁只回答它進入執行後「現在在哪個狀態」。
 
 ## Slide 10 — 做：Kanban 只回答「現在在哪」
 
@@ -164,6 +164,20 @@ problem
 - **Running example state:** PR #71 修完 mobile AC → accepted → merged → deployed。
 - **Prerequisite:** Slide 12 review decision.
 - **Transition:** **Visible stop: Agent 101 Core complete.** 後面只在團隊 / 系統需要時再加。
+
+## Routing after Core
+
+The optional section must be truly skippable:
+
+```text
+Core-only / short session:
+13 → 18
+
+Full session:
+13 → 14 → 15 → 16 → 17 → 18
+```
+
+Slide 18 is therefore the closing summary for **both** routes.
 
 ---
 
