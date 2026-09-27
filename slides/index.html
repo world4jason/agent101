@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <title>Agent 101 — 管理一支 Human + Agent 團隊</title>
+  <title>Agent 101 — 想 → 拆 → 票 → 做 → 審 → 合</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -12,344 +12,332 @@
     <header class="topbar">
       <div class="brand">AGENT 101</div>
       <div class="section-rail" aria-label="課程章節">
-        <span data-section="define">01 定義工作</span>
-        <span data-section="manage">02 管理執行</span>
-        <span data-section="verify">03 驗收交付</span>
-        <span data-section="operate">04 Agent OS</span>
+        <span data-section="define">01 Agent</span>
+        <span data-section="manage">02 想・拆・票</span>
+        <span data-section="verify">03 做・審・合</span>
+        <span data-section="operate">04 人・能力</span>
       </div>
       <div class="counter"><span id="current">1</span> / <span id="total">1</span></div>
     </header>
 
     <div class="slides">
-      <section class="slide title-slide" data-section="define">
-        <div class="eyebrow">給 PM、營運、設計、行銷與非工程背景的人</div>
-        <div class="title-grid">
-          <div>
-            <h1>管理一支<br><span>Human + Agent</span> 團隊</h1>
-            <p class="lead">不是先學 prompt，也不是先學 Git 指令。<br>先學會把工作變成 <strong>可委派、可追蹤、可驗收、可交付</strong>。</p>
+      <section class="slide title-slide" data-section="define" data-structure="roadmap">
+        <div class="eyebrow">Agent 101 · Human + Agent 協作入門</div>
+        <h1>管 AI 專案，<br><span>本質是管工作</span></h1>
+        <p class="lead">不先學提示詞技巧，也不先背工具。先把工作變成 <strong>可委派、可追蹤、可驗收、可交付</strong>。</p>
+        <div class="roadmap roadmap-hero" aria-label="課程主線">
+          <div><span>01</span><b>想</b><small>先發散，再決定</small></div>
+          <div><span>02</span><b>拆</b><small>分出工作層級</small></div>
+          <div><span>03</span><b>票</b><small>寫清楚工作與完成條件</small></div>
+          <div><span>04</span><b>做</b><small>開始執行、看狀態</small></div>
+          <div><span>05</span><b>審</b><small>看證據、判斷是否通過</small></div>
+          <div><span>06</span><b>合</b><small>接受後合併 / 交付</small></div>
+        </div>
+        <div class="footer-note">這堂課只建立兩個核心觀念：<strong>Agent 怎麼持續工作；Human + Agent 怎麼把工作交付出去。</strong></div>
+      </section>
+
+      <section class="slide" data-section="define" data-structure="cycle">
+        <div class="eyebrow">Agent 是什麼？</div>
+        <h2>Agent = 有目標、能行動、會看結果、再繼續</h2>
+        <div class="bmad-loop agent-cycle">
+          <div class="bmad-node"><b>目標（Goal）</b><small>我要達成什麼？</small></div>
+          <div class="loop-arrow">→</div>
+          <div class="bmad-node fragment"><b>行動（Act）</b><small>做下一步</small></div>
+          <div class="loop-arrow fragment">→</div>
+          <div class="bmad-node fragment"><b>觀察（Observe）</b><small>看結果</small></div>
+          <div class="loop-arrow fragment">→</div>
+          <div class="bmad-node fragment"><b>繼續（Continue）</b><small>繼續、調整，或停下來問人</small></div>
+          <div class="loop-arrow fragment">↺</div>
+        </div>
+        <div class="example-trace fragment">
+          <b>LUT Gallery</b>
+          <span>LUT 可先理解成「調色預設」。「先檢查這個專案，找出使用者為什麼很難快速挑到喜歡的 LUT。先不要改。」</span>
+        </div>
+        <p class="bottom-callout">Agent 不是「更會聊天的模型」。它是能為了目標 <strong>行動 → 觀察 → 繼續</strong> 的 AI 工作者。</p>
+      </section>
+
+      <section class="slide" data-section="define" data-structure="compare">
+        <div class="eyebrow">怎麼開始？</div>
+        <h2>不用先找「Create Agent」；<br><span class="accent">直接從工作介面開始</span></h2>
+        <div class="final-three product-entry">
+          <div><span>CODING AGENT</span><b>Codex</b><p>開啟專案 → 說清楚要它先做什麼</p></div>
+          <div class="fragment"><span>CODING AGENT</span><b>Claude Code</b><p>進入專案 → 直接交付一個明確工作</p></div>
+          <div class="fragment"><span>MULTI-STEP WORK</span><b>ChatGPT Work</b><p>把需要多步驟完成的工作交出去</p></div>
+        </div>
+        <div class="example-trace fragment">
+          <b>同一段 LUT 任務</b>
+          <span>在專案工作介面輸入：<strong>「先檢查，不要直接改。」</strong> 需要指定程式碼位置時，再說「這個專案 / 程式碼資料夾」。</span>
+        </div>
+        <p class="bottom-callout">Agent 是一種工作能力，不一定是一個獨立按鈕。</p>
+      </section>
+
+      <section class="slide" data-section="define" data-structure="sequence">
+        <div class="eyebrow">為什麼它可以繼續做？</div>
+        <h2><span class="accent">LLM（Large Language Model，大型語言模型）</span>做這一步推理；<br>Agent/App 維持工作循環</h2>
+        <div class="deploy-flow runtime-flow">
+          <div class="deploy-node runtime-agent"><b>目前輸入</b><small>Current Input · 這一步需要的資訊</small></div>
+          <span>→</span>
+          <div class="deploy-node runtime-llm fragment"><b>LLM</b><small>判斷下一步</small></div>
+          <span class="fragment">→</span>
+          <div class="deploy-node fragment"><b>下一步輸出 / 工具請求</b></div>
+          <span class="fragment">→</span>
+          <div class="deploy-node fragment"><b>執行動作</b><small>Action</small></div>
+          <span class="fragment">→</span>
+          <div class="deploy-node runtime-observe fragment"><b>觀察結果</b><small>Observation</small></div>
+          <span class="fragment">↺</span>
+        </div>
+        <div class="example-trace fragment">
+          <b>同一個目標</b>
+          <span>Agent 讀專案 / 現有介面 → 發現「目前只能逐顆找 LUT」→ 把這個觀察結果帶進下一步</span>
+        </div>
+        <p class="bottom-callout">模型只對<strong>這一步拿到的工作脈絡（context）</strong>做推理。Agent/App 會把相關指令、檔案、查回來的資料、工具結果帶進下一輪；<strong>不代表每一輪都逐字重送全部歷史。</strong></p>
+      </section>
+
+      <section class="slide" data-section="define" data-structure="compare">
+        <div class="eyebrow">Agent 與執行環境</div>
+        <h2>Agent 決定下一步；<br><span class="accent">執行環境（Environment）決定動作在哪裡發生</span></h2>
+        <div class="two-lanes environment-lanes">
+          <div class="lane">
+            <div class="lane-title">本機（Local）</div>
+            <div class="big-question">你的電腦 / 專案 / 終端機（shell）</div>
+            <div class="ac-list"><div>直接使用本機專案</div><div>執行本機工具與測試</div><div>受本機憑證與權限限制</div></div>
           </div>
-          <div class="hero-orbit" aria-hidden="true">
-            <div class="orbit orbit-1"></div>
-            <div class="orbit orbit-2"></div>
-            <div class="hero-node human">HUMAN</div>
-            <div class="hero-node agent">AGENT</div>
-            <div class="hero-node system">SYSTEM</div>
+          <div class="lane fragment">
+            <div class="lane-title">雲端（Cloud）</div>
+            <div class="big-question">平台提供的隔離工作環境</div>
+            <div class="ac-list"><div>隔離環境（sandbox）</div><div>虛擬機（VM）/ 瀏覽器（browser）</div><div>受雲端授權與 approval 限制</div></div>
           </div>
         </div>
-        <div class="footer-note">Agent 是 worker；體系決定成果能不能被信任。</div>
+        <p class="bottom-callout"><strong>能用工具 ≠ 有操作權限（Permission）</strong>。看得到工具，不代表這次就可以直接修改、發送或部署。</p>
       </section>
 
-      <section class="slide" data-section="define">
-        <div class="eyebrow">先看全貌</div>
-        <h2>Agent 101 是四個系統，不是一條工具清單</h2>
-        <div class="system-map">
-          <article class="system-card define-card"><div class="num">01</div><h3>定義工作</h3><p>Goal → Requirement → AC / Examples → Ticket</p><small>把「我想要」變成別人做得懂的工作。</small></article>
-          <article class="system-card manage-card"><div class="num">02</div><h3>管理執行</h3><p>Kanban → Agent / Subagent → Git → PR</p><small>知道誰在做、做到哪、改了什麼。</small></article>
-          <article class="system-card verify-card"><div class="num">03</div><h3>驗收交付</h3><p>Checks → Preview → Evidence → Accept → Deploy</p><small>不相信一句 Done，要看證據。</small></article>
-          <article class="system-card operate-card"><div class="num">04</div><h3>Agent OS</h3><p>Skills → Context → SDD → BMAD</p><small>讓能力可重用，讓 context 不失控。</small></article>
+      <section class="slide" data-section="manage" data-structure="sequence">
+        <div class="eyebrow">想 · 腦力激盪（Brainstorm）</div>
+        <h2>先讓 AI 發散，<br><span class="accent">再由 Human 收斂</span></h2>
+        <div class="example-chip">RUNNING EXAMPLE · LUT Gallery</div>
+        <div class="brainstorm-flow">
+          <div class="brainstorm-step"><span>1</span><b>定義問題（Frame）</b><small>「挑 LUT 太慢，我想降低比較成本。」</small></div>
+          <div class="brainstorm-step fragment"><span>2</span><b>發散（Diverge）</b><div class="idea-chips"><i>找相似</i><i>自動分群</i><i>並排比較</i><i>搜尋改善</i></div></div>
+          <div class="brainstorm-step fragment"><span>3</span><b>挑戰 / 分群</b><small>哪些解同一個問題？哪些成本太高？哪些需要更多資料？</small></div>
+          <div class="brainstorm-step fragment"><span>4</span><b>收斂（Converge）</b><small>留下值得進一步比較的方案</small></div>
         </div>
+        <p class="bottom-callout">AI 幫你擴大選項；<strong>不要在發散階段就急著選答案。</strong></p>
       </section>
 
-      <section class="slide" data-section="define">
-        <div class="eyebrow">01 定義工作</div>
-        <h2>Agent 變強後，第一個問題反而是：<br><span class="accent">你到底要它完成什麼？</span></h2>
-        <div class="compare">
-          <div class="bad panel"><div class="panel-label">模糊委派</div><p class="quote">「幫我把搜尋做好一點。」</p><ul><li class="fragment">「好」是速度、準確率，還是 UI？</li><li class="fragment">哪一群使用者？</li><li class="fragment">什麼不能改？</li><li class="fragment">怎樣算完成？</li></ul></div>
-          <div class="good panel"><div class="panel-label">可委派工作</div><div class="stack"><span>Goal</span><span>Context</span><span>Scope</span><span>Non-goals</span><span>AC</span><span>Examples</span></div></div>
+      <section class="slide" data-section="manage" data-structure="decision">
+        <div class="eyebrow">想 → 做決策</div>
+        <h2>腦力激盪的結果不是正式工作；<br><span class="accent">先做決策</span></h2>
+        <div class="example-chip">RUNNING EXAMPLE · LUT Gallery</div>
+        <div class="two-lanes decision-lanes">
+          <div class="lane">
+            <div class="lane-title">候選方案</div>
+            <div class="ac-list"><div>找相似（Find Similar）</div><div>自動分群（Auto-group）</div><div>並排比較（Compare）</div><div>LUT Editor</div></div>
+          </div>
+          <div class="lane fragment">
+            <div class="lane-title">Human 決策準則</div>
+            <div class="criteria-list"><span>預期效益</span><span>成本</span><span>風險</span><span>可逆性</span><span>還需要什麼證據</span></div>
+            <div class="commit-box">採用 · Find Similar</div>
+            <div class="parking-box">暫放 · Auto-group / Compare / LUT Editor</div>
+          </div>
         </div>
+        <p class="bottom-callout"><strong>準則、取捨與最後決定都由 Human 負責。</strong>不是 AI 生很多方案，Human 就隨便挑一個。</p>
       </section>
 
-      <section class="slide" data-section="define">
-        <div class="eyebrow">Requirement / AC</div>
-        <h2>需求回答「為什麼與什麼」；AC 回答「做到哪裡算完成」</h2>
-        <div class="two-lanes">
-          <div class="lane"><div class="lane-title">Requirement</div><div class="big-question">我們要解決什麼問題？</div><div class="mini-cards"><span>誰</span><span>情境</span><span>問題</span><span>結果</span><span>限制</span></div></div>
-          <div class="lane"><div class="lane-title">Acceptance Criteria</div><div class="big-question">看到什麼，我才會說「可以」？</div><div class="ac-list"><div class="fragment">390px 手機寬度不出現水平捲軸</div><div class="fragment">搜尋無結果時顯示 Empty State</div><div class="fragment">重新整理後收藏狀態仍保留</div></div></div>
+      <section class="slide" data-section="manage" data-structure="hierarchy">
+        <div class="eyebrow">拆 · 工作層級</div>
+        <h2>先分工作層級，<br><span class="accent">再談它現在做到哪</span></h2>
+        <div class="example-chip">RUNNING EXAMPLE · LUT Gallery</div>
+        <div class="hierarchy-flow">
+          <div class="hierarchy-level h1-level"><span>Milestone｜里程碑 / 交付節點</span><b>降低挑 LUT 的認知負荷</b></div>
+          <div class="hierarchy-level h2-level fragment"><span>Epic｜主要能力 / 大主題</span><b>改善 LUT 探索</b></div>
+          <div class="hierarchy-level h3-level fragment"><span>Story｜使用者要得到的結果</span><b>從喜歡的 LUT 找到相似候選</b></div>
+          <div class="hierarchy-level h4-level fragment"><span>Task｜可以直接執行的工作</span><b>加入「找相似」入口 + 候選結果列表</b></div>
         </div>
-        <p class="bottom-callout">AC 要可觀察、可驗證、能 Pass / Fail；不要寫「好看、正常、考慮 edge case」。</p>
+        <p class="bottom-callout">工作層級回答：<strong>「它屬於哪一層？」</strong> 下一頁的工作狀態板才回答：<strong>「它現在在哪？」</strong></p>
       </section>
 
-      <section class="slide" data-section="define">
-        <div class="eyebrow">BDD / Example Mapping</div>
-        <h2>把「我以為你懂」變成具體例子</h2>
-        <div class="example-map">
-          <div class="story block"><strong>Story</strong><span>使用者可以收藏文章</span></div>
-          <div class="rule block fragment"><strong>Rule</strong><span>未登入不能直接收藏</span></div>
-          <div class="example block fragment"><strong>Example</strong><span>Given 未登入<br>When 按收藏<br>Then 要求登入</span></div>
-          <div class="question block fragment"><strong>Question</strong><span>登入後要不要自動完成剛才的收藏？</span></div>
-        </div>
-        <p class="bottom-callout">BDD 不等於 Given / When / Then 語法；核心是跨角色用具體例子建立 shared understanding。未知就是 Question，不要讓 Agent 自己把未知補成決策。</p>
-      </section>
-
-      <section class="slide" data-section="define">
-        <div class="eyebrow">Ticket</div>
-        <h2>Ticket 是「工作契約」，不是一句待辦</h2>
+      <section class="slide" data-section="manage" data-structure="checklist">
+        <div class="eyebrow">票 · 工作票（Ticket）+ 驗收條件（Acceptance Criteria）</div>
+        <h2>工作票要讓別人不用猜；<br><span class="accent">AC 要能明確通過 / 不通過</span></h2>
+        <div class="example-chip">RUNNING EXAMPLE · #42 找相似 LUT</div>
         <div class="ticket">
-          <div class="ticket-head"><span>#42</span><strong>從喜歡的 LUT 找到相似 LUT</strong><span class="status">READY</span></div>
-          <div class="ticket-body"><div><b>Goal</b><p>降低逐顆比較 LUT 的認知負荷。</p></div><div><b>Scope</b><p>現有 LUT 的相似候選；不做 LUT 編輯。</p></div><div><b>AC</b><p>點「找相似」後顯示候選；資料不足時要有明確狀態。</p></div><div><b>Evidence</b><p>Preview + mobile / desktop screenshot + checks。</p></div></div>
+          <div class="ticket-head"><span>#42</span><strong>從喜歡的 LUT 找到相似 LUT</strong></div>
+          <div class="ticket-body">
+            <div><b>目標（Goal）</b><p>降低使用者逐顆比較 LUT 的認知負荷。</p></div>
+            <div><b>範圍（Scope）</b><p>從既有 LUT 找相似候選。</p></div>
+            <div><b>明確不做（Non-goals）</b><p>不做 Auto-group；不做 LUT Editor。</p></div>
+            <div><b>負責人 / 優先順序 / 上層工作</b><p>Agent A · P1 · 改善 LUT 探索</p></div>
+            <div><b>驗收條件（AC）</b><p>① 點「找相似」後出現候選<br>② 資料不足時有空狀態<br>③ 390px 手機寬度沒有水平捲軸</p></div>
+            <div><b>驗收證據（Evidence）</b><p>可操作預覽 + 桌機 / 手機截圖 + 自動檢查</p></div>
+          </div>
+        </div>
+        <div class="gate-strip"><span>工作票 + AC</span><b>→</b><span class="active">優先順序 / 相依性檢查</span><b>→</b><span>待辦（Backlog）</span></div>
+        <p class="bottom-callout"><strong>AC = 可觀察、可明確通過 / 不通過的完成條件。</strong> <strong>Evidence = 審查時 reviewer 要實際檢查的證據。</strong> 工作票寫完整，<strong>不代表現在就應該做</strong>。</p>
+      </section>
+
+      <section class="slide" data-section="verify" data-structure="sequence">
+        <div class="eyebrow">做 · Kanban（工作狀態板）</div>
+        <h2>Kanban 是工作狀態板；<br><span class="accent">不要把它和工作層級混在一起</span></h2>
+        <div class="example-chip">RUNNING EXAMPLE · #42 找相似 LUT</div>
+        <div class="kanban">
+          <div class="col"><h4>待辦（Backlog）</h4><div class="card">#43 自動分群</div><div class="card">#44 並排比較</div></div>
+          <div class="col"><h4>進行中（Doing）<br>同時進行 1/2（WIP）</h4><div class="card agent-card">#42 找相似 LUT<br><small>Agent A</small></div></div>
+          <div class="col"><h4>審查（Review）</h4><div class="card muted-card">下一站：送審 + 驗收證據 + AC</div></div>
+          <div class="col"><h4>完成（Done）</h4><div class="card done">#38 Collection filter</div></div>
+        </div>
+        <p class="bottom-callout">核心流程 = <strong>待辦 → 進行中 → 審查 → 完成</strong>。審查也是正在進行的工作；每個工作者同時進行中的工作（WIP）：<strong>少於 2 件</strong>。</p>
+      </section>
+
+      <section class="slide" data-section="verify" data-structure="sequence">
+        <div class="eyebrow">做 · GitHub</div>
+        <h2>不用先背 Git 名詞；<br><span class="accent">看同一張 Ticket 怎麼一路交付</span></h2>
+        <div class="example-chip">RUNNING EXAMPLE · #42 找相似 LUT</div>
+        <div class="git-flow github-path">
+          <div class="git-node"><b>專案看板</b><span>Project · 看整體工作與狀態</span></div>
+          <div class="arrow">→</div>
+          <div class="git-node fragment"><b>工作票 #42</b><span>Issue · 工作契約 / AC</span></div>
+          <div class="arrow fragment">→</div>
+          <div class="git-node fragment"><b>工作分支</b><span>Branch · 隔離改動</span></div>
+          <div class="arrow fragment">→</div>
+          <div class="git-node fragment"><b>提交紀錄</b><span>Commit · 可追蹤的版本節點</span></div>
+          <div class="arrow fragment">→</div>
+          <div class="git-node fragment"><b>Pull Request（PR）#71</b><span>送審入口</span></div>
+        </div>
+        <p class="bottom-callout">PR 在這裡只有一個定義：<strong>送交審查 / 驗收的入口。</strong> 一般功能開發不要直接改 main（主分支）。</p>
+      </section>
+
+      <section class="slide" data-section="verify" data-structure="checklist">
+        <div class="eyebrow">審 · 審查 / 驗收（Review / Acceptance）</div>
+        <h2>Agent 說「完成」<br><span class="accent">只代表可以開始審查</span></h2>
+        <div class="example-chip">RUNNING EXAMPLE · PR #71</div>
+        <div class="pr-layout">
+          <div class="pr-card">
+            <div class="pr-title">PR #71 · 找相似 LUT</div>
+            <div class="pr-row"><b>驗收證據</b><span>可操作預覽 + 截圖 + 自動檢查 ✅</span></div>
+            <div class="pr-row"><b>AC 1</b><span>點「找相似」會出候選 ✅</span></div>
+            <div class="pr-row"><b>AC 2</b><span>資料不足有空狀態 ✅</span></div>
+            <div class="pr-row failure"><b>AC 3</b><span>390px 手機寬度沒有水平捲軸 ❌</span></div>
+            <div class="pr-row"><b>已知限制</b><span>尚未做自動分群；符合明確不做的範圍</span></div>
+          </div>
+          <div class="decision">
+            <div class="decision-question"><b>你會通過（Approve）嗎？</b><span>建置 / 測試都通過，但 AC 3 失敗。</span></div>
+            <div class="decision-option">通過（Approve）</div>
+            <div class="request-changes fragment">退回修改（Request Changes） ✓<small>一條已約定的 AC 失敗，就還不能過。</small></div>
+          </div>
+        </div>
+        <p class="bottom-callout">審查要看：<strong>驗收證據 + AC + 範圍 + 已知限制 + Human 決定</strong>。Agent 自己說完成、自動檢查通過，都不等於自動驗收。</p>
+      </section>
+
+      <section class="slide" data-section="verify" data-structure="sequence">
+        <div class="eyebrow">合 · 合併 / 上線（Merge / Deploy）</div>
+        <h2>被接受、合併（Merge）之後，<br><span class="accent">這張工作才真的完成</span></h2>
+        <div class="example-chip">RUNNING EXAMPLE · PR #71</div>
+        <div class="deploy-flow merge-flow">
+          <div class="deploy-node">審查</div><span>→</span>
+          <div class="deploy-node human-node fragment">Human 接受</div><span class="fragment">→</span>
+          <div class="deploy-node prod-node fragment">合併（Merge）</div><span class="fragment">→</span>
+          <div class="deploy-node fragment">完成（Done）</div><span class="fragment">→</span>
+          <div class="deploy-node preview-node fragment">部署 / 發布</div>
+        </div>
+        <div class="example-trace fragment core-closure">
+          <b>LUT Gallery · PR #71</b>
+          <span>PR #71 修完手機版 AC → Human 接受 → 合併 → GitHub Pages 更新</span>
+        </div>
+        <div class="core-stop fragment">
+          <span>AGENT 101 核心課程完成</span>
+          <b>到這裡，你已經能跑一個小型「人 + Agent」專案。</b>
+          <p>想 → 拆 → 票 → 做 → 審 → 合</p>
+          <div class="core-actions">
+            <button type="button" class="jump-button" data-jump="18">直接看總結 →</button>
+            <small>或繼續 Slides 14–17：角色 / Subagent / 能力地圖</small>
+          </div>
         </div>
       </section>
 
-      <section class="slide" data-section="manage">
-        <div class="eyebrow">02 管理執行</div>
-        <h2>Kanban 的價值不是「排漂亮」，而是把工作狀態外部化</h2>
-        <div class="kanban"><div class="col"><h4>BACKLOG</h4><div class="card">#45 Search ranking</div><div class="card">#46 Share link</div></div><div class="col"><h4>READY</h4><div class="card highlight">#42 Similar LUT</div></div><div class="col"><h4>IN PROGRESS</h4><div class="card agent-card fragment">#40 Mobile layout<br><small>Agent A</small></div></div><div class="col"><h4>REVIEW</h4><div class="card fragment">#39 Empty state<br><small>PR #71</small></div></div><div class="col"><h4>DONE</h4><div class="card done fragment">#38 Collection filter</div></div></div>
-        <p class="bottom-callout">Agent 說「做完」只代表可以進 Review，不代表直接 Done。</p>
-      </section>
-
-      <section class="slide" data-section="manage">
-        <div class="eyebrow">Subagent</div>
-        <h2>Subagent 是獨立 context 的專責 worker：適合隔離研究、實作、Review、QA</h2>
-        <div class="gates">
-          <div class="gate"><span>1</span><b>Planner</b><small>拆需求、列風險、問問題。</small></div>
-          <div class="gate fragment"><span>2</span><b>Builder</b><small>只做明確 ticket，不擴大 scope。</small></div>
-          <div class="gate fragment"><span>3</span><b>Reviewer</b><small>對照 AC，找缺漏與 scope creep。</small></div>
-          <div class="gate fragment"><span>4</span><b>QA</b><small>跑 scenario、edge case、regression。</small></div>
+      <section class="slide" data-section="operate" data-structure="relation">
+        <div class="eyebrow">選修 · Human 角色</div>
+        <h2>先定 Human 的責任；<br><span class="accent">再談 Agent 可以扮演什麼角色</span></h2>
+        <div class="roles-grid">
+          <div><span>PM｜產品 / 專案負責人</span><b>目標 · 優先順序 · 範圍 · AC · 驗收</b></div>
+          <div class="fragment"><span>UI/UX｜介面 / 體驗設計</span><b>使用者流程 · 狀態 · 互動 · 視覺規格</b></div>
+          <div class="fragment"><span>FE｜前端</span><b>介面 · 前端行為 · 串接</b></div>
+          <div class="fragment"><span>BE｜後端</span><b>API · 資料 · 權限驗證 · 商業邏輯</b></div>
+          <div class="fragment"><span>Reviewer / QA</span><b>審查 / 品質驗證 · 獨立驗證</b></div>
         </div>
+        <p class="bottom-callout">Agent 可以做某個角色的工作；<strong>Human 的最終責任不會因為用了 Agent 就消失。</strong></p>
       </section>
 
-      <section class="slide" data-section="manage">
-        <div class="eyebrow">Skill vs Subagent</div>
-        <h2>Skill 是能力模組；Subagent 是職務角色</h2>
-        <div class="two-lanes">
-          <div class="lane"><div class="lane-title">Skill</div><div class="big-question">這類事情通常怎麼做？</div><div class="ac-list"><div>投影片 skill</div><div>PR evidence skill</div><div>Survey skill</div></div></div>
-          <div class="lane"><div class="lane-title">Subagent</div><div class="big-question">哪個獨立 worker / context 來做？</div><div class="ac-list"><div>可有自己的 prompt / tools / context</div><div>可做 Planner / Researcher / Builder</div><div>也可做 Reviewer / QA</div></div></div>
-        </div>
-        <p class="bottom-callout">Skill 解決「方法重用」；Subagent 解決「隔離工作與 context」。角色只是 Subagent 的常見用法之一。</p>
-      </section>
-
-      <section class="slide" data-section="manage">
-        <div class="eyebrow">Git / GitHub</div>
-        <h2>非工程師只要先懂四個動作</h2>
-        <div class="git-flow"><div class="git-node"><b>Branch</b><span>不碰正式版本的工作線</span></div><div class="arrow">→</div><div class="git-node fragment"><b>Commit</b><span>可追蹤的 checkpoint</span></div><div class="arrow fragment">→</div><div class="git-node fragment"><b>Pull Request</b><span>送交驗收</span></div><div class="arrow fragment">→</div><div class="git-node fragment"><b>Merge</b><span>正式採用</span></div></div>
-        <div class="branch-viz"><div class="mainline">main <span></span><span></span><span></span><span></span></div><div class="featureline">feature/42 <span></span><span></span><span></span></div></div>
-      </section>
-
-      <section class="slide" data-section="manage">
-        <div class="eyebrow">開發流程</div>
-        <h2>開發不是「丟給 AI」；是 Gate by Gate 推進</h2>
-        <div class="deploy-flow"><div class="deploy-node">Goal</div><span>→</span><div class="deploy-node">Spec / AC</div><span>→</span><div class="deploy-node">Ticket</div><span>→</span><div class="deploy-node fragment">Builder</div><span class="fragment">→</span><div class="deploy-node fragment">PR</div><span class="fragment">→</span><div class="deploy-node fragment">Review</div></div>
-        <div class="tool-strip"><span>Ready to Build</span><span>Ready for Review</span><span>Ready to Merge</span></div>
-      </section>
-
-      <section class="slide" data-section="verify">
-        <div class="eyebrow">03 驗收交付</div>
-        <h2>非技術的人，不需要證明「code 寫得漂亮」</h2>
-        <p class="lead">你要證明的是：<strong>產品行為符合事先約定的需求。</strong></p>
-        <div class="gates"><div class="gate"><span>1</span><b>Delivery</b><small>有 PR / Preview / Evidence 嗎？</small></div><div class="gate fragment"><span>2</span><b>Mechanical</b><small>Build / Test / Security checks 過了嗎？</small></div><div class="gate fragment"><span>3</span><b>Behaviour</b><small>逐條操作 AC / Scenario。</small></div><div class="gate fragment"><span>4</span><b>Product</b><small>真的解決問題嗎？</small></div></div>
-      </section>
-
-      <section class="slide" data-section="verify">
-        <div class="eyebrow">Evidence Pack</div>
-        <h2>不要相信一句「Done」；要求可以獨立檢查的證據</h2>
-        <div class="evidence-grid"><div class="evidence"><b>What / Why</b><span>改了什麼、對應哪個問題</span></div><div class="evidence fragment"><b>AC Checklist</b><span>逐條 Pass / Fail</span></div><div class="evidence fragment"><b>Preview</b><span>Reviewer 自己操作</span></div><div class="evidence fragment"><b>Visual</b><span>Before / After / Mobile</span></div><div class="evidence fragment"><b>Automated</b><span>Build / Test / Checks</span></div><div class="evidence fragment"><b>Limits</b><span>哪些還沒做、有哪些風險</span></div></div>
-      </section>
-
-      <section class="slide" data-section="verify">
-        <div class="eyebrow">驗收流程</div>
-        <h2>驗收流程：先看可交付物，再看行為，最後看產品判斷</h2>
-        <div class="deploy-flow"><div class="deploy-node">PR</div><span>→</span><div class="deploy-node">Evidence</div><span>→</span><div class="deploy-node preview-node fragment">Preview</div><span class="fragment">→</span><div class="deploy-node human-node fragment">AC / Scenario</div><span class="fragment">→</span><div class="deploy-node prod-node fragment">Approve</div></div>
-        <p class="bottom-callout">Test 全綠但 Preview 行為不對，仍然不能過。</p>
-      </section>
-
-      <section class="slide" data-section="verify">
-        <div class="eyebrow">Preview → Production</div>
-        <h2>Agent 做完，不等於直接上線</h2>
-        <div class="deploy-flow"><div class="deploy-node">Ticket</div><span>→</span><div class="deploy-node">Agent</div><span>→</span><div class="deploy-node">PR</div><span>→</span><div class="deploy-node preview-node fragment">Preview</div><span class="fragment">→</span><div class="deploy-node human-node fragment">Human Accept</div><span class="fragment">→</span><div class="deploy-node prod-node fragment">Production</div></div>
-        <div class="tool-strip"><span>GitHub Pages</span><span>Vercel</span><span>Supabase</span><span>Cloudflare</span></div>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">04 Agent Operating System</div>
-        <h2>Agent 真正會失控的地方，通常不是模型不夠聰明</h2>
-        <div class="problem-cards"><div class="problem"><b>做事方法每次重講</b><span>需要 Skills</span></div><div class="problem fragment"><b>自己做自己驗</b><span>需要獨立 Reviewer：Human / CI / Subagent</span></div><div class="problem fragment"><b>Context 越堆越長</b><span>需要 Context Management</span></div><div class="problem fragment"><b>大型工作沒有制度</b><span>需要 SDD / BMAD</span></div></div>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">Skills</div>
-        <h2>Prompt 是「這次做什麼」；Skill 是「這類事情怎麼做」</h2>
-        <div class="skill-diagram"><div class="prompt-box">Prompt<br><small>幫我做這份投影片</small></div><div class="plus">+</div><div class="skill-box fragment">Slide Skill<br><small>版型、視覺化、檢查、輸出 SOP</small></div><div class="equals fragment">=</div><div class="result-box fragment">可重複的能力</div></div>
-        <p class="bottom-callout">不要把所有 SOP 永久塞進一個超長 Prompt；需要時才載入相關 Skill。</p>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">工具 / 方法資源地圖</div>
-        <h2>不是全部都是 Skill：先看它位在哪一層</h2>
-        <div class="evidence-grid">
-          <div class="evidence"><b>Spec Kit</b><span>GitHub 的 SDD toolkit：Specify → Plan → Tasks → Implement → Converge</span></div>
-          <div class="evidence fragment"><b>Superpowers</b><span>obra/superpowers：由 composable skills 組成的完整開發方法，含 planning、TDD、subagent review</span></div>
-          <div class="evidence fragment"><b>/grill-me</b><span>Matt Pocock：讓 Agent 反過來訪談你，把 plan / design 的分支問清楚；不是 adversarial code review</span></div>
-          <div class="evidence fragment"><b>Caveman</b><span>JuliusBrussee/caveman：Skill 壓縮 Agent 的輸出文字；Proxy 才處理 Agent 讀入的 tool / log 等內容</span></div>
-          <div class="evidence fragment"><b>RTK</b><span>Rust Token Killer：CLI proxy / hook，過濾 shell command output；「最高 90%」指 Bash output，不是整體帳單</span></div>
-          <div class="evidence fragment"><b>i-have-adhd</b><span>ayghri/i-have-adhd：action-first、編號步驟、抑制岔題的輸出格式 Skill；作者明確寫 no diagnosis needed</span></div>
-        </div>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">Matt Pocock Skills</div>
-        <h2>另一條路：不要讓 framework 接管全部流程，把工程紀律拆成小 Skill</h2>
-        <div class="evidence-grid">
-          <div class="evidence"><b>/grill-with-docs</b><span>需求釐清 + shared language + CONTEXT.md / ADR</span></div>
-          <div class="evidence fragment"><b>/to-spec → /to-tickets</b><span>把討論變成 spec，再拆成可執行 tickets</span></div>
-          <div class="evidence fragment"><b>/implement</b><span>依 spec 實作，串接 TDD 與 code review</span></div>
-          <div class="evidence fragment"><b>/tdd</b><span>Red → Green → Refactor feedback loop</span></div>
-          <div class="evidence fragment"><b>/code-review</b><span>Standards / Spec 兩軸，平行 subagents review</span></div>
-          <div class="evidence fragment"><b>/handoff / wayfinder</b><span>跨 session 交接與超大型工作的 external state</span></div>
-        </div>
-        <p class="bottom-callout">Skill 是能力積木；workflow 是把積木串起來。來源：github.com/mattpocock/skills</p>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">一個可組合的流程</div>
-        <h2>從模糊想法到可驗收交付，可以是一串 Skills</h2>
-        <div class="deploy-flow">
-          <div class="deploy-node">grill-with-docs</div><span>→</span>
-          <div class="deploy-node fragment">to-spec</div><span class="fragment">→</span>
-          <div class="deploy-node fragment">to-tickets</div><span class="fragment">→</span>
-          <div class="deploy-node fragment">implement</div><span class="fragment">→</span>
-          <div class="deploy-node fragment">tdd + code-review</div>
-        </div>
-        <div class="tool-strip">
-          <span>shared language</span><span>durable context</span><span>small feedback loops</span><span>independent review</span>
-        </div>
-        <p class="bottom-callout">注意名稱：Matt Pocock 現行 repo 是 /to-spec、/to-tickets、/diagnosing-bugs，不是 /to-prd、/to-issues、/diagnose。</p>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">AI 的能力從哪裡來？</div>
-        <h2>Skill、Web Search、RAG、MCP 是四個不同層次</h2>
-        <div class="system-map">
-          <article class="system-card define-card"><div class="num">KNOW-HOW</div><h3>Skill</h3><p>教它「這類事情怎麼做」</p><small>SOP、workflow、examples、scripts。</small></article>
-          <article class="system-card manage-card"><div class="num">FRESH INFO</div><h3>Web Search</h3><p>去公開網路查最新資訊</p><small>新聞、版本、價格、官方文件。</small></article>
-          <article class="system-card verify-card"><div class="num">YOUR KNOWLEDGE</div><h3>RAG</h3><p>先從指定知識庫找資料，再回答</p><small>公司文件、產品知識、歷史 tickets。</small></article>
-          <article class="system-card operate-card"><div class="num">CONNECTION</div><h3>MCP</h3><p>讓 AI 用共同協定連外部工具 / 資料</p><small>Tools、Resources、Prompts；不是搜尋引擎。</small></article>
-        </div>
-        <p class="bottom-callout">記法：Skill = Know-how；Search = Fresh public info；RAG = Retrieval；MCP = Connection。</p>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">它們可以一起工作</div>
-        <h2>不是四選一，而是組成 Agent 的不同零件</h2>
-        <div class="context-layout">
+      <section class="slide" data-section="operate" data-structure="relation">
+        <div class="eyebrow">選修 · Subagent</div>
+        <h2>Subagent 不是另一種資料來源；<br><span class="accent">它是另一個專責工作者 / 工作脈絡</span></h2>
+        <div class="context-layout subagent-layout">
           <div class="context-window">
             <div class="window-head">MAIN AGENT</div>
-            <div class="token">Skill：研究 SOP</div>
-            <div class="token fragment">Search：公開網路</div>
-            <div class="token fragment">MCP：GitHub / CRM / DB</div>
-            <div class="token fragment">RAG：公司知識庫</div>
+            <div class="token">#42 工作票</div>
+            <div class="token">實作工作脈絡</div>
+            <div class="token">工具 / 權限</div>
+            <div class="delegation-arrow">交給專責工作者 →</div>
           </div>
-          <div class="source-truth">
-            <div class="source-title">問題分工</div>
-            <div>怎麼做？ → Skill</div>
-            <div>外面現在怎樣？ → Web Search</div>
-            <div>自己的資料有什麼？ → RAG</div>
-            <div>怎麼接外部系統？ → MCP</div>
-          </div>
-        </div>
-        <p class="bottom-callout">RAG 不等於 Vector DB；MCP 也不等於 RAG。MCP 可以只是把一個 RAG search tool 暴露給 Agent。</p>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">ChatGPT 外掛 / Apps / Connectors</div>
-        <h2>Plugin 是產品層整合：把你的 App 與帳號接進 ChatGPT</h2>
-        <div class="system-map">
-          <article class="system-card define-card"><div class="num">KNOW-HOW</div><h3>Skill</h3><p>教 AI 怎麼做</p><small>SOP / workflow / examples。</small></article>
-          <article class="system-card manage-card"><div class="num">INTEGRATION</div><h3>Plugin</h3><p>把 Gmail、Drive、GitHub、Slack…接進 ChatGPT</p><small>可提供資料，也可能提供 actions。</small></article>
-          <article class="system-card verify-card"><div class="num">PROTOCOL</div><h3>MCP</h3><p>外部工具與資料的共同連接標準</p><small>不是每個 Plugin 都等於 MCP Server。</small></article>
-          <article class="system-card operate-card"><div class="num">KNOWLEDGE</div><h3>RAG</h3><p>先 retrieval，再用找到的 context 回答</p><small>Plugin 可以參與 RAG，但兩者不是同一件事。</small></article>
-        </div>
-        <p class="bottom-callout">記法：Skill = Know-how；Plugin = App integration；MCP = Protocol；RAG = Retrieval pattern。</p>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">Plugin 最重要的是權限</div>
-        <h2>AI 從「查資料」進化到「幫你做事」時，Approval Gate 更重要</h2>
-        <div class="two-lanes">
-          <div class="lane">
-            <div class="lane-title">READ</div>
-            <div class="big-question">幫我查</div>
-            <div class="ac-list"><div>讀 Gmail / Drive</div><div>查 Calendar</div><div>看 GitHub issue / PR</div></div>
-          </div>
-          <div class="lane">
-            <div class="lane-title">WRITE / ACTION</div>
-            <div class="big-question">幫我改</div>
-            <div class="ac-list"><div>寄信 / 建草稿</div><div>新增事件</div><div>建 PR / deploy / 更新 task</div></div>
+          <div class="source-truth fragment">
+            <div class="source-title">REVIEWER SUBAGENT</div>
+            <div>角色：Reviewer</div>
+            <div>工作票：#42 找相似 LUT</div>
+            <div>邊界：不改程式碼，只驗 AC</div>
+            <div>工具：可操作預覽 · 測試 · 差異（Diff）</div>
+            <div>驗收：交付獨立的通過 / 不通過證據</div>
           </div>
         </div>
-        <p class="bottom-callout">外行人不用懂 OAuth，但一定要懂：讀取和修改不是同一個風險層級；高影響操作要有人類確認。</p>
+        <div class="assignment-formula">角色 + 工作票 + 邊界 + 工具 + 驗收條件</div>
+        <p class="bottom-callout">需要專業分工、獨立審查或隔離工作脈絡時再用。<strong>不要為了「看起來像多 Agent」而先拆人。</strong></p>
       </section>
 
-            <section class="slide" data-section="operate">
-        <div class="eyebrow">再加上 Subagent</div>
-        <h2>Subagent 是「另一個 worker」，不是另一種資料來源</h2>
-        <div class="gates">
-          <div class="gate"><span>1</span><b>Research</b><small>Web Search：找公開、最新資料。</small></div>
-          <div class="gate fragment"><span>2</span><b>Knowledge</b><small>RAG：查公司 / 專案知識庫。</small></div>
-          <div class="gate fragment"><span>3</span><b>Operator</b><small>MCP：操作 GitHub、CRM、DB、SaaS。</small></div>
-          <div class="gate fragment"><span>4</span><b>Reviewer</b><small>Skill + AC：獨立驗收成果。</small></div>
+      <section class="slide" data-section="operate" data-structure="hierarchy">
+        <div class="eyebrow">選修 · Agent 架構</div>
+        <h2>後面的能力都只是插回五個位置；<br><span class="accent">Agent loop 沒有換一套</span></h2>
+        <div class="architecture-grid">
+          <div><span>01</span><b>指令（Instructions）</b><small>專案規則 / Skills<br><em>例：AGENTS.md · CLAUDE.md</em></small></div>
+          <div class="fragment"><span>02</span><b>工作脈絡（Context）</b><small>目前工作 / 檔案 / 查回來的專案知識<br><em>例：可選的產品記憶（Memory）</em></small></div>
+          <div class="fragment"><span>03</span><b>工具（Tools）</b><small>可以呼叫的外部能力<br><em>例：內建工具 · Web Search · MCP · Connectors</em></small></div>
+          <div class="fragment"><span>04</span><b>執行環境（Environment）</b><small>動作在哪裡執行<br><em>例：本機 · 雲端隔離環境</em></small></div>
+          <div class="fragment"><span>05</span><b>權限（Permissions）</b><small>哪些讀取 / 修改 / 執行需要 Human 確認</small></div>
         </div>
-        <p class="bottom-callout">初階只需要理解這張分工圖；MCP protocol、embedding、chunking、reranking 放進進階。</p>
+        <p class="bottom-callout">回想 Slide 4：<strong>輸入 → LLM → 動作 → 觀察結果</strong>。產品記憶可以提供工作脈絡；<strong>它不是專案的正式依據。</strong></p>
       </section>
 
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">Context</div>
-        <h2>Context 是工作記憶，不是永久資料庫</h2>
-        <div class="context-layout"><div class="context-window"><div class="window-head">CURRENT CONTEXT</div><div class="token fragment">Goal</div><div class="token fragment">Current Ticket</div><div class="token fragment">Relevant Code</div><div class="token fragment">AC</div><div class="token fragment">Recent Evidence</div></div><div class="source-truth"><div class="source-title">DURABLE SOURCE OF TRUTH</div><div>Spec / Docs</div><div>Git / Commits</div><div>Issue / Kanban</div><div>PR / Review</div></div></div>
-        <p class="bottom-callout">目標不是「Agent 永遠記得」；而是「Agent 忘了也能重新接手」。</p>
+      <section class="slide" data-section="operate" data-structure="relation">
+        <div class="eyebrow">選修 · 能力地圖</div>
+        <h2>不要先把工具裝滿；<br><span class="accent">先問你缺什麼能力</span></h2>
+        <div class="capability-map">
+          <div><span>每次都要照同一套方法？</span><b>→ Skill｜可重用工作方法</b></div>
+          <div class="fragment"><span>要找公司 / 專案私有知識？</span><b>→ RAG｜先檢索，再回答</b></div>
+          <div class="fragment"><span>要接外部工具 / 資料介面？</span><b>→ MCP｜外部能力連接協定</b></div>
+          <div class="fragment"><span>要把 SaaS / 帳號能力接進產品？</span><b>→ Connector / Plugin｜產品整合</b></div>
+          <div class="fragment"><span>要隔離專責工作者 / 工作脈絡？</span><b>→ Subagent｜獨立工作者 / 工作脈絡</b></div>
+          <div class="fragment"><span>大型交付需要更完整的規格 / 規劃方法？</span><b>→ SDD / BMAD｜大型交付方法</b></div>
+        </div>
+        <p class="bottom-callout">這不是名詞表。<strong>先遇到能力缺口，再加工具 / 方法。</strong></p>
       </section>
 
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">Compact</div>
-        <h2>Compact 是摘要，不是無損壓縮</h2>
-        <div class="compact-viz"><div class="long-chat"><span>Requirement</span><span>Decision</span><span>logs</span><span>edge case</span><span>tool output</span><span>discussion</span><span>open question</span></div><div class="compress fragment">COMPACT</div><div class="summary fragment"><b>Summary</b><p>主要決策保留，但細節可能遺失或被重述。</p></div></div>
-        <div class="compact-check fragment">Compact 前先寫回：<strong>Decision · Current State · Evidence · Open Questions · Next Action</strong></div>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">Better Pattern</div>
-        <h2>External State + Fresh Bounded Execution</h2>
-        <div class="loop-flow"><div>Durable Goal / Spec</div><span>↓</span><div>Current Ticket + AC</div><span>↓</span><div class="active-node">Fresh Context</div><span>↓</span><div>Execute / Verify</div><span>↓</span><div>Write Back State + Evidence</div><span>↺</span></div>
-        <p class="bottom-callout">每一次 execution 可以短；專案 state 必須長久存在。每次從 Goal + AC re-anchor。</p>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">Method Map</div>
-        <h2>BDD、TDD、SDD、BMAD 不在同一層</h2>
-        <div class="method-stack"><div class="method m1"><b>BDD / Examples</b><span>具體行為與 shared understanding</span></div><div class="method m2"><b>TDD</b><span>先測試，再用實作讓測試通過</span></div><div class="method m3"><b>SDD / Spec Kit</b><span>what / why → plan → tasks → implement</span></div><div class="method m4"><b>BMAD</b><span>clarify → plan → build → verify 的交付體系</span></div><div class="method m5"><b>GitHub / PR</b><span>執行、紀錄、審查、驗收、發布</span></div></div>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">SDD · Spec-Driven Development</div>
-        <h2>先把 What / Why 說清楚，再決定 How</h2>
-        <div class="sdd-flow"><div class="sdd-step">SPECIFY<small>what / why</small></div><span>→</span><div class="sdd-step fragment">PLAN<small>how / risks</small></div><span class="fragment">→</span><div class="sdd-step fragment">TASKS<small>bounded work</small></div><span class="fragment">→</span><div class="sdd-step fragment">IMPLEMENT<small>execute</small></div><span class="fragment">→</span><div class="sdd-step fragment">CONVERGE<small>verify</small></div></div>
-        <div class="three-levels"><div><b>SDD</b><span>Feature 應該成為什麼？</span></div><div><b>AC</b><span>做到哪裡算完成？</span></div><div><b>BDD</b><span>具體情境下看到什麼行為？</span></div></div>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">BMAD</div>
-        <h2>BMAD：Clarify → Plan → Build & Verify → Learn / Adjust</h2>
-        <div class="bmad-loop"><div class="bmad-node">CLARIFY<small>問題是什麼</small></div><div class="loop-arrow">→</div><div class="bmad-node fragment">PLAN<small>需要多少規劃</small></div><div class="loop-arrow fragment">→</div><div class="bmad-node fragment">BUILD & VERIFY<small>實作與驗證</small></div><div class="loop-arrow fragment">→</div><div class="bmad-node fragment">LEARN / ADJUST<small>把學到的帶回下一輪</small></div></div>
-        <div class="bmad-principles"><div class="fragment"><b>Right-sized process</b><span>小改動不要 20 頁 PRD</span></div><div class="fragment"><b>Durable context</b><span>決策留下來，不靠聊天記憶</span></div><div class="fragment"><b>Specialized perspectives</b><span>產品、UX、架構、測試看不同問題</span></div></div>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">普通人 × AI</div>
-        <h2>普通人最需要的不是 prompt 技巧，而是工作定義能力</h2>
-        <div class="final-three"><div><span>01</span><b>講目的</b><p>不要只下指令；先說你想改善什麼。</p></div><div class="fragment"><span>02</span><b>講限制</b><p>Scope / Non-goals 比想像中重要。</p></div><div class="fragment"><span>03</span><b>要證據</b><p>Preview、AC、Evidence 比「Done」可靠。</p></div></div>
-      </section>
-
-      <section class="slide" data-section="operate">
-        <div class="eyebrow">End-to-End</div>
-        <h2>最後，整套 Agent 101 只是在回答三個問題</h2>
-        <div class="final-three"><div><span>01</span><b>你要什麼？</b><p>Goal · Requirement · AC · Examples · Spec</p></div><div class="fragment"><span>02</span><b>現在做到哪？</b><p>Ticket · Kanban · Git · Context · Skills</p></div><div class="fragment"><span>03</span><b>你怎麼知道真的好了？</b><p>PR · Checks · Preview · Evidence · Human Acceptance</p></div></div>
-        <div class="final-line fragment">不是追求「最會寫 code 的 Agent」，而是建立「可以放心委派工作的系統」。</div>
-      </section>
-
-      <section class="slide sources-slide" data-section="operate">
-        <div class="eyebrow">Reference</div>
-        <h2>延伸閱讀</h2>
-        <div class="sources"><a href="https://github.com/anthropics/skills">Anthropic Skills — reusable Agent Skills examples</a><a href="https://github.com/modelcontextprotocol/modelcontextprotocol">Model Context Protocol — official spec and docs</a><a href="https://github.com/openai/openai-cookbook">OpenAI Cookbook — retrieval / RAG examples</a><a href="https://github.com/mattpocock/skills">Matt Pocock Skills — small, composable engineering skills</a><a href="https://github.com/obra/superpowers">Superpowers — complete dev methodology built from composable skills</a><a href="https://github.com/JuliusBrussee/caveman">Caveman — terse output skill + optional read-side proxy</a><a href="https://github.com/rtk-ai/rtk">RTK — CLI output filtering proxy</a><a href="https://github.com/ayghri/i-have-adhd">i-have-adhd — action-first response-format skill</a><a href="https://agentskills.io/">Agent Skills specification</a><a href="https://github.com/github/spec-kit">GitHub Spec Kit — Spec-Driven Development</a><a href="https://github.com/bmad-code-org/BMAD-METHOD">BMad Method — Agile AI Driven Development</a><a href="../docs/11-skills-subagents-and-workflows.md">Agent 101 — Skills / Subagents / Workflows</a><a href="../docs/12-methods-and-resource-survey.md">Agent 101 — Methods & Resource Survey</a></div>
-        <div class="end-mark">AGENT 101</div>
+      <section class="slide" data-section="operate" data-structure="roadmap">
+        <div class="eyebrow">重點整理</div>
+        <h2>最後只記：<br><span class="accent">想 → 拆 → 票 → 做 → 審 → 合</span></h2>
+        <div class="roadmap final-roadmap">
+          <div><span>01</span><b>想</b><small>AI 發散，Human 決定</small></div>
+          <div><span>02</span><b>拆</b><small>把大方向拆成可執行工作</small></div>
+          <div><span>03</span><b>票</b><small>目標 · 範圍 · AC · 驗收證據</small></div>
+          <div><span>04</span><b>做</b><small>低同時進行量（WIP）· 範圍清楚的工作 · GitHub</small></div>
+          <div><span>05</span><b>審</b><small>PR · 驗收證據 · AC · Human 審查</small></div>
+          <div><span>06</span><b>合</b><small>接受 → 合併 → 完成 / 上線</small></div>
+        </div>
+        <div class="example-trace final-trace"><b>LUT Gallery #42</b><span>挑 LUT 太慢 → 找相似 → #42 Ticket → PR #71 → AC 審查 → 合併</span></div>
+        <div class="tool-strip" aria-label="起步工具參考">
+          <span>靜態網站 / Demo · GitHub Pages</span>
+          <span>後端 / 資料庫 / 登入 · Supabase</span>
+          <span>產品分析 · PostHog</span>
+          <span>網域 / 網路加速 · Cloudflare</span>
+          <span>系統通知信 · Resend</span>
+        </div>
+        <div class="final-line">不是追求「最會寫程式碼的 Agent」，而是建立「可以放心委派工作的系統」。</div>
       </section>
     </div>
 

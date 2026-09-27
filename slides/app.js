@@ -7,6 +7,7 @@
   const nextBtn = document.getElementById('next');
   const rails = Array.from(document.querySelectorAll('.section-rail [data-section]'));
   let index = 0;
+  let jumpOrigin = null;
 
   totalEl.textContent = slides.length;
 
@@ -49,6 +50,13 @@
       visible[visible.length - 1].classList.remove('visible');
       return;
     }
+    if (jumpOrigin !== null) {
+      index = jumpOrigin;
+      jumpOrigin = null;
+      fragments(slides[index]).forEach(x => x.classList.add('visible'));
+      update();
+      return;
+    }
     if (index > 0) {
       index -= 1;
       fragments(slides[index]).forEach(x => x.classList.add('visible'));
@@ -59,12 +67,24 @@
   nextBtn.addEventListener('click', next);
   prevBtn.addEventListener('click', prev);
 
+  document.querySelectorAll('[data-jump]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = Number(button.dataset.jump);
+      if (!Number.isFinite(target) || target < 1 || target > slides.length) return;
+      jumpOrigin = index;
+      index = target - 1;
+      fragments(slides[index]).forEach(x => x.classList.remove('visible'));
+      button.blur();
+      update();
+    });
+  });
+
   document.addEventListener('keydown', (e) => {
     if (['INPUT','TEXTAREA','SELECT','BUTTON'].includes(document.activeElement?.tagName)) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); next(); }
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
-    else if (e.key === 'Home') { e.preventDefault(); index = 0; update(); }
-    else if (e.key === 'End') { e.preventDefault(); index = slides.length - 1; fragments(slides[index]).forEach(x => x.classList.add('visible')); update(); }
+    else if (e.key === 'Home') { e.preventDefault(); jumpOrigin = null; index = 0; update(); }
+    else if (e.key === 'End') { e.preventDefault(); jumpOrigin = null; index = slides.length - 1; fragments(slides[index]).forEach(x => x.classList.add('visible')); update(); }
   });
 
   const hash = Number(location.hash.replace('#',''));
