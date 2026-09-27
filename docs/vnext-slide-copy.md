@@ -98,7 +98,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Running example**
 
-> LUT Gallery：  
+> LUT Gallery（LUT 可先理解成「調色預設」）：  
 > 「先檢查這個專案，找出使用者為什麼很難快速挑到喜歡的 LUT。先不要改。」
 
 **Bottom line**
@@ -369,7 +369,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > **驗收條件（Acceptance Criteria，AC）**  
 > ① 點「找相似」後會出現候選  
 > ② 資料不足時有明確空狀態（Empty State）  
-> ③ 390px 寬度沒有水平捲軸
+> ③ 390px 手機寬度沒有水平捲軸
 >
 > **負責人 / 優先順序 / 上層工作**  
 > Agent A · P1 · 改善 LUT 探索
