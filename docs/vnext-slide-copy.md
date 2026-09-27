@@ -412,7 +412,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > #42 找相似 LUT · Agent A
 >
 > **審查（Review）**  
-> 下一站：PR + 驗收證據 + AC
+> 下一站：送審 + 驗收證據 + AC
 >
 > **完成（Done）**  
 > #38 Collection filter
