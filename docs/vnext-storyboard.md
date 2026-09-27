@@ -235,9 +235,10 @@ Slide 18 is therefore the closing summary for **both** routes.
 
 - **Learner question:** 離開教室後，最低限度要記住什麼？
 - **One takeaway:** Understand Agent → Human decides → break down → verifiable Ticket → low-WIP execution → evidence-based review → merge after acceptance。
-- **Dominant visual:** 大型 six-step roadmap + 一條 LUT #42 trace。
+- **Dominant visual:** 大型 six-step roadmap + 一條 LUT #42 trace；底部保留一條很小的 **Starter toolbox reference strip**，不搶主視覺。
 - **Running example state:** LUT problem → Find Similar → hierarchy → #42 → PR #71 → AC review → Merge。
-- **Prerequisite:** Entire live sequence.
+- **Starter toolbox reference:** static site / demo → GitHub Pages；backend / DB / auth → Supabase；product analytics → PostHog；DNS / CDN / edge → Cloudflare；transactional email → Resend。只教「什麼時候可能需要」，不展開 vendor features。
+- **Prerequisite:** **Core complete (Slide 13).** Slides 14–17 are optional; Slide 18 must work whether they were shown or skipped.
 - **Transition:** End / optional non-live references.
 
 ---
