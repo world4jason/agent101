@@ -11,8 +11,8 @@ Inputs: merged #11 learner-visible copy + merged #9/#10 teaching contract
 Three passes were run against the actual learner-visible copy:
 
 1. **Forward speaker walkthrough** — read Slides 1–18 in order and check whether the speaker must jump backward to define a missing prerequisite.
-2. **Timing pass** — assign a realistic live-teaching budget per slide, preserving the audience decision moment on Slide 12.
-3. **Cold-beginner desk simulation** — answer the #7 learning questions using only concepts already introduced in the Core, without relying on Appendix / expert knowledge.
+2. **Timing budget pass** — assign a realistic live-teaching budget per slide, preserving the audience decision moment on Slide 12. **This is an estimate, not a measured read-aloud.**
+3. **Cold-beginner answerability desk simulation** — answer the #7 learning questions using only concepts already introduced in the Core, without relying on Appendix / expert knowledge. **This proves the deck contains enough information to construct the answers; it does not prove a real cold participant can explain them.**
 
 One prerequisite issue was found during the walkthrough:
 
@@ -269,7 +269,7 @@ Capability map answers a need; it does not become a glossary.
 
 ---
 
-# 3. Timing pass
+# 3. Timing budget — estimate only
 
 The target in #7 is roughly:
 
@@ -297,7 +297,9 @@ The target in #7 is roughly:
 | 13 | Merge / Core stop | 1:15 |
 | **Core total** |  | **25:30** |
 
-This fits the #7 Core target **without rushing glossary definitions**, because the terminology has already been reduced / translated in #11.
+This budget fits the #7 Core target **on paper**, because the terminology has already been reduced / translated in #11.
+
+**Validation status:** ESTIMATE ONLY. No measured read-aloud rehearsal has been performed in this PR. The empirical timing gate is deferred to #14 release validation.
 
 ## Full-session timing
 
@@ -312,7 +314,7 @@ This fits the #7 Core target **without rushing glossary definitions**, because t
 | Questions / audience interaction | 5–10 min |
 | **Full session** | **40–46 min** |
 
-**Timing result: PASS.**
+**Timing budget result: PLANNING PASS; empirical timing UNVERIFIED.**
 
 ### Cut order if time slips
 
@@ -323,11 +325,17 @@ This fits the #7 Core target **without rushing glossary definitions**, because t
 
 ---
 
-# 4. Cold-beginner comprehension check
+# 4. Cold-beginner answerability check — empirical comprehension deferred
 
-This is a **desk simulation against the actual Core copy**, not a claim that an external human participant has already been tested. The purpose is to verify that every expected answer can be constructed from concepts introduced before the question is asked.
+This is a **desk simulation against the actual Core copy**, not a claim that an external human participant has already been tested.
 
-A real participant can use the same questions during final teaching validation.
+The purpose is narrower:
+
+> verify that every expected answer can be constructed from concepts introduced before the question is asked.
+
+Therefore each Q1–Q7 result below is an **answerability result**, not a human-comprehension result.
+
+A real cold participant must use the same Q1–Q7 questions during #14 release validation.
 
 ## Q1 — LLM 和 Agent/App 有什麼不同？
 
@@ -346,7 +354,7 @@ A real participant can use the same questions during final teaching validation.
 
 Slides 2–4.
 
-**Desk result: PASS.**
+**Desk answerability: PASS. Human comprehension: UNVERIFIED.**
 
 ---
 
@@ -360,7 +368,7 @@ Slides 2–4.
 
 Slide 3.
 
-**Desk result: PASS.**
+**Desk answerability: PASS. Human comprehension: UNVERIFIED.**
 
 ---
 
@@ -374,7 +382,7 @@ Slide 3.
 
 Slides 6–7.
 
-**Desk result: PASS.**
+**Desk answerability: PASS. Human comprehension: UNVERIFIED.**
 
 ---
 
@@ -388,7 +396,7 @@ Slides 6–7.
 
 Slides 8–10.
 
-**Desk result: PASS.**
+**Desk answerability: PASS. Human comprehension: UNVERIFIED.**
 
 ---
 
@@ -402,7 +410,7 @@ Slides 8–10.
 
 Slide 9.
 
-**Desk result: PASS.**
+**Desk answerability: PASS. Human comprehension: UNVERIFIED.**
 
 ---
 
@@ -416,7 +424,7 @@ Slide 9.
 
 Slide 12.
 
-**Desk result: PASS.**
+**Desk answerability: PASS. Human comprehension: UNVERIFIED.**
 
 ---
 
@@ -430,7 +438,7 @@ Slide 12.
 
 Slides 12–13.
 
-**Desk result: PASS.**
+**Desk answerability: PASS. Human comprehension: UNVERIFIED.**
 
 ---
 
@@ -471,24 +479,39 @@ Key first-use order:
 # 6. #12 Acceptance check
 
 - [x] Speaker can move forward without jumping backward to repair missing prerequisites.
-- [x] Core fits the #7 target delivery time: **~25:30** before questions.
-- [x] Cold-beginner desk simulation can explain:
+- [x] Timing **budget** fits the #7 target on paper: Core **~25:30**, Full **~40–46 min**.
+- [ ] **Measured read-aloud timing** verifies the Core / Full duration without rushing. **Deferred to #14 release validation.**
+- [x] Cold-beginner **desk answerability** confirms the approved copy contains enough information to answer:
   - LLM vs Agent/App;
   - brainstorm-before-ticket;
   - what makes a Ticket ready;
   - why Agent “done” still needs Review.
+- [ ] A **real cold beginner** can explain the Q1–Q7 concepts in their own words. **Deferred to #14 release validation.**
 - [x] Slides 2–4 use one continuous LUT Gallery micro-demo.
 - [x] Advanced slides explicitly refer back to the known Agent loop instead of teaching a second architecture.
 - [x] Core-only route remains 13 → 18.
 - [x] One domain-specific first-use issue found during walkthrough (LUT) was fixed in learner-visible copy.
 - [x] No HTML/CSS implementation or visual QA is included.
 
-## What #12 does not claim
+## Acceptance disposition
 
-This is a structured **speaker desk walkthrough + cold-beginner desk simulation**. It does not claim that an external human participant has already completed a live class.
+#12 validates what can be validated **before implementation**:
 
-If a real cold participant is available before release, reuse Q1–Q7 above as the live comprehension check; any failure should be treated as #14 release feedback rather than silently changing the approved teaching architecture.
+### Verified in #12
+- forward teaching flow;
+- prerequisite ordering;
+- Slides 2–4 micro-demo continuity;
+- Core-only / Full routing;
+- Advanced re-anchor;
+- Q1–Q7 answerability from the approved copy;
+- timing budget / cut order.
+
+### Explicitly not yet empirically validated
+- **measured read-aloud duration**;
+- **real cold-beginner comprehension**.
+
+Those two empirical gates are moved to **#14 Visual QA + release**, where the rendered deck exists and a real rehearsal / participant test can be recorded.
 
 ## Conclusion
 
-The content is ready to hand to **#13 HTML/CSS implementation** once this issue is reviewed and merged.
+The content is ready to hand to **#13 HTML/CSS implementation** once this issue is reviewed and merged, with the two empirical release gates still open in #14.
