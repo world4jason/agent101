@@ -36,13 +36,20 @@ https://world4jason.github.io/agent101/
 
 root `index.html` 會導向 `/slides/`。
 
-## 設計原則
+## vNext 教學結構
 
-投影片不是把 Markdown 搬上螢幕，而是用視覺分成四個系統：
+Live deck 以兩個 mental model 為主：
 
-1. 定義工作
-2. 管理執行
-3. 驗收交付
-4. Agent Operating System
+1. **Agent loop**：Goal → Act → Observe → Continue
+2. **Delivery loop**：想 → 拆 → 票 → 做 → 審 → 合
 
-第四部分涵蓋 Skills、Context / Compact、SDD、BMAD。
+視覺 rail 只做導航：
+
+1. Agent
+2. 想・拆・票
+3. 做・審・合
+4. 人・能力
+
+Slides 1–13 是 **Agent 101 Core**；Slide 13 有明確停止點。Slides 14–17 是 optional roles / advanced capability map，Slide 18 收束。
+
+每張 slide 都在 markup 上用 `data-structure` 標示 sequence / compare / hierarchy / relation / checklist / roadmap 等資訊結構，但不把這些結構名稱做成觀眾可見的 badge。
