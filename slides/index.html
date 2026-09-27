@@ -161,7 +161,7 @@
         <h2>工作票要讓別人不用猜；<br><span class="accent">AC 要能明確通過 / 不通過</span></h2>
         <div class="example-chip">RUNNING EXAMPLE · #42 找相似 LUT</div>
         <div class="ticket">
-          <div class="ticket-head"><span>#42</span><strong>從喜歡的 LUT 找到相似 LUT</strong><span class="status">READY</span></div>
+          <div class="ticket-head"><span>#42</span><strong>從喜歡的 LUT 找到相似 LUT</strong></div>
           <div class="ticket-body">
             <div><b>目標（Goal）</b><p>降低使用者逐顆比較 LUT 的認知負荷。</p></div>
             <div><b>範圍（Scope）</b><p>從既有 LUT 找相似候選。</p></div>
@@ -172,7 +172,7 @@
           </div>
         </div>
         <div class="gate-strip"><span>工作票 + AC</span><b>→</b><span class="active">優先順序 / 相依性檢查</span><b>→</b><span>待辦（Backlog）</span></div>
-        <p class="bottom-callout"><strong>AC = 可觀察、可明確通過 / 不通過的完成條件。</strong> 工作票寫完整，<strong>不代表現在就應該做</strong>。</p>
+        <p class="bottom-callout"><strong>AC = 可觀察、可明確通過 / 不通過的完成條件。</strong> <strong>Evidence = 審查時 reviewer 要實際檢查的證據。</strong> 工作票寫完整，<strong>不代表現在就應該做</strong>。</p>
       </section>
 
       <section class="slide" data-section="verify" data-structure="sequence">
@@ -238,6 +238,10 @@
           <div class="deploy-node prod-node fragment">合併（Merge）</div><span class="fragment">→</span>
           <div class="deploy-node fragment">完成（Done）</div><span class="fragment">→</span>
           <div class="deploy-node preview-node fragment">部署 / 發布</div>
+        </div>
+        <div class="example-trace fragment core-closure">
+          <b>LUT Gallery · PR #71</b>
+          <span>PR #71 修完手機版 AC → Human 接受 → 合併 → GitHub Pages 更新</span>
         </div>
         <div class="core-stop fragment">
           <span>AGENT 101 核心課程完成</span>
