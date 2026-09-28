@@ -52,51 +52,56 @@
         <p class="bottom-callout">Agent 不是「更會聊天的模型」。它是能為了目標 <strong>行動 → 觀察 → 繼續</strong> 的 AI 工作者。</p>
       </section>
 
-      <section class="slide" data-section="define" data-structure="compare">
-        <div class="eyebrow">怎麼開始？</div>
-        <h2>不用先找「Create Agent」；<br><span class="accent">直接從工作介面開始</span></h2>
-        <div class="final-three product-entry">
-          <div><span>CODING AGENT</span><b>Codex</b><p>開啟專案 → 說清楚要它先做什麼</p></div>
-          <div class="fragment"><span>CODING AGENT</span><b>Claude Code</b><p>進入專案 → 直接交付一個明確工作</p></div>
-          <div class="fragment"><span>MULTI-STEP WORK</span><b>ChatGPT Work</b><p>把需要多步驟完成的工作交出去</p></div>
+      <section class="slide" data-section="define" data-structure="relation">
+        <div class="eyebrow">Agent 裡面有哪些東西？</div>
+        <h2>Agent 不是只有 LLM；<br><span class="accent">外面還有工作狀態、工具與規則</span></h2>
+        <div class="agent-parts">
+          <div><span>01</span><b>Model</b><small>真正做每一步推理的 LLM</small></div>
+          <div class="fragment"><span>02</span><b>Instructions</b><small>系統規則、專案規則、工作方式</small></div>
+          <div class="fragment"><span>03</span><b>Current Context</b><small>這一步看得到的對話、檔案、資料與 tool results</small></div>
+          <div class="fragment"><span>04</span><b>Work conversation / Session</b><small>一段工作的對話 / 執行邊界；不是 Agent 身分本身</small></div>
+          <div class="fragment"><span>05</span><b>Tools + Environment</b><small>能用哪些工具、在哪裡執行、有哪些權限</small></div>
+          <div class="fragment"><span>06</span><b>Durable State / Memory</b><small>跨步驟或跨對話需要重新帶回來的專案狀態 / 長期資訊</small></div>
         </div>
-        <p class="bottom-callout">Agent 是一種工作能力，不一定是一個獨立按鈕。</p>
+        <p class="bottom-callout">這些能力多半是 <strong>Agent/App/runtime 提供給模型</strong>，不是 LLM 天生就永久記得或永久擁有。</p>
       </section>
 
       <section class="slide" data-section="define" data-structure="sequence">
-        <div class="eyebrow">為什麼它可以繼續做？</div>
-        <h2><span class="accent">LLM（Large Language Model，大型語言模型）</span>做這一步推理；<br>Agent/App 維持工作循環</h2>
+        <div class="eyebrow">Agent loop 怎麼運作？</div>
+        <h2><span class="accent">LLM 做這一步推理</span>；<br>Agent/App 把下一輪需要的東西組回來</h2>
         <div class="deploy-flow runtime-flow">
-          <div class="deploy-node runtime-agent"><b>目前輸入</b><small>Current Input · 這一步需要的資訊</small></div>
+          <div class="deploy-node runtime-agent"><b>Current Input</b><small>task + instructions + relevant context</small></div>
           <span>→</span>
           <div class="deploy-node runtime-llm fragment"><b>LLM</b><small>判斷下一步</small></div>
           <span class="fragment">→</span>
-          <div class="deploy-node fragment"><b>下一步輸出 / 工具請求</b></div>
+          <div class="deploy-node fragment"><b>Tool / Action</b><small>呼叫工具或執行動作</small></div>
           <span class="fragment">→</span>
-          <div class="deploy-node fragment"><b>執行動作</b><small>Action</small></div>
-          <span class="fragment">→</span>
-          <div class="deploy-node runtime-observe fragment"><b>觀察結果</b><small>Observation</small></div>
+          <div class="deploy-node runtime-observe fragment"><b>Observation</b><small>拿到工具 / 環境結果</small></div>
           <span class="fragment">↺</span>
         </div>
-        <p class="bottom-callout">模型只對<strong>這一步拿到的工作脈絡（context）</strong>做推理。Agent/App 會把相關指令、檔案、查回來的資料、工具結果帶進下一輪；<strong>不代表每一輪都逐字重送全部歷史。</strong></p>
+        <div class="runtime-inputs fragment">
+          <span>Instructions</span><span>Conversation / Session</span><span>Files / Knowledge</span><span>Memory / Durable state</span><span>Tool results</span>
+        </div>
+        <p class="bottom-callout">模型只對<strong>這一步拿到的 context</strong>做推理。Agent/App 會挑選、整理或取回相關狀態再帶進下一輪；<strong>不代表每輪逐字重送全部歷史。</strong></p>
       </section>
 
       <section class="slide" data-section="define" data-structure="compare">
-        <div class="eyebrow">Agent 與執行環境</div>
-        <h2>Agent 決定下一步；<br><span class="accent">執行環境（Environment）決定動作在哪裡發生</span></h2>
-        <div class="two-lanes environment-lanes">
-          <div class="lane">
-            <div class="lane-title">本機（Local）</div>
-            <div class="big-question">你的電腦 / 專案 / 終端機（shell）</div>
-            <div class="ac-list"><div>直接使用本機專案</div><div>執行本機工具與測試</div><div>受本機憑證與權限限制</div></div>
-          </div>
-          <div class="lane fragment">
-            <div class="lane-title">雲端（Cloud）</div>
-            <div class="big-question">平台提供的隔離工作環境</div>
-            <div class="ac-list"><div>隔離環境（sandbox）</div><div>虛擬機（VM）/ 瀏覽器（browser）</div><div>受雲端授權與 approval 限制</div></div>
-          </div>
+        <div class="eyebrow">這些概念在產品裡長什麼樣？</div>
+        <h2>同一套 Agent 概念；<br><span class="accent">在 Codex / ChatGPT 只是換了產品介面</span></h2>
+        <div class="product-map" role="table" aria-label="Agent concepts mapped to Codex and ChatGPT">
+          <div class="product-map-head"><b>概念</b><b>Codex</b><b>ChatGPT</b></div>
+          <div><span>Work conversation / Session</span><span>一個 chat / window / thread</span><span>一個 Chat / Work task</span></div>
+          <div><span>Project boundary</span><span>repo / project</span><span>Work workspace / files / connected sources</span></div>
+          <div><span>Instructions</span><span><code>AGENTS.md</code> + 你的指令</span><span>workspace / task instructions + 你的指令</span></div>
+          <div><span>Context</span><span>目前對話 + relevant files + tool results</span><span>目前對話 / Work + files + tool results</span></div>
+          <div><span>Tools</span><span>terminal / files / code / allowed integrations</span><span>built-in tools + Plugins / Connectors</span></div>
+          <div><span>Durable state / Memory</span><span>repo docs / issues / files；harness 可另外帶 memory</span><span>files / docs / connected sources / product Memory</span></div>
         </div>
-        <p class="bottom-callout"><strong>能用工具 ≠ 有操作權限（Permission）</strong>。看得到工具，不代表這次就可以直接修改、發送或部署。</p>
+        <div class="start-strip">
+          <div><b>Codex</b><span>開 repo / project → 開一段工作對話 → 給 task</span></div>
+          <div><b>ChatGPT Work</b><span>開 Work → 給 task + 需要的 files / tools</span></div>
+        </div>
+        <p class="bottom-callout"><strong>New chat / new window 不等於 new Agent。</strong> <code>MEMORY.md</code> 也不是通用標準；只有某個 harness 明確使用時，才把它當外部 durable state。</p>
       </section>
 
       <section class="slide" data-section="manage" data-structure="sequence">
