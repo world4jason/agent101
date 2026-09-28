@@ -181,3 +181,16 @@ h3{font-size:26px}.lead{font-size:clamp(21px,2vw,34px);line-height:1.55;color:#c
 
 .product-note{max-width:1120px;margin-top:10px;color:var(--muted);font-size:12px}
 .product-note code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#ffd782}
+
+
+@media screen and (min-width:901px) and (max-height:800px){
+  .handoff-row{min-height:50px}.handoff-row>*{padding:9px 13px}.handoff-head{min-height:42px}
+  .agent-anatomy{gap:10px}.anatomy-runtime{padding:11px}.anatomy-runtime>span{margin-bottom:8px}
+  .anatomy-sources{gap:6px}.anatomy-sources>div{padding:9px;min-height:66px}
+  .anatomy-sources b{font-size:14px}.anatomy-sources small{font-size:10px;margin-top:4px}
+  .anatomy-current{padding:14px}.anatomy-current b{font-size:19px}.anatomy-current span{margin:7px 0 10px;font-size:12px}.anatomy-current strong{font-size:16px}
+  .runtime-inputs{gap:5px;margin-top:10px}.runtime-inputs span{padding:5px 8px;font-size:10px}
+  .product-map>div>*{padding:6px 10px;font-size:11px}.product-map .product-map-head>*{font-size:12px}
+  .start-strip{gap:8px;margin-top:8px}.start-strip>div{padding:8px 11px}.start-strip b,.start-strip span{font-size:11px}
+  .product-note{margin-top:5px;font-size:10px}
+}
