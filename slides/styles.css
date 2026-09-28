@@ -170,3 +170,6 @@ h3{font-size:26px}.lead{font-size:clamp(21px,2vw,34px);line-height:1.55;color:#c
   .product-map{overflow:auto}.product-map>div{grid-template-columns:150px 260px 260px;min-width:670px}
   .start-strip{grid-template-columns:1fr}
 }
+
+.product-note{max-width:1120px;margin-top:10px;color:var(--muted);font-size:12px}
+.product-note code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#ffd782}
