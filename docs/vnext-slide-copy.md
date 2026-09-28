@@ -95,7 +95,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 **Bottom line**
 
 > **Agent = 能為目標採取行動、觀察結果，再繼續的 AI 工作者。**  
-> 類比只幫你理解委派；framing、取捨與最後 acceptance 仍由 Human 負責。
+> 類比只幫你理解委派；怎麼定義問題、做取捨、決定是否驗收，仍由 Human 負責。
 
 
 ## Slide 3 — Agent/App 到底要管理哪些東西？
@@ -228,7 +228,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 
 > **New chat / new window ≠ new Agent。**  
 > `AGENTS.md` 是 project instructions 的一種實作；`MEMORY.md` 不是通用標準。  
-> Product Memory 可以提供 context，但不是 project source of truth。  
+> Product Memory 可以提供 context，但不是專案的正式依據。  
 > **Tool access ≠ Permission。**
 
 
