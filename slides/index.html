@@ -41,11 +41,11 @@
         <h2>你已經會把工作交給人；<br><span class="accent">Agent 只是把合作條件變得更明確</span></h2>
         <div class="handoff-map">
           <div class="handoff-row handoff-head"><b>你交代同事</b><span></span><b>你交代 Agent</b></div>
-          <div class="handoff-row"><span>說清楚要完成什麼</span><i>→</i><span><strong>Goal / Task</strong></span></div>
-          <div class="handoff-row fragment"><span>交代背景、現況與規則</span><i>→</i><span><strong>Context + Instructions</strong></span></div>
-          <div class="handoff-row fragment"><span>給文件、系統與可做的權限</span><i>→</i><span><strong>Files + Tools + Permissions</strong></span></div>
-          <div class="handoff-row fragment"><span>同事做事、回報結果</span><i>→</i><span><strong>Act → Observe</strong></span></div>
-          <div class="handoff-row fragment"><span>你判斷要不要繼續 / 驗收</span><i>→</i><span><strong>Continue / Human Review</strong></span></div>
+          <div class="handoff-row"><span>說清楚要完成什麼</span><i>→</i><span><strong>目標 / 工作（Goal / Task）</strong></span></div>
+          <div class="handoff-row fragment"><span>交代背景、現況與規則</span><i>→</i><span><strong>工作脈絡 + 指令（Context + Instructions）</strong></span></div>
+          <div class="handoff-row fragment"><span>給文件、系統與可做的權限</span><i>→</i><span><strong>檔案 + 工具 + 權限（Files / Tools / Permissions）</strong></span></div>
+          <div class="handoff-row fragment"><span>同事做事、回報結果</span><i>→</i><span><strong>行動 → 觀察（Act → Observe）</strong></span></div>
+          <div class="handoff-row fragment"><span>你判斷要不要繼續 / 驗收</span><i>→</i><span><strong>繼續 / Human 驗收（Continue / Review）</strong></span></div>
         </div>
         <p class="bottom-callout"><strong>Agent = 能為目標採取行動、觀察結果，再繼續的 AI 工作者。</strong> 類比只幫你理解委派；最後怎麼定義問題、做取捨、決定是否驗收，仍由 Human 負責。</p>
       </section>
@@ -57,15 +57,15 @@
           <div class="anatomy-runtime">
             <span>AGENT / APP / RUNTIME</span>
             <div class="anatomy-sources">
-              <div><b>Instructions</b><small>系統 / 專案 / 任務規則</small></div>
-              <div class="fragment"><b>Work conversation / Session</b><small>這段工作的對話 / 執行邊界；不是 Agent 身分本身</small></div>
-              <div class="fragment"><b>Tools + Environment + Permissions</b><small>能做什麼、在哪裡做、允許做到哪</small></div>
-              <div class="fragment"><b>Durable State + optional Memory</b><small>project docs / issues / code 等正式狀態 + 可選的 product / harness memory</small></div>
+              <div><b>指令（Instructions）</b><small>系統 / 專案 / 任務規則</small></div>
+              <div class="fragment"><b>工作對話 / Session</b><small>這段工作的對話 / 執行邊界；不是 Agent 身分本身</small></div>
+              <div class="fragment"><b>工具 + 執行環境 + 權限</b><small>能做什麼、在哪裡做、允許做到哪</small></div>
+              <div class="fragment"><b>正式專案狀態 + 可選記憶</b><small>project docs / issues / code 等正式狀態 + 可選的 product / harness memory</small></div>
             </div>
           </div>
           <div class="anatomy-arrow">↓ 組成這一步 ↓</div>
           <div class="anatomy-current fragment">
-            <b>Current Context</b>
+            <b>目前工作脈絡（Current Context）</b>
             <span>目前 task + relevant conversation + files / knowledge + tool results</span>
             <strong>→ LLM / Model</strong>
           </div>
@@ -77,17 +77,17 @@
         <div class="eyebrow">Agent loop 怎麼運作？</div>
         <h2><span class="accent">LLM 做這一步推理</span>；<br>Agent/App 把下一輪需要的東西組回來</h2>
         <div class="deploy-flow runtime-flow">
-          <div class="deploy-node runtime-agent"><b>Current Input</b><small>task + instructions + relevant context</small></div>
+          <div class="deploy-node runtime-agent"><b>目前輸入（Current Input）</b><small>task + instructions + relevant context</small></div>
           <span>→</span>
           <div class="deploy-node runtime-llm fragment"><b>LLM</b><small>判斷下一步</small></div>
           <span class="fragment">→</span>
-          <div class="deploy-node fragment"><b>Tool / Action</b><small>呼叫工具或執行動作</small></div>
+          <div class="deploy-node fragment"><b>工具 / 行動（Tool / Action）</b><small>呼叫工具或執行動作</small></div>
           <span class="fragment">→</span>
-          <div class="deploy-node runtime-observe fragment"><b>Observation</b><small>工具 / 環境回傳結果</small></div>
+          <div class="deploy-node runtime-observe fragment"><b>觀察結果（Observation）</b><small>工具 / 環境回傳結果</small></div>
           <span class="fragment">↺</span>
         </div>
         <div class="runtime-inputs fragment">
-          <span>Instructions</span><span>Conversation / Session</span><span>Files / Knowledge</span><span>Durable state / optional Memory</span><span>Tool results</span>
+          <span>指令（Instructions）</span><span>Conversation / Session</span><span>Files / Knowledge</span><span>Durable state / optional Memory</span><span>Tool results</span>
         </div>
         <p class="bottom-callout">模型只對<strong>這一步拿到的 context</strong>做推理。Agent/App 可能挑選、摘要、取回或引用相關狀態；<strong>不代表每輪逐字重送全部歷史。</strong></p>
       </section>
@@ -97,20 +97,20 @@
         <h2>先懂 Agent，再看產品：<br><span class="accent">Codex / ChatGPT 只是把同一套概念落到不同介面</span></h2>
         <div class="product-map">
           <div class="product-map-head"><b>概念</b><b>Codex</b><b>ChatGPT</b></div>
-          <div><span>Work conversation / Session</span><span>chat / window / thread</span><span>Chat / Work task</span></div>
-          <div><span>Project boundary</span><span>repo / project</span><span>Work workspace / files / connected sources</span></div>
-          <div><span>Instructions</span><span><code>AGENTS.md</code> + task instructions</span><span>workspace / task instructions + 你的指令</span></div>
-          <div><span>Current Context</span><span>conversation + relevant files + tool results</span><span>Chat / Work + files + tool results</span></div>
-          <div><span>Tools</span><span>terminal / files / code / allowed integrations</span><span>built-in tools + Plugins / Connectors</span></div>
-          <div><span>Environment / Permissions</span><span>local / cloud coding environment + allowed actions</span><span>Work cloud environment + action approvals</span></div>
-          <div><span>Durable state + optional Memory</span><span>repo docs / issues / files；harness 可另外帶 memory</span><span>files / docs / connected sources + optional product Memory</span></div>
+          <div><span>工作對話 / Session</span><span>chat / window / thread</span><span>Chat / Work task</span></div>
+          <div><span>專案邊界（Project boundary）</span><span>repo / project</span><span>Work workspace / files / connected sources</span></div>
+          <div><span>指令（Instructions）</span><span><code>AGENTS.md</code> + task instructions</span><span>workspace / task instructions + 你的指令</span></div>
+          <div><span>目前工作脈絡（Current Context）</span><span>conversation + relevant files + tool results</span><span>Chat / Work + files + tool results</span></div>
+          <div><span>工具（Tools）</span><span>terminal / files / code / allowed integrations</span><span>built-in tools + Plugins / Connectors</span></div>
+          <div><span>執行環境 / 權限</span><span>local / cloud coding environment + allowed actions</span><span>Work cloud environment + action approvals</span></div>
+          <div><span>正式專案狀態 + 可選記憶</span><span>repo docs / issues / files；harness 可另外帶 memory</span><span>files / docs / connected sources + optional product Memory</span></div>
         </div>
         <div class="start-strip">
           <div><b>Codex</b><span>開 project / repo → 開工作對話 → 給 task</span></div>
           <div><b>ChatGPT Work</b><span>開 Work → 給 task + 需要的 files / tools</span></div>
         </div>
         <div class="product-note">這是概念對照，不是一對一產品標準。Claude Code 也可用同樣方式理解：project + <code>CLAUDE.md</code> / rules + tools + work conversation。</div>
-        <p class="bottom-callout"><strong>New chat / new window ≠ new Agent。</strong> <code>AGENTS.md</code> 是 project instructions 的一種實作；<code>MEMORY.md</code> 不是通用標準。Product Memory 可以提供 context，但不是專案的正式依據。Tool access 也不等於 permission。</p>
+        <p class="bottom-callout"><strong>新對話 / 新視窗 ≠ 新 Agent。</strong> <code>AGENTS.md</code> 是專案指令（project instructions）的一種實作；<code>MEMORY.md</code> 不是通用標準。Product Memory 可以提供 context，但不是專案的正式依據。Tool access 也不等於 permission。</p>
       </section>
 
       <section class="slide" data-section="manage" data-structure="sequence">
