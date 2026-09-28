@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <title>Agent 101 — 想 → 拆 → 票 → 做 → 審 → 合</title>
+  <title>Agent 101 — Discover → Break Down → Specify → Execute → Review → Deliver</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -13,9 +13,9 @@
       <div class="brand">AGENT 101</div>
       <div class="section-rail" aria-label="課程章節">
         <span data-section="define">01 Agent</span>
-        <span data-section="manage">02 想・拆・票</span>
-        <span data-section="verify">03 做・審・合</span>
-        <span data-section="operate">04 人・能力</span>
+        <span data-section="manage">02 Plan</span>
+        <span data-section="verify">03 Delivery</span>
+        <span data-section="operate">04 Advanced</span>
       </div>
       <div class="counter"><span id="current">1</span> / <span id="total">1</span></div>
     </header>
@@ -26,12 +26,12 @@
         <h1>管 AI 專案，<br><span>本質是管工作</span></h1>
         <p class="lead">不先學提示詞技巧，也不先背工具。先把工作變成 <strong>可委派、可追蹤、可驗收、可交付</strong>。</p>
         <div class="roadmap roadmap-hero" aria-label="課程主線">
-          <div><span>01</span><b>想</b><small>先發散，再決定</small></div>
-          <div><span>02</span><b>拆</b><small>分出工作層級</small></div>
-          <div><span>03</span><b>票</b><small>寫清楚工作與完成條件</small></div>
-          <div><span>04</span><b>做</b><small>開始執行、看狀態</small></div>
-          <div><span>05</span><b>審</b><small>看證據、判斷是否通過</small></div>
-          <div><span>06</span><b>合</b><small>接受後合併 / 交付</small></div>
+          <div><span>01</span><b>Discover</b><small>先發散，再決定方向</small></div>
+          <div><span>02</span><b>Break Down</b><small>分出工作層級</small></div>
+          <div><span>03</span><b>Specify</b><small>寫清楚工作與完成條件</small></div>
+          <div><span>04</span><b>Execute</b><small>開始執行、看狀態</small></div>
+          <div><span>05</span><b>Review</b><small>看證據、判斷是否通過</small></div>
+          <div><span>06</span><b>Deliver</b><small>接受後合併 / 交付</small></div>
         </div>
         <div class="footer-note">這堂課只建立兩個核心觀念：<strong>Agent 怎麼持續工作；Human + Agent 怎麼把工作交付出去。</strong></div>
       </section>
@@ -49,10 +49,6 @@
           <div class="bmad-node fragment"><b>繼續（Continue）</b><small>繼續、調整，或停下來問人</small></div>
           <div class="loop-arrow fragment">↺</div>
         </div>
-        <div class="example-trace fragment">
-          <b>LUT Gallery</b>
-          <span>LUT 可先理解成「調色預設」。「先檢查這個專案，找出使用者為什麼很難快速挑到喜歡的 LUT。先不要改。」</span>
-        </div>
         <p class="bottom-callout">Agent 不是「更會聊天的模型」。它是能為了目標 <strong>行動 → 觀察 → 繼續</strong> 的 AI 工作者。</p>
       </section>
 
@@ -63,10 +59,6 @@
           <div><span>CODING AGENT</span><b>Codex</b><p>開啟專案 → 說清楚要它先做什麼</p></div>
           <div class="fragment"><span>CODING AGENT</span><b>Claude Code</b><p>進入專案 → 直接交付一個明確工作</p></div>
           <div class="fragment"><span>MULTI-STEP WORK</span><b>ChatGPT Work</b><p>把需要多步驟完成的工作交出去</p></div>
-        </div>
-        <div class="example-trace fragment">
-          <b>同一段 LUT 任務</b>
-          <span>在專案工作介面輸入：<strong>「先檢查，不要直接改。」</strong> 需要指定程式碼位置時，再說「這個專案 / 程式碼資料夾」。</span>
         </div>
         <p class="bottom-callout">Agent 是一種工作能力，不一定是一個獨立按鈕。</p>
       </section>
@@ -85,10 +77,6 @@
           <span class="fragment">→</span>
           <div class="deploy-node runtime-observe fragment"><b>觀察結果</b><small>Observation</small></div>
           <span class="fragment">↺</span>
-        </div>
-        <div class="example-trace fragment">
-          <b>同一個目標</b>
-          <span>Agent 讀專案 / 現有介面 → 發現「目前只能逐顆找 LUT」→ 把這個觀察結果帶進下一步</span>
         </div>
         <p class="bottom-callout">模型只對<strong>這一步拿到的工作脈絡（context）</strong>做推理。Agent/App 會把相關指令、檔案、查回來的資料、工具結果帶進下一輪；<strong>不代表每一輪都逐字重送全部歷史。</strong></p>
       </section>
@@ -112,12 +100,12 @@
       </section>
 
       <section class="slide" data-section="manage" data-structure="sequence">
-        <div class="eyebrow">想 · 腦力激盪（Brainstorm）</div>
+        <div class="eyebrow">Discover · Brainstorm</div>
         <h2>先讓 AI 發散，<br><span class="accent">再由 Human 收斂</span></h2>
-        <div class="example-chip">RUNNING EXAMPLE · LUT Gallery</div>
+        <div class="example-chip">RUNNING EXAMPLE · 活動報名頁</div>
         <div class="brainstorm-flow">
-          <div class="brainstorm-step"><span>1</span><b>定義問題（Frame）</b><small>「挑 LUT 太慢，我想降低比較成本。」</small></div>
-          <div class="brainstorm-step fragment"><span>2</span><b>發散（Diverge）</b><div class="idea-chips"><i>找相似</i><i>自動分群</i><i>並排比較</i><i>搜尋改善</i></div></div>
+          <div class="brainstorm-step"><span>1</span><b>定義問題（Frame）</b><small>「手機版很難找到『立即報名』，我想降低使用者找報名入口的成本。」</small></div>
+          <div class="brainstorm-step fragment"><span>2</span><b>發散（Diverge）</b><div class="idea-chips"><i>首屏 CTA</i><i>固定底部 CTA</i><i>導覽列入口</i><i>簡化報名步驟</i></div></div>
           <div class="brainstorm-step fragment"><span>3</span><b>挑戰 / 分群</b><small>哪些解同一個問題？哪些成本太高？哪些需要更多資料？</small></div>
           <div class="brainstorm-step fragment"><span>4</span><b>收斂（Converge）</b><small>留下值得進一步比較的方案</small></div>
         </div>
@@ -125,49 +113,49 @@
       </section>
 
       <section class="slide" data-section="manage" data-structure="decision">
-        <div class="eyebrow">想 → 做決策</div>
+        <div class="eyebrow">Discover → Decide</div>
         <h2>腦力激盪的結果不是正式工作；<br><span class="accent">先做決策</span></h2>
-        <div class="example-chip">RUNNING EXAMPLE · LUT Gallery</div>
+        <div class="example-chip">RUNNING EXAMPLE · 活動報名頁</div>
         <div class="two-lanes decision-lanes">
           <div class="lane">
             <div class="lane-title">候選方案</div>
-            <div class="ac-list"><div>找相似（Find Similar）</div><div>自動分群（Auto-group）</div><div>並排比較（Compare）</div><div>LUT Editor</div></div>
+            <div class="ac-list"><div>首屏放大 CTA</div><div>固定底部 CTA</div><div>導覽列放報名入口</div><div>簡化報名步驟</div></div>
           </div>
           <div class="lane fragment">
             <div class="lane-title">Human 決策準則</div>
             <div class="criteria-list"><span>預期效益</span><span>成本</span><span>風險</span><span>可逆性</span><span>還需要什麼證據</span></div>
-            <div class="commit-box">採用 · Find Similar</div>
-            <div class="parking-box">暫放 · Auto-group / Compare / LUT Editor</div>
+            <div class="commit-box">採用 · 固定底部 CTA</div>
+            <div class="parking-box">暫放 · 首屏 CTA / 導覽列入口 / 簡化步驟</div>
           </div>
         </div>
         <p class="bottom-callout"><strong>準則、取捨與最後決定都由 Human 負責。</strong>不是 AI 生很多方案，Human 就隨便挑一個。</p>
       </section>
 
       <section class="slide" data-section="manage" data-structure="hierarchy">
-        <div class="eyebrow">拆 · 工作層級</div>
+        <div class="eyebrow">Break Down · 工作層級</div>
         <h2>先分工作層級，<br><span class="accent">再談它現在做到哪</span></h2>
-        <div class="example-chip">RUNNING EXAMPLE · LUT Gallery</div>
+        <div class="example-chip">RUNNING EXAMPLE · 活動報名頁</div>
         <div class="hierarchy-flow">
-          <div class="hierarchy-level h1-level"><span>Milestone｜里程碑 / 交付節點</span><b>降低挑 LUT 的認知負荷</b></div>
-          <div class="hierarchy-level h2-level fragment"><span>Epic｜主要能力 / 大主題</span><b>改善 LUT 探索</b></div>
-          <div class="hierarchy-level h3-level fragment"><span>Story｜使用者要得到的結果</span><b>從喜歡的 LUT 找到相似候選</b></div>
-          <div class="hierarchy-level h4-level fragment"><span>Task｜可以直接執行的工作</span><b>加入「找相似」入口 + 候選結果列表</b></div>
+          <div class="hierarchy-level h1-level"><span>Milestone｜里程碑 / 交付節點</span><b>降低手機版報名阻力</b></div>
+          <div class="hierarchy-level h2-level fragment"><span>Epic｜主要能力 / 大主題</span><b>改善報名入口</b></div>
+          <div class="hierarchy-level h3-level fragment"><span>Story｜使用者要得到的結果</span><b>使用者在手機上能快速找到「立即報名」</b></div>
+          <div class="hierarchy-level h4-level fragment"><span>Task｜可以直接執行的工作</span><b>加入固定底部「立即報名」CTA</b></div>
         </div>
         <p class="bottom-callout">工作層級回答：<strong>「它屬於哪一層？」</strong> 下一頁的工作狀態板才回答：<strong>「它現在在哪？」</strong></p>
       </section>
 
       <section class="slide" data-section="manage" data-structure="checklist">
-        <div class="eyebrow">票 · 工作票（Ticket）+ 驗收條件（Acceptance Criteria）</div>
+        <div class="eyebrow">Specify · 工作票（Ticket）+ 驗收條件（Acceptance Criteria）</div>
         <h2>工作票要讓別人不用猜；<br><span class="accent">AC 要能明確通過 / 不通過</span></h2>
-        <div class="example-chip">RUNNING EXAMPLE · #42 找相似 LUT</div>
+        <div class="example-chip">RUNNING EXAMPLE · #42 手機版報名 CTA</div>
         <div class="ticket">
-          <div class="ticket-head"><span>#42</span><strong>從喜歡的 LUT 找到相似 LUT</strong></div>
+          <div class="ticket-head"><span>#42</span><strong>手機版固定顯示「立即報名」CTA</strong></div>
           <div class="ticket-body">
-            <div><b>目標（Goal）</b><p>降低使用者逐顆比較 LUT 的認知負荷。</p></div>
-            <div><b>範圍（Scope）</b><p>從既有 LUT 找相似候選。</p></div>
-            <div><b>明確不做（Non-goals）</b><p>不做 Auto-group；不做 LUT Editor。</p></div>
-            <div><b>負責人 / 優先順序 / 上層工作</b><p>Agent A · P1 · 改善 LUT 探索</p></div>
-            <div><b>驗收條件（AC）</b><p>① 點「找相似」後出現候選<br>② 資料不足時有空狀態<br>③ 390px 手機寬度沒有水平捲軸</p></div>
+            <div><b>目標（Goal）</b><p>降低使用者在手機上找不到報名入口的阻力。</p></div>
+            <div><b>範圍（Scope）</b><p>在手機版加入固定底部「立即報名」CTA。</p></div>
+            <div><b>明確不做（Non-goals）</b><p>不重做整份報名表；不改活動頁資訊架構。</p></div>
+            <div><b>負責人 / 優先順序 / 上層工作</b><p>Agent A · P1 · 改善報名入口</p></div>
+            <div><b>驗收條件（AC）</b><p>① 390px 手機寬度完整顯示「立即報名」<br>② 捲動時 CTA 固定在底部<br>③ CTA 不遮住主要內容，且沒有水平捲軸</p></div>
             <div><b>驗收證據（Evidence）</b><p>可操作預覽 + 桌機 / 手機截圖 + 自動檢查</p></div>
           </div>
         </div>
@@ -176,12 +164,12 @@
       </section>
 
       <section class="slide" data-section="verify" data-structure="sequence">
-        <div class="eyebrow">做 · Kanban（工作狀態板）</div>
+        <div class="eyebrow">Execute · Kanban（工作狀態板）</div>
         <h2>Kanban 是工作狀態板；<br><span class="accent">不要把它和工作層級混在一起</span></h2>
-        <div class="example-chip">RUNNING EXAMPLE · #42 找相似 LUT</div>
+        <div class="example-chip">RUNNING EXAMPLE · #42 手機版報名 CTA</div>
         <div class="kanban">
           <div class="col"><h4>待辦（Backlog）</h4><div class="card">#43 自動分群</div><div class="card">#44 並排比較</div></div>
-          <div class="col"><h4>進行中（Doing）<br>同時進行 1/2（WIP）</h4><div class="card agent-card">#42 找相似 LUT<br><small>Agent A</small></div></div>
+          <div class="col"><h4>進行中（Doing）<br>同時進行 1/2（WIP）</h4><div class="card agent-card">#42 手機版報名 CTA<br><small>Agent A</small></div></div>
           <div class="col"><h4>審查（Review）</h4><div class="card muted-card">下一站：送審 + 驗收證據 + AC</div></div>
           <div class="col"><h4>完成（Done）</h4><div class="card done">#38 Collection filter</div></div>
         </div>
@@ -189,9 +177,9 @@
       </section>
 
       <section class="slide" data-section="verify" data-structure="sequence">
-        <div class="eyebrow">做 · GitHub</div>
+        <div class="eyebrow">Execute · GitHub</div>
         <h2>不用先背 Git 名詞；<br><span class="accent">看同一張 Ticket 怎麼一路交付</span></h2>
-        <div class="example-chip">RUNNING EXAMPLE · #42 找相似 LUT</div>
+        <div class="example-chip">RUNNING EXAMPLE · #42 手機版報名 CTA</div>
         <div class="git-flow github-path">
           <div class="git-node"><b>專案看板</b><span>Project · 看整體工作與狀態</span></div>
           <div class="arrow">→</div>
@@ -207,17 +195,17 @@
       </section>
 
       <section class="slide" data-section="verify" data-structure="checklist">
-        <div class="eyebrow">審 · 審查 / 驗收（Review / Acceptance）</div>
+        <div class="eyebrow">Review · 審查 / 驗收</div>
         <h2>Agent 說「完成」<br><span class="accent">只代表可以開始審查</span></h2>
         <div class="example-chip">RUNNING EXAMPLE · PR #71</div>
         <div class="pr-layout">
           <div class="pr-card">
-            <div class="pr-title">PR #71 · 找相似 LUT</div>
+            <div class="pr-title">PR #71 · 手機版報名 CTA</div>
             <div class="pr-row"><b>驗收證據</b><span>可操作預覽 + 截圖 + 自動檢查 ✅</span></div>
-            <div class="pr-row"><b>AC 1</b><span>點「找相似」會出候選 ✅</span></div>
-            <div class="pr-row"><b>AC 2</b><span>資料不足有空狀態 ✅</span></div>
-            <div class="pr-row failure"><b>AC 3</b><span>390px 手機寬度沒有水平捲軸 ❌</span></div>
-            <div class="pr-row"><b>已知限制</b><span>尚未做自動分群；符合明確不做的範圍</span></div>
+            <div class="pr-row"><b>AC 1</b><span>390px 完整顯示「立即報名」 ✅</span></div>
+            <div class="pr-row"><b>AC 2</b><span>捲動時 CTA 固定底部 ✅</span></div>
+            <div class="pr-row failure"><b>AC 3</b><span>CTA 遮住主要內容 ❌</span></div>
+            <div class="pr-row"><b>已知限制</b><span>尚未簡化報名步驟；符合明確不做的範圍</span></div>
           </div>
           <div class="decision">
             <div class="decision-question"><b>你會通過（Approve）嗎？</b><span>建置 / 測試都通過，但 AC 3 失敗。</span></div>
@@ -229,7 +217,7 @@
       </section>
 
       <section class="slide" data-section="verify" data-structure="sequence">
-        <div class="eyebrow">合 · 合併 / 上線（Merge / Deploy）</div>
+        <div class="eyebrow">Deliver · 合併 / 上線</div>
         <h2>被接受、合併（Merge）之後，<br><span class="accent">這張工作才真的完成</span></h2>
         <div class="example-chip">RUNNING EXAMPLE · PR #71</div>
         <div class="deploy-flow merge-flow">
@@ -240,13 +228,13 @@
           <div class="deploy-node preview-node fragment">部署 / 發布</div>
         </div>
         <div class="example-trace fragment core-closure">
-          <b>LUT Gallery · PR #71</b>
-          <span>PR #71 修完手機版 AC → Human 接受 → 合併 → GitHub Pages 更新</span>
+          <b>活動報名頁 · PR #71</b>
+          <span>PR #71 修完 CTA 遮擋 AC → Human 接受 → 合併 → GitHub Pages 更新</span>
         </div>
         <div class="core-stop fragment">
           <span>AGENT 101 核心課程完成</span>
           <b>到這裡，你已經能跑一個小型「人 + Agent」專案。</b>
-          <p>想 → 拆 → 票 → 做 → 審 → 合</p>
+          <p>Discover → Break Down → Specify → Execute → Review → Deliver</p>
           <div class="core-actions">
             <button type="button" class="jump-button" data-jump="18">直接看總結 →</button>
             <small>或繼續 Slides 14–17：角色 / Subagent / 能力地圖</small>
@@ -281,7 +269,7 @@
           <div class="source-truth fragment">
             <div class="source-title">REVIEWER SUBAGENT</div>
             <div>角色：Reviewer</div>
-            <div>工作票：#42 找相似 LUT</div>
+            <div>工作票：#42 手機版報名 CTA</div>
             <div>邊界：不改程式碼，只驗 AC</div>
             <div>工具：可操作預覽 · 測試 · 差異（Diff）</div>
             <div>驗收：交付獨立的通過 / 不通過證據</div>
@@ -320,16 +308,16 @@
 
       <section class="slide" data-section="operate" data-structure="roadmap">
         <div class="eyebrow">重點整理</div>
-        <h2>最後只記：<br><span class="accent">想 → 拆 → 票 → 做 → 審 → 合</span></h2>
+        <h2>最後只記：<br><span class="accent">Discover → Break Down → Specify → Execute → Review → Deliver</span></h2>
         <div class="roadmap final-roadmap">
-          <div><span>01</span><b>想</b><small>AI 發散，Human 決定</small></div>
-          <div><span>02</span><b>拆</b><small>把大方向拆成可執行工作</small></div>
-          <div><span>03</span><b>票</b><small>目標 · 範圍 · AC · 驗收證據</small></div>
-          <div><span>04</span><b>做</b><small>低同時進行量（WIP）· 範圍清楚的工作 · GitHub</small></div>
-          <div><span>05</span><b>審</b><small>PR · 驗收證據 · AC · Human 審查</small></div>
-          <div><span>06</span><b>合</b><small>接受 → 合併 → 完成 / 上線</small></div>
+          <div><span>01</span><b>Discover</b><small>AI 發散，Human 決定</small></div>
+          <div><span>02</span><b>Break Down</b><small>把大方向拆成可執行工作</small></div>
+          <div><span>03</span><b>Specify</b><small>目標 · 範圍 · AC · 驗收證據</small></div>
+          <div><span>04</span><b>Execute</b><small>低同時進行量（WIP）· 範圍清楚的工作 · GitHub</small></div>
+          <div><span>05</span><b>Review</b><small>PR · 驗收證據 · AC · Human 審查</small></div>
+          <div><span>06</span><b>Deliver</b><small>接受 → 合併 → 完成 / 上線</small></div>
         </div>
-        <div class="example-trace final-trace"><b>LUT Gallery #42</b><span>挑 LUT 太慢 → 找相似 → #42 Ticket → PR #71 → AC 審查 → 合併</span></div>
+        <div class="example-trace final-trace"><b>活動報名頁 #42</b><span>手機版找不到「立即報名」 → 固定底部 CTA → #42 Ticket → PR #71 → AC 審查 → 合併</span></div>
         <div class="tool-strip" aria-label="起步工具參考">
           <span>靜態網站 / Demo · GitHub Pages</span>
           <span>後端 / 資料庫 / 登入 · Supabase</span>
