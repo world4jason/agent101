@@ -10,14 +10,15 @@ This review evaluates the **actual learner-visible copy + live HTML/CSS**, not o
 
 **PASS — all five lenses.**
 
-The review found four concrete implementation/content problems during the pass:
+The review found five concrete implementation/content problems during the pass:
 
 1. the mobile Agent-anatomy arrow consumed excessive vertical space;
 2. the mobile Codex / ChatGPT mapping initially required a horizontal table;
 3. Durable project state and product/harness Memory were too easy to read as synonyms;
-4. learner-visible copy reintroduced expert wording such as `framing / acceptance / source of truth`.
+4. learner-visible copy reintroduced expert wording such as `framing / acceptance / source of truth`;
+5. the new Agent-fundamentals slides regressed the approved **Chinese-first** rule by introducing several English terms before their plain-language Chinese meaning.
 
-All four were fixed before this final review.
+All five were fixed before this final review.
 
 ---
 
@@ -229,6 +230,23 @@ Learner-visible copy temporarily reintroduced:
 - 決定是否驗收;
 - 專案的正式依據.
 
+### Review finding — Chinese-first regression
+
+The reordered Slides 2–5 were technically correct but initially displayed several new concepts English-first.
+
+**Resolution:** learner-visible first use now shows the plain-language Chinese meaning first, with the industry term retained as the secondary label. Examples:
+
+- 目標 / 工作（Goal / Task）
+- 工作脈絡 + 指令（Context + Instructions）
+- 工作對話 / Session
+- 目前工作脈絡（Current Context）
+- 工具 / 行動（Tool / Action）
+- 觀察結果（Observation）
+- 專案邊界（Project boundary）
+- 正式專案狀態 + 可選記憶
+
+This keeps the industry vocabulary learnable without requiring it as a prerequisite.
+
 ### Example check
 
 There is no learner-visible LUT Gallery reference.
@@ -355,6 +373,9 @@ Final release still requires #14 to rerun these checks after #23 merges.
 - [x] No new build step / runtime dependency.
 
 ## Review / validation
+- [x] Review pass 1: source-of-truth / technical correctness PASS.
+- [x] Review pass 2: speaker / cold beginner PASS after Chinese-first fix.
+- [x] Review pass 3: render / navigation / regression PASS.
 - [x] UI/UX lens PASS.
 - [x] PM lens PASS.
 - [x] presentation speaker lens PASS.
