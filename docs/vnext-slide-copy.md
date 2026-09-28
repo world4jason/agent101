@@ -120,8 +120,8 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 > **Tools + Environment + Permissions**  
 > 能做什麼、在哪裡做、允許做到哪
 >
-> **Durable State / Memory**  
-> 跨步驟 / 跨對話要重新帶回來的長期資訊
+> **Durable State + optional Memory**  
+> project docs / issues / code 等正式狀態 + 可選的 product / harness memory
 
 **Current step**
 
@@ -134,7 +134,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 **Bottom line**
 
 > Context 是「**這一步模型能用什麼**」。  
-> 長期記憶 / durable state 是「**之後怎麼把重要資訊再帶回來**」。
+> Durable project state 是正式依據；product / harness Memory 是可選的長期 context 來源。
 
 
 ## Slide 4 — LLM 做這一步推理；Agent/App 維持工作循環
@@ -166,7 +166,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 
 **Input can come from**
 
-> Instructions · Conversation / Session · Files / Knowledge · Memory / Durable state · Tool results
+> Instructions · Conversation / Session · Files / Knowledge · Durable state / optional Memory · Tool results
 
 **Bottom line**
 
@@ -210,7 +210,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 > **Environment / Permissions**  
 > 執行在哪裡 + 哪些 action 需要 approval
 >
-> **Durable state / Memory**  
+> **Durable state + optional Memory**  
 > Codex：repo docs / issues / files；harness 可另外帶 memory  
 > ChatGPT：files / docs / connected sources / optional product Memory
 
@@ -221,7 +221,8 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 
 **Small note**
 
-> Claude Code 同樣可映射成 project + `CLAUDE.md` / rules + tools + work conversation。
+> 這是概念對照，不是一對一產品標準。  
+> Claude Code 也可用同樣方式理解：project + `CLAUDE.md` / rules + tools + work conversation。
 
 **Bottom line**
 
