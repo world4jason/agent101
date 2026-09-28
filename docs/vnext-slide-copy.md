@@ -78,19 +78,19 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 **Main mapping**
 
 > 你跟同事說「要完成什麼」  
-> → **Goal / Task**
+> → **目標 / 工作（Goal / Task）**
 >
 > 交代背景、現況與規則  
-> → **Context + Instructions**
+> → **工作脈絡 + 指令（Context + Instructions）**
 >
 > 給文件、系統與可用權限  
-> → **Files + Tools + Permissions**
+> → **檔案 + 工具 + 權限（Files / Tools / Permissions）**
 >
 > 同事做事、回報發生什麼  
-> → **Act → Observe**
+> → **行動 → 觀察（Act → Observe）**
 >
 > 你決定要不要繼續 / 驗收  
-> → **Continue / Human Review**
+> → **繼續 / Human 驗收（Continue / Review）**
 
 **Bottom line**
 
@@ -111,16 +111,16 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 
 **Outer runtime**
 
-> **Instructions**  
+> **指令（Instructions）**  
 > 系統 / 專案 / 任務規則
 >
-> **Work conversation / Session**  
+> **工作對話 / Session**  
 > 這段工作的對話 / 執行邊界；**不是 Agent 身分本身**
 >
-> **Tools + Environment + Permissions**  
+> **工具 + 執行環境 + 權限（Tools / Environment / Permissions）**  
 > 能做什麼、在哪裡做、允許做到哪
 >
-> **Durable State + optional Memory**  
+> **正式專案狀態 + 可選記憶（Durable State + optional Memory）**  
 > project docs / issues / code 等正式狀態 + 可選的 product / harness memory
 
 **Current step**
@@ -150,16 +150,16 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 
 **Main flow**
 
-> **Current Input**  
+> **目前輸入（Current Input）**  
 > task + instructions + relevant context
 >
 > → **LLM**  
 > 判斷下一步
 >
-> → **Tool / Action**  
+> → **工具 / 行動（Tool / Action）**  
 > 呼叫工具或執行動作
 >
-> → **Observation**  
+> → **觀察結果（Observation）**  
 > 工具 / 環境回傳結果
 >
 > ↺ 回到下一輪 Input
@@ -188,29 +188,29 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 
 **Concept → product**
 
-> **Work conversation / Session**  
+> **工作對話 / Session**  
 > Codex：chat / window / thread  
 > ChatGPT：Chat / Work task
 >
-> **Project boundary**  
+> **專案邊界（Project boundary）**  
 > Codex：repo / project  
 > ChatGPT：Work workspace / files / connected sources
 >
-> **Instructions**  
+> **指令（Instructions）**  
 > Codex：`AGENTS.md` + task instructions  
 > ChatGPT：workspace / task instructions + 你的指令
 >
-> **Current Context**  
+> **目前工作脈絡（Current Context）**  
 > 目前 conversation + relevant files + tool results
 >
-> **Tools**  
+> **工具（Tools）**  
 > Codex：terminal / files / code / allowed integrations  
 > ChatGPT：built-in tools + Plugins / Connectors
 >
-> **Environment / Permissions**  
+> **執行環境 / 權限（Environment / Permissions）**  
 > 執行在哪裡 + 哪些 action 需要 approval
 >
-> **Durable state + optional Memory**  
+> **正式專案狀態 + 可選記憶（Durable state + optional Memory）**  
 > Codex：repo docs / issues / files；harness 可另外帶 memory  
 > ChatGPT：files / docs / connected sources / optional product Memory
 
@@ -226,10 +226,10 @@ Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amend
 
 **Bottom line**
 
-> **New chat / new window ≠ new Agent。**  
-> `AGENTS.md` 是 project instructions 的一種實作；`MEMORY.md` 不是通用標準。  
+> **新對話 / 新視窗 ≠ 新 Agent。**  
+> `AGENTS.md` 是專案指令（project instructions）的一種實作；`MEMORY.md` 不是通用標準。  
 > Product Memory 可以提供 context，但不是專案的正式依據。  
-> **Tool access ≠ Permission。**
+> **能用工具 ≠ 有操作權限（Permission）。**
 
 
 ## Slide 6 — Discover：先發散，再收斂
