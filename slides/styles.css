@@ -166,8 +166,16 @@ h3{font-size:26px}.lead{font-size:clamp(21px,2vw,34px);line-height:1.55;color:#c
 
 @media (max-width:900px){
   .handoff-row{grid-template-columns:1fr 34px 1fr}.handoff-row>*{padding:10px 9px}.handoff-row>i{font-size:17px}.handoff-head b{font-size:14px}
-  .agent-anatomy{grid-template-columns:1fr}.anatomy-arrow{transform:rotate(90deg)}.anatomy-sources{grid-template-columns:1fr}
-  .product-map{overflow:auto}.product-map>div{grid-template-columns:150px 260px 260px;min-width:670px}
+  .agent-anatomy{grid-template-columns:1fr}.anatomy-arrow{transform:none;font-size:0}.anatomy-arrow::after{content:"↓";font-size:22px}.anatomy-sources{grid-template-columns:1fr}
+  .product-map{overflow:visible}.product-map .product-map-head{display:none}
+  .product-map>div{grid-template-columns:1fr;min-width:0;border-top:1px solid var(--line)}
+  .product-map>div:first-of-type{border-top:0}
+  .product-map>div>*{border-right:0;padding:9px 12px}
+  .product-map>div>span::before{display:block;margin-bottom:4px;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .product-map>div>span:nth-child(1)::before{content:"Concept"}
+  .product-map>div>span:nth-child(2)::before{content:"Codex"}
+  .product-map>div>span:nth-child(3)::before{content:"ChatGPT"}
+  .product-map>div>span:nth-child(1){background:var(--panel2)}
   .start-strip{grid-template-columns:1fr}
 }
 
