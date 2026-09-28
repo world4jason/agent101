@@ -60,7 +60,7 @@
               <div><b>Instructions</b><small>系統 / 專案 / 任務規則</small></div>
               <div class="fragment"><b>Work conversation / Session</b><small>這段工作的對話 / 執行邊界；不是 Agent 身分本身</small></div>
               <div class="fragment"><b>Tools + Environment + Permissions</b><small>能做什麼、在哪裡做、允許做到哪</small></div>
-              <div class="fragment"><b>Durable State / Memory</b><small>跨步驟 / 跨對話要重新帶回來的長期資訊</small></div>
+              <div class="fragment"><b>Durable State + optional Memory</b><small>project docs / issues / code 等正式狀態 + 可選的 product / harness memory</small></div>
             </div>
           </div>
           <div class="anatomy-arrow">↓ 組成這一步 ↓</div>
@@ -70,7 +70,7 @@
             <strong>→ LLM / Model</strong>
           </div>
         </div>
-        <p class="bottom-callout">這些能力多半是 <strong>Agent/App/runtime 提供給模型</strong>。Context 是「這一步模型能用什麼」；長期記憶 / durable state 是「之後怎麼把重要資訊再帶回來」。</p>
+        <p class="bottom-callout">這些能力多半是 <strong>Agent/App/runtime 提供給模型</strong>。Context 是「這一步模型能用什麼」；Durable project state 是正式依據；product / harness Memory 只是可選的長期 context 來源。</p>
       </section>
 
       <section class="slide" data-section="define" data-structure="sequence">
@@ -87,7 +87,7 @@
           <span class="fragment">↺</span>
         </div>
         <div class="runtime-inputs fragment">
-          <span>Instructions</span><span>Conversation / Session</span><span>Files / Knowledge</span><span>Memory / Durable state</span><span>Tool results</span>
+          <span>Instructions</span><span>Conversation / Session</span><span>Files / Knowledge</span><span>Durable state / optional Memory</span><span>Tool results</span>
         </div>
         <p class="bottom-callout">模型只對<strong>這一步拿到的 context</strong>做推理。Agent/App 可能挑選、摘要、取回或引用相關狀態；<strong>不代表每輪逐字重送全部歷史。</strong></p>
       </section>
@@ -103,13 +103,13 @@
           <div><span>Current Context</span><span>conversation + relevant files + tool results</span><span>Chat / Work + files + tool results</span></div>
           <div><span>Tools</span><span>terminal / files / code / allowed integrations</span><span>built-in tools + Plugins / Connectors</span></div>
           <div><span>Environment / Permissions</span><span>local / cloud coding environment + allowed actions</span><span>Work cloud environment + action approvals</span></div>
-          <div><span>Durable state / Memory</span><span>repo docs / issues / files；harness 可另外帶 memory</span><span>files / docs / connected sources / optional product Memory</span></div>
+          <div><span>Durable state + optional Memory</span><span>repo docs / issues / files；harness 可另外帶 memory</span><span>files / docs / connected sources + optional product Memory</span></div>
         </div>
         <div class="start-strip">
           <div><b>Codex</b><span>開 project / repo → 開工作對話 → 給 task</span></div>
           <div><b>ChatGPT Work</b><span>開 Work → 給 task + 需要的 files / tools</span></div>
         </div>
-        <div class="product-note">Claude Code 同樣可映射成：project + <code>CLAUDE.md</code> / rules + tools + work conversation。</div>
+        <div class="product-note">這是概念對照，不是一對一產品標準。Claude Code 也可用同樣方式理解：project + <code>CLAUDE.md</code> / rules + tools + work conversation。</div>
         <p class="bottom-callout"><strong>New chat / new window ≠ new Agent。</strong> <code>AGENTS.md</code> 是 project instructions 的一種實作；<code>MEMORY.md</code> 不是通用標準。Product Memory 可以提供 context，但不是 project source of truth。Tool access 也不等於 permission。</p>
       </section>
 
