@@ -2,7 +2,7 @@
 
 Parent: #7  
 Execution ticket: #14  
-Implemented source: merged #13 at `6090d5b87f185a7742450e2b713525817cec3c8d`
+Implemented source: merged #23 teaching deck at `e29031dc3a36efb8e16acda93b89e943751222b2` + #14 release CSS on PR #22
 
 > This document records **rendered browser evidence**, release fixes, and the remaining empirical teaching gates. It does not mark human validation PASS without a real rehearsal / participant.
 
@@ -232,14 +232,14 @@ Result:
 
 # 6. GitHub Pages path / deployment — source + deployment PASS, final-head recheck pending
 
-For merged #13 commit `6090d5b`:
+For merged #23 commit `e29031dc`:
 
 - repository metadata: `has_pages = true`
 - GitHub Actions run: **pages build and deployment**
-- run ID: **36338437265**
+- run ID: **36439022031**
 - status: **completed**
 - conclusion: **success**
-- deployed head SHA: `6090d5b87f185a7742450e2b713525817cec3c8d`
+- deployed head SHA: `e29031dc3a36efb8e16acda93b89e943751222b2`
 
 Source-path check:
 
@@ -255,7 +255,7 @@ The projection / print fixes in this #14 branch are not on `main` yet, so the **
 
 Current status:
 
-> **PASS for path configuration and #13 deployment; final-head Pages deployment = pending post-merge confirmation.**
+> **PASS for path configuration and merged #23 deployment; final #14-head Pages deployment = pending post-merge confirmation.**
 
 ---
 
@@ -267,7 +267,7 @@ Checks:
 
 - major section color changes are distinguishable;
 - title hierarchy remains visible;
-- the running LUT example remains visually recognizable through the Core;
+- the activity-registration / mobile CTA running example remains visually recognizable from Slide 6 through the Core;
 - Core / Optional boundary is visible at Slide 13;
 - advanced slides do not visually dominate the Core;
 - Slide 16 remains an architecture diagram, not a product-name glossary wall;
@@ -276,6 +276,24 @@ Checks:
 Result:
 
 > **PASS — overview hierarchy and section transitions.**
+
+---
+
+## Post-#23 branch revalidation
+
+After PR #24 / #23 merged to `main`, PR #22 was refreshed to contain the new Agent-fundamentals deck plus the #14 projection / print fixes on the same branch.
+
+Direct QA of PR #22 head `c42b9a3`:
+
+- 1920×1080: **18/18 PASS**
+- 1280×720: **18/18 PASS**
+- 390×844: **PASS**, no horizontal overflow / no fixed-footer overlap
+- Print/PDF: **18 pages, 16:9, no overflow**
+- Core route: **13 → 18 → Prev = 13**
+- Full route: **18 → Prev = 17**
+- Fragment reveal: **PASS**
+
+This supersedes the earlier local-composition simulation. The branch itself now contains the final automated visual composition.
 
 ---
 
@@ -344,7 +362,7 @@ Do not treat model simulation as participant evidence.
 | Print / PDF 18-page 16:9 output | **PASS after #14 CSS fix** |
 | Thumbnail / overview hierarchy | **PASS** |
 | Accidental card-wall / dual-primary-path check | **PASS** |
-| GitHub Pages source path + #13 deployment | **PASS** |
+| GitHub Pages source path + merged #23 deployment | **PASS** |
 | Final #14-head Pages deployment | **PENDING POST-MERGE** |
 | Measured read-aloud timing | **OPEN — HUMAN EVIDENCE REQUIRED** |
 | Real cold-beginner Q1–Q7 | **OPEN — HUMAN EVIDENCE REQUIRED** |
