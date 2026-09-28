@@ -133,3 +133,40 @@ h3{font-size:26px}.lead{font-size:clamp(21px,2vw,34px);line-height:1.55;color:#c
 @media print{
   .jump-button{display:none}
 }
+
+
+/* #23 — Agent fundamentals / Human→Agent teaching bridge */
+.handoff-map{display:grid;gap:0;max-width:1180px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+.handoff-row{display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;min-height:68px;border-top:1px solid var(--line)}
+.handoff-row:first-child{border-top:0}.handoff-row>*{padding:14px 18px}.handoff-row>i{text-align:center;color:var(--muted);font-style:normal;font-size:22px}
+.handoff-row>span:first-child{color:#d5dde7}.handoff-row>span:last-child{color:#c9dbff}.handoff-row strong{color:var(--manage)}
+.handoff-head{background:var(--panel2);min-height:56px}.handoff-head b{font-size:18px}.handoff-head b:last-child{color:var(--manage)}
+
+.agent-anatomy{max-width:1240px;display:grid;grid-template-columns:1.35fr auto 1fr;gap:18px;align-items:center}
+.anatomy-runtime{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:18px}
+.anatomy-runtime>span{display:block;color:var(--define);font-size:11px;font-weight:900;letter-spacing:.1em;margin-bottom:12px}
+.anatomy-sources{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.anatomy-sources>div{padding:14px;border:1px solid var(--line);border-radius:11px;background:var(--panel2);min-height:92px}
+.anatomy-sources b{display:block;font-size:16px}.anatomy-sources small{display:block;color:var(--muted);font-size:12px;line-height:1.45;margin-top:7px}
+.anatomy-arrow{color:var(--muted);text-align:center;font-size:13px}
+.anatomy-current{padding:22px;border:1px solid var(--manage);border-radius:16px;background:#101d2c}
+.anatomy-current b{display:block;color:var(--manage);font-size:24px}.anatomy-current span{display:block;color:#c7d1df;line-height:1.5;margin:12px 0 18px}.anatomy-current strong{display:block;font-size:20px}
+
+.runtime-inputs{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.runtime-inputs span{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:#cbd4df;font-size:12px}
+
+.product-map{display:grid;gap:0;max-width:1320px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.product-map>div{display:grid;grid-template-columns:230px 1fr 1fr}
+.product-map>div>*{padding:10px 13px;border-top:1px solid var(--line);border-right:1px solid var(--line);line-height:1.35;font-size:13px}
+.product-map>div>*:last-child{border-right:0}.product-map .product-map-head>*{border-top:0;background:var(--panel2);font-size:14px}
+.product-map>div>span:first-child{font-weight:800;color:#d9e2ee}.product-map code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#ffd782}
+.start-strip{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:1120px;margin-top:16px}
+.start-strip>div{padding:12px 15px;border:1px solid var(--line);border-radius:11px;background:#111720}
+.start-strip b{color:var(--verify);margin-right:8px}.start-strip span{color:#c5ced9;font-size:13px}
+
+@media (max-width:900px){
+  .handoff-row{grid-template-columns:1fr 34px 1fr}.handoff-row>*{padding:10px 9px}.handoff-row>i{font-size:17px}.handoff-head b{font-size:14px}
+  .agent-anatomy{grid-template-columns:1fr}.anatomy-arrow{transform:rotate(90deg)}.anatomy-sources{grid-template-columns:1fr}
+  .product-map{overflow:auto}.product-map>div{grid-template-columns:150px 260px 260px;min-width:670px}
+  .start-strip{grid-template-columns:1fr}
+}
