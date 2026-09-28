@@ -102,12 +102,14 @@
           <div><span>Instructions</span><span><code>AGENTS.md</code> + task instructions</span><span>workspace / task instructions + 你的指令</span></div>
           <div><span>Current Context</span><span>conversation + relevant files + tool results</span><span>Chat / Work + files + tool results</span></div>
           <div><span>Tools</span><span>terminal / files / code / allowed integrations</span><span>built-in tools + Plugins / Connectors</span></div>
+          <div><span>Environment / Permissions</span><span>local / cloud coding environment + allowed actions</span><span>Work cloud environment + action approvals</span></div>
           <div><span>Durable state / Memory</span><span>repo docs / issues / files；harness 可另外帶 memory</span><span>files / docs / connected sources / optional product Memory</span></div>
         </div>
         <div class="start-strip">
           <div><b>Codex</b><span>開 project / repo → 開工作對話 → 給 task</span></div>
           <div><b>ChatGPT Work</b><span>開 Work → 給 task + 需要的 files / tools</span></div>
         </div>
+        <div class="product-note">Claude Code 同樣可映射成：project + <code>CLAUDE.md</code> / rules + tools + work conversation。</div>
         <p class="bottom-callout"><strong>New chat / new window ≠ new Agent。</strong> <code>AGENTS.md</code> 是 project instructions 的一種實作；<code>MEMORY.md</code> 不是通用標準。Product Memory 可以提供 context，但不是 project source of truth。Tool access 也不等於 permission。</p>
       </section>
 
