@@ -97,7 +97,7 @@ problem
 ## Slide 3 — Agent/App 要管理哪些東西？
 
 - **Learner question:** Agent 只有 LLM 嗎？Context、session、tools、memory 各自是什麼？
-- **One takeaway:** LLM 是 reasoning layer；Agent/App/runtime 另外管理 Instructions、Work conversation / Session、Tools、Environment / Permissions、Durable State / Memory，並在每一步組成 Current Context。
+- **One takeaway:** LLM 是 reasoning layer；Agent/App/runtime 另外管理 Instructions、Work conversation / Session、Tools、Environment / Permissions、Durable State + optional Memory，並在每一步組成 Current Context。Durable project state 是正式依據；product/harness Memory 只是可選 context 來源。
 - **Dominant visual:** 外層 Agent/App/runtime → sources → **Current Context → LLM** 的單一路徑層級圖。
 - **Running example state:** None.
 - **Prerequisite:** Slide 2 delegation analogy.
@@ -129,7 +129,7 @@ problem
   - Current Context → current conversation + relevant files + tool results  
   - Tools → terminal/files/code/integrations；ChatGPT built-in tools + Plugins / Connectors  
   - Environment / Permissions → local/cloud execution + allowed actions / approvals  
-  - Durable State / Memory → repo docs/issues/files or harness-specific memory；ChatGPT files/docs/connected sources/product Memory
+  - Durable State + optional Memory → repo docs/issues/files or harness-specific memory；ChatGPT files/docs/connected sources/product Memory
 - **Guardrail:** Claude Code is a subordinate mapping example: project + `CLAUDE.md` / rules + tools + work conversation.
 
 
