@@ -1,8 +1,9 @@
 # Agent 101 vNext — Speaker Walkthrough + Beginner Comprehension Check
 
 Parent: #7  
-Execution ticket: #12  
-Inputs: merged #11 learner-visible copy + merged #9/#10 teaching contract
+Original execution ticket: #12  
+Amended by release-blocking insertion: #23  
+Inputs: merged #11 learner-visible copy + merged #9/#10 contract + #23 teaching-order amendment
 
 > This issue validates **delivery flow and beginner comprehension before HTML/CSS implementation**. It does not redesign slides and does not implement the deck.
 
@@ -14,119 +15,118 @@ Three passes were run against the actual learner-visible copy:
 2. **Timing budget pass** — assign a realistic live-teaching budget per slide, preserving the audience decision moment on Slide 12. **This is an estimate, not a measured read-aloud.**
 3. **Cold-beginner answerability desk simulation** — answer the #7 learning questions using only concepts already introduced in the Core, without relying on Appendix / expert knowledge. **This proves the deck contains enough information to construct the answers; it does not prove a real cold participant can explain them.**
 
-One prerequisite issue was found during the walkthrough:
+#23 replaces the old early-example contract.
 
-- The running example used **LUT** before a non-image learner had any hook for the term.
+New pre-example rule:
 
-Resolution applied in this issue:
+- Slides **2–5 contain no running product example**.
+- Agent intuition is taught first through a **Human coworker → Agent** delegation analogy.
+- Anatomy/state comes before runtime loop.
+- Runtime loop comes before Codex / ChatGPT product mapping.
+- Slide 6 is the first concrete running example: **活動報名頁：手機版很難找到「立即報名」**.
 
-> Slide 2 now says: **LUT 可先理解成「調色預設」**.
-
-One small AC-example clarification was also applied:
-
-> Slide 9 now says **390px 手機寬度** instead of only **390px 寬度**.
-
-No architecture change was required.
+This is a deliberate teaching-order change, not a wording-only patch.
 
 ---
 
 # 1. Forward speaker walkthrough
 
-## Slides 1–5 — What an Agent is
+## Slides 1–5 — From familiar delegation → Agent model → products
 
 ### Slide 1 → Slide 2
 
 **Speaker bridge**
 
-> 這堂課最後要會的是「想 → 拆 → 票 → 做 → 審 → 合」。但在開始管工作以前，先確認我們說的 Agent 到底是什麼。
+> 以前你會把工作交給同事；現在只是多了一個可以被委派工作的 Agent。先不要碰產品名稱，先看「委派工作」本身有哪些共同條件。
 
 **Prerequisite check**
 
-- No Ticket / AC / PR vocabulary is required yet.
-- Slide 1 stays plain-language.
-- PASS.
+- no Ticket / AC / PR vocabulary;
+- no product mapping yet;
+- no running example yet.
+
+**Result: PASS.**
 
 ### Slide 2 → Slide 3
 
 **Speaker bridge**
 
-> 如果 Agent 是一個能為目標持續行動的 AI 工作者，下一個最實際的問題就是：我到底要去哪裡開一個？
-
-**Micro-demo state**
-
-> Goal: 先檢查 LUT Gallery，找出使用者為什麼很難快速挑到喜歡的 LUT。
+> 交代同事時，你會給目標、背景、規則、工具，再看他做了什麼。換成 Agent，這些東西分別由哪一層負責？
 
 **Prerequisite check**
 
-- LUT now has a plain-language first-use hook: 「調色預設」.
-- PASS.
+- Human coworker analogy is explicitly an intuition bridge, not an equality claim;
+- Human still owns framing / trade-offs / acceptance.
+
+**Result: PASS.**
 
 ### Slide 3 → Slide 4
 
 **Speaker bridge**
 
-> 你不用先找一個通用的 Agent 按鈕；直接在工作介面給它明確工作即可。那它為什麼不會只回答一次就停？
-
-**Micro-demo state**
-
-> Same goal → open the project → 「先檢查，不要直接改。」
+> 現在知道 Agent/App 周圍有哪些 state / capability。下一步看它們怎麼被組成「這一次」LLM 真正拿到的 input。
 
 **Prerequisite check**
 
-- No unexplained repo/task-surface jargon.
-- PASS.
+- Work conversation / Session is separated from Agent identity;
+- Current Context is separated from durable state / memory;
+- Tools are separated from Environment / Permissions.
+
+**Result: PASS.**
 
 ### Slide 4 → Slide 5
 
 **Speaker bridge**
 
-> 現在知道 Agent/App 怎麼讓 LLM 一步一步繼續。下一個問題是：它決定要做的動作，實際在哪裡發生？
-
-**Micro-demo state**
-
-> Same goal → read project/current UI → observe「目前只能逐顆找 LUT」→ next step.
+> 到這裡抽象模型才完整。現在再看 Codex / ChatGPT，就不會把「window」「project」「AGENTS.md」「Plugins」誤認成不同種類的 Agent。
 
 **Prerequisite check**
 
-- LLM is defined on first use.
-- Input / action / observation / context are Chinese-first.
-- No claim that all prior tokens are resent.
-- PASS.
+- LLM vs Agent/App loop is already known;
+- no token-resend overclaim;
+- product names appear only after the abstraction.
+
+**Result: PASS.**
 
 ### Slide 5 → Slide 6
 
 **Speaker bridge**
 
-> 到這裡機制已經夠了。接下來不再談 Agent 內部，而是回到你真正會遇到的工作：我只有一個模糊問題，怎麼開始？
+> 現在你知道去哪裡開始，也知道每個產品介面大概對應到哪個 Agent 概念。接下來才真的拿一個普通工作問題來跑完整流程。
 
-**Prerequisite check**
+**Product-mapping check**
 
-- Local/cloud, environment, permission are already introduced.
-- PASS.
+- Codex window / ChatGPT Work task = work conversation / task boundary, **not a new Agent identity**;
+- `AGENTS.md` = project instructions example;
+- `MEMORY.md` is not presented as a universal standard;
+- Plugins / Connectors are Tools / integrations;
+- product Memory may provide context but is not project source of truth;
+- Tool access ≠ Permission.
 
-**Slides 2–4 continuity result: PASS.**  
-The same LUT Gallery goal remains visible through start → inspect → observation → next step.
+**Result: PASS.**
 
 ---
 
-## Slides 6–9 — 想 / 拆 / 票
+## Slides 6–9 — Discover / Plan / Specify
 
 ### Slide 6 → Slide 7
 
 **Speaker bridge**
 
-> 發散的目的只是增加選項，不是立刻產生待辦。接下來要做的是 Human 決策。
+> 活動報名頁的手機版很難找到「立即報名」。先不要叫 AI 直接改；先讓它幫忙擴大選項，再由 Human 決定。
 
 **Prerequisite check**
 
-- Brainstorm stages are Chinese-first.
-- PASS.
+- the running example starts here for the first time;
+- no project-specific background is required.
+
+**Result: PASS.**
 
 ### Slide 7 → Slide 8
 
 **Speaker bridge**
 
-> 選定 Find Similar 之後，還不要直接開工。先決定這件事在整個專案裡是哪一層工作。
+> 我們用效益、成本、風險、可逆性與證據需求比較後，選「固定底部 CTA」。選定方向後，才進工作規劃。
 
 **Decision point**
 
@@ -138,67 +138,64 @@ Human compares:
 - 可逆性
 - 還需要什麼證據
 
-**Prerequisite check**
-
-- Human owns criteria / trade-offs / final decision.
-- PASS.
+**Result: PASS.**
 
 ### Slide 8 → Slide 9
 
 **Speaker bridge**
 
-> Milestone / Epic / Story / Task 只是工作層級。真正要交給 Agent 執行的那一小塊，才要變成一張不需要猜的工作票。
+> Milestone / Epic / Story / Task 只是在分工作層級。真正要交給 Agent 做的那個 Task，接著才變成一張不用猜的工作票。
 
 **Prerequisite check**
 
-- Milestone / Epic / Story / Task each have a plain-language meaning.
-- PASS.
+- each hierarchy noun has a plain-language meaning;
+- hierarchy is still distinct from Kanban state.
+
+**Result: PASS.**
 
 ### Slide 9 → Slide 10
 
 **Speaker bridge**
 
-> Ticket 寫完整不代表現在就該做。先過優先順序與相依性檢查，通過之後才進待辦，接著才開始看工作狀態。
+> Ticket 寫完整不代表現在就該做。先過優先順序與相依性檢查，才進 Backlog，接著才看執行狀態。
 
 **Prerequisite check**
 
-- AC / Evidence are defined here once.
-- Priority/dependency gate is explicit.
-- 390px example now says「手機寬度」.
-- PASS.
+- AC / Evidence are defined here once;
+- mobile CTA AC is observable Pass / Fail.
+
+**Result: PASS.**
 
 ---
 
-## Slides 10–13 — 做 / 審 / 合
+## Slides 10–13 — Execute / Review / Deliver
 
 ### Slide 10 → Slide 11
 
 **Speaker bridge**
 
-> Kanban 只告訴你「現在在哪」。對軟體工作來說，我們還需要知道同一張工作票實際怎麼被隔離、修改、送審。
+> Kanban 只告訴你「現在在哪」。軟體工作還需要知道同一張工作票怎麼被隔離、修改、送審。
 
 **Prerequisite check**
 
-- WIP is explained at first sight.
-- Slide 10 says「送審」and does **not** use PR before definition.
-- PASS.
+- WIP is already explained at first sight;
+- Slide 10 does not use PR before definition.
+
+**Result: PASS.**
 
 ### Slide 11 → Slide 12
 
 **Speaker bridge**
 
-> 到這裡才第一次正式介紹 Pull Request，也就是送交審查 / 驗收的入口。下一頁不再重講 PR，而是直接判斷這一張要不要過。
+> 到這裡才第一次正式介紹 Pull Request：它是送交審查 / 驗收的入口。下一頁直接判斷這張 PR 能不能過。
 
-**Prerequisite check**
-
-- PR first-use canonical location is preserved.
-- PASS.
+**Result: PASS.**
 
 ### Slide 12 → Slide 13
 
 **Speaker bridge**
 
-> Build / Test 都綠，但只要一條事先約定的 AC 失敗，就還不能通過。等所有條件通過、Human 接受之後，才進合併。
+> 建置 / 測試都綠，但 CTA 還會遮住主要內容，所以 AC 3 失敗。先退回修改；修掉這條 AC 之後，Human 才接受並 Merge。
 
 **Audience decision moment**
 
@@ -217,21 +214,17 @@ Expected audience judgment:
 
 > **退回修改（Request Changes）**
 
-**Prerequisite check**
-
-- AC is reused, not redefined.
-- Self-report / automated checks ≠ acceptance.
-- PASS.
+**Result: PASS.**
 
 ### Slide 13 → Slide 18 or Slide 14
 
 **Speaker bridge — Core-only**
 
-> 到這裡你已經能跑一個小型 Human + Agent 專案。如果今天只上 Core，直接跳最後一頁收束。
+> 到這裡你已經走完 Discover → Plan → Specify → Execute → Review → Deliver。短版課程直接跳 Slide 18。
 
 **Speaker bridge — Full**
 
-> 如果還要談多人責任、Subagent 與進階能力，再往下走。
+> 如果還要談角色分工、Subagent 與進階能力，再進 Optional。
 
 **Core stop check: PASS.**
 
@@ -283,10 +276,10 @@ The target in #7 is roughly:
 | Slide | Topic | Target |
 |---:|---|---:|
 | 1 | Course promise / six-step map | 1:00 |
-| 2 | What is an Agent | 1:45 |
-| 3 | How to start | 1:30 |
-| 4 | LLM vs Agent/App loop | 2:30 |
-| 5 | Agent vs Environment | 1:30 |
+| 2 | Coworker → Agent delegation bridge | 2:00 |
+| 3 | Agent anatomy / context / session / memory | 2:30 |
+| 4 | LLM vs Agent/App loop | 2:15 |
+| 5 | Codex / ChatGPT product mapping + start | 2:30 |
 | 6 | Brainstorm | 2:00 |
 | 7 | Human decision | 2:00 |
 | 8 | Work hierarchy | 2:00 |
@@ -295,7 +288,7 @@ The target in #7 is roughly:
 | 11 | GitHub delivery path | 2:00 |
 | 12 | Review decision exercise | 3:30 |
 | 13 | Merge / Core stop | 1:15 |
-| **Core total** |  | **25:30** |
+| **Core total** |  | **27:30** |
 
 This budget fits the #7 Core target **on paper**, because the terminology has already been reduced / translated in #11.
 
@@ -305,14 +298,14 @@ This budget fits the #7 Core target **on paper**, because the terminology has al
 
 | Block | Target |
 |---|---:|
-| Core | 25:30 |
+| Core | 27:30 |
 | Slide 14 — Human roles | 2:00 |
 | Slide 15 — Subagent | 2:00 |
 | Slide 16 — Architecture slots | 2:30 |
 | Slide 17 — Need → capability | 2:30 |
 | Slide 18 — Summary | 1:30 |
 | Questions / audience interaction | 5–10 min |
-| **Full session** | **40–46 min** |
+| **Full session** | **42–48 min** |
 
 **Timing budget result: PLANNING PASS; empirical timing UNVERIFIED.**
 
@@ -321,7 +314,7 @@ This budget fits the #7 Core target **on paper**, because the terminology has al
 1. Keep Slides 1–13.
 2. Skip Slides 14–17.
 3. Go directly 13 → 18.
-4. Do **not** cut Slides 2–4, Brainstorm → Ticket, or Slide 12 acceptance exercise.
+4. Do **not** cut Slides 2–5, Discover → Ticket, or Slide 12 acceptance exercise.
 
 ---
 
@@ -337,42 +330,49 @@ Therefore each Q1–Q7 result below is an **answerability result**, not a human-
 
 A real cold participant must use the same Q1–Q7 questions during #14 release validation.
 
-## Q1 — LLM 和 Agent/App 有什麼不同？
+## Q1 — 跟同事合作換成跟 Agent 合作，哪些事情其實沒有變？
 
 **Pass answer in plain language**
 
-> LLM 是每一步負責推理的模型。Agent/App 會準備這一步需要的資訊、執行工具、看結果，再把需要的資訊帶到下一步，所以工作可以繼續。
-
-**Must not require**
-
-- session
-- context window internals
-- compaction
-- memory implementation
+> 還是要說清楚目標、背景、規則、能用的工具 / 權限，然後看它做了什麼、再由 Human 判斷要不要繼續或驗收。Agent 只是把這些合作條件變得更明確。
 
 **Supported by**
 
-Slides 2–4.
+Slides 1–2.
 
 **Desk answerability: PASS. Human comprehension: UNVERIFIED.**
 
 ---
 
-## Q2 — 我是不是要先找一個「Create Agent」按鈕？
+## Q2 — LLM 和 Agent/App 有什麼不同？
 
 **Pass answer**
 
-> 不一定。像 Codex、Claude Code、ChatGPT Work 這些工具，本來就可以用 Agent 方式工作；在工作介面給清楚的目標與限制就能開始。
+> LLM 負責這一步的推理。Agent/App 管理 instructions、context、tools、environment / permissions、conversation/session 與 durable state，再把需要的資訊組成下一輪 input。
 
 **Supported by**
 
-Slide 3.
+Slides 3–4.
 
 **Desk answerability: PASS. Human comprehension: UNVERIFIED.**
 
 ---
 
-## Q3 — 我只有一個模糊 idea，為什麼不能直接叫 AI 開工？
+## Q3 — Codex 的一個 window / ChatGPT Work task，就是一個新的 Agent 嗎？
+
+**Pass answer**
+
+> 不一定。比較像一段工作的 conversation / task boundary。Agent/App 還可能從 project instructions、files、tools、product memory 或 durable state 帶入其他資訊。New chat / window 不等於 new Agent identity。
+
+**Supported by**
+
+Slide 5.
+
+**Desk answerability: PASS. Human comprehension: UNVERIFIED.**
+
+---
+
+## Q4 — 我只有一個模糊 idea，為什麼不能直接叫 AI 開工？
 
 **Pass answer**
 
@@ -386,7 +386,7 @@ Slides 6–7.
 
 ---
 
-## Q4 — Milestone / Epic / Story / Task 和 Kanban 有什麼差別？
+## Q5 — Milestone / Epic / Story / Task 和 Kanban 有什麼差別？
 
 **Pass answer**
 
@@ -400,7 +400,7 @@ Slides 8–10.
 
 ---
 
-## Q5 — 一張 Ticket 什麼時候才 ready？
+## Q6 — 一張 Ticket 什麼時候才 ready？
 
 **Pass answer**
 
@@ -414,25 +414,11 @@ Slide 9.
 
 ---
 
-## Q6 — Agent 說「完成」，為什麼還不能直接算 Done？
+## Q7 — Agent 說「完成」、Build / Test 都綠，為什麼還可能不能 Merge？
 
 **Pass answer**
 
-> 因為它只是說自己做完了。還要看驗收證據、逐條對 AC、確認範圍和已知限制，再由 Human 決定要通過還是退回。
-
-**Supported by**
-
-Slide 12.
-
-**Desk answerability: PASS. Human comprehension: UNVERIFIED.**
-
----
-
-## Q7 — Build / Test 都綠，為什麼還可能不能 Merge？
-
-**Pass answer**
-
-> 因為自動檢查只是證據的一部分。如果事先約定的產品行為 AC 還有一條失敗，就不能通過。
+> Agent 自己說完成和自動檢查都只是證據的一部分。還要逐條看 AC、範圍與已知限制；只要已約定的產品行為 AC 失敗，就要退回修改，最後由 Human 決定是否接受。
 
 **Supported by**
 
@@ -458,9 +444,10 @@ Key first-use order:
 
 | Concept | First formal teaching location |
 |---|---:|
-| Agent | Slide 2 |
-| LLM | Slide 4 |
-| Environment / Permission | Slide 5 |
+| Human delegation → Agent intuition | Slide 2 |
+| Context / Session / Tools / Memory / Environment / Permission | Slide 3 |
+| LLM vs Agent/App loop | Slide 4 |
+| Codex / ChatGPT product mapping | Slide 5 |
 | Brainstorm decision criteria | Slides 6–7 |
 | Milestone / Epic / Story / Task | Slide 8 |
 | Ticket / AC / Evidence | Slide 9 |
@@ -479,7 +466,7 @@ Key first-use order:
 # 6. #12 Acceptance check
 
 - [x] Speaker can move forward without jumping backward to repair missing prerequisites.
-- [x] Timing **budget** fits the #7 target on paper: Core **~25:30**, Full **~40–46 min**.
+- [x] Timing **budget** fits the #7 target on paper: Core **~27:30**, Full **~42–48 min**.
 - [ ] **Measured read-aloud timing** verifies the Core / Full duration without rushing. **Deferred to #14 release validation.**
 - [x] Cold-beginner **desk answerability** confirms the approved copy contains enough information to answer:
   - LLM vs Agent/App;
@@ -487,10 +474,9 @@ Key first-use order:
   - what makes a Ticket ready;
   - why Agent “done” still needs Review.
 - [ ] A **real cold beginner** can explain the Q1–Q7 concepts in their own words. **Deferred to #14 release validation.**
-- [x] Slides 2–4 use one continuous LUT Gallery micro-demo.
+- [x] Slides 2–5 contain no running example and follow delegation analogy → anatomy → loop → product mapping.
 - [x] Advanced slides explicitly refer back to the known Agent loop instead of teaching a second architecture.
 - [x] Core-only route remains 13 → 18.
-- [x] One domain-specific first-use issue found during walkthrough (LUT) was fixed in learner-visible copy.
 - [x] No HTML/CSS implementation or visual QA is included.
 
 ## Acceptance disposition
@@ -500,7 +486,7 @@ Key first-use order:
 ### Verified in #12
 - forward teaching flow;
 - prerequisite ordering;
-- Slides 2–4 micro-demo continuity;
+- Slides 2–5 Agent-fundamentals order;
 - Core-only / Full routing;
 - Advanced re-anchor;
 - Q1–Q7 answerability from the approved copy;

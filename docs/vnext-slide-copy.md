@@ -1,8 +1,9 @@
 # Agent 101 vNext — Approved On-Slide Copy
 
 Parent: #7  
-Execution ticket: #11  
-Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
+Original execution ticket: #11  
+Amended by release-blocking insertion: #23  
+Inputs: merged #8 inventory, #9 storyboard, #10 review, #23 teaching-order amendment
 
 > This file contains the **actual learner-visible copy** for the 18-slide live deck. It is intentionally not HTML/CSS and not a speaker script. #13 should implement this content without re-expanding deleted concepts or inventing new glossary pages.
 
@@ -10,8 +11,8 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 - One primary takeaway per slide.
 - One concept has one canonical teaching location.
-- The LUT Gallery example remains the same example from brainstorm through merge.
-- Slides 2–4 use one continuous micro-demo trace.
+- Slides 2–5 contain **no running product example**; they establish Agent intuition, anatomy, loop, and product mapping first.
+- The activity-registration example begins on Slide 6 and remains coherent through Merge.
 - Slides 14–17 are optional; Slide 18 must still work directly after Slide 13.
 - Named advanced tools stay subordinate to the architecture / capability question they answer.
 - **Chinese-first for learner-visible copy:** if an English industry term must be learned, show its plain-language Chinese meaning at first sight; otherwise translate or remove it.
@@ -20,6 +21,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 ---
 
 # Core
+
 
 ## Slide 1 — 管 AI 專案，本質是管工作
 
@@ -34,211 +36,224 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Lead**
 
-> 不先學提示詞技巧，也不先背工具。  
-> 先把工作變成 **可委派、可追蹤、可驗收、可交付**。
+> 以前你把工作交給同事；現在也可以交給 Agent。  
+> 差別是：**背景、規則、工具、權限與驗收，要說得更明確。**
 
 **Main roadmap**
 
-> **想**  
-> 先發散，再決定  
+> **Discover**  
+> 先理解問題、發散選項
 >
-> **拆**  
-> 分出工作層級  
+> **Plan**  
+> 分出工作層級
 >
-> **票**  
-> 寫清楚工作與完成條件  
+> **Specify**  
+> 寫清楚工作與完成條件
 >
-> **做**  
-> 開始執行、看狀態  
+> **Execute**  
+> 開始執行、看狀態
 >
-> **審**  
-> 看證據、判斷是否通過  
+> **Review**  
+> 看證據、判斷是否通過
 >
-> **合**  
+> **Deliver**  
 > 接受後合併 / 交付
 
 **Bottom line**
 
-> 這堂課只建立兩個核心觀念：  
-> **Agent 怎麼持續工作；Human + Agent 怎麼把工作交付出去。**
+> **工作管理沒有重來；協作介面變得更明確。**
 
----
 
-## Slide 2 — Agent = Goal → Act → Observe → Continue
+## Slide 2 — 從跟同事合作，到跟 Agent 合作
 
 **Eyebrow**
 
-> Agent 是什麼？
+> From coworker → Agent
 
 **Title**
 
-> Agent = **有目標、能行動、會看結果、再繼續**
+> 你已經會把工作交給人；  
+> **Agent 只是把合作條件變得更明確**
 
-**Main loop**
+**Main mapping**
 
-> **目標（Goal）**  
-> 我要達成什麼？
+> 你跟同事說「要完成什麼」  
+> → **目標 / 工作（Goal / Task）**
 >
-> ↓
+> 交代背景、現況與規則  
+> → **工作脈絡 + 指令（Context + Instructions）**
 >
-> **行動（Act）**  
-> 做下一步
+> 給文件、系統與可用權限  
+> → **檔案 + 工具 + 權限（Files / Tools / Permissions）**
 >
-> ↓
+> 同事做事、回報發生什麼  
+> → **行動 → 觀察（Act → Observe）**
 >
-> **觀察（Observe）**  
-> 看結果
->
-> ↓
->
-> **繼續（Continue）**  
-> 繼續、調整，或停下來問人
->
-> ↺
-
-**Running example**
-
-> LUT Gallery（LUT 可先理解成「調色預設」）：  
-> 「先檢查這個專案，找出使用者為什麼很難快速挑到喜歡的 LUT。先不要改。」
+> 你決定要不要繼續 / 驗收  
+> → **繼續 / Human 驗收（Continue / Review）**
 
 **Bottom line**
 
-> Agent 不是「更會聊天的模型」。  
-> 它是能為了目標 **行動 → 觀察 → 繼續** 的 AI 工作者。
+> **Agent = 能為目標採取行動、觀察結果，再繼續的 AI 工作者。**  
+> 類比只幫你理解委派；怎麼定義問題、做取捨、決定是否驗收，仍由 Human 負責。
 
----
 
-## Slide 3 — 不用找「Agent 按鈕」
+## Slide 3 — Agent/App 到底要管理哪些東西？
 
 **Eyebrow**
 
-> 怎麼開始？
+> Agent anatomy
 
 **Title**
 
-> 不用先找「Create Agent」；  
-> **直接從工作介面開始**
+> LLM 只是其中一層；  
+> **Agent/App 還要管理工作狀態、工具與規則**
 
-**Three entry examples**
+**Outer runtime**
 
-> **Codex**  
-> 開啟專案 → 說清楚要它先做什麼
+> **指令（Instructions）**  
+> 系統 / 專案 / 任務規則
 >
-> **Claude Code**  
-> 進入專案 → 直接交付一個明確工作
+> **工作對話 / Session**  
+> 這段工作的對話 / 執行邊界；**不是 Agent 身分本身**
 >
-> **ChatGPT Work**  
-> 把需要多步驟完成的工作交出去
+> **工具 + 執行環境 + 權限（Tools / Environment / Permissions）**  
+> 能做什麼、在哪裡做、允許做到哪
+>
+> **正式專案狀態 + 可選記憶（Durable State + optional Memory）**  
+> project docs / issues / code 等正式狀態 + 可選的 product / harness memory
 
-**Running example**
+**Current step**
 
-> 在專案工作介面輸入：  
-> **「先檢查，不要直接改。」**
-
-**Small note**
-
-> 需要指定程式碼位置時，再說「這個專案 / 程式碼資料夾」。
+> 上面的來源會被挑選、整理成這一步的  
+> **Current Context**
+>
+> 目前 task + relevant conversation + files / knowledge + tool results  
+> → **LLM / Model**
 
 **Bottom line**
 
-> Agent 是一種工作能力，不一定是一個獨立按鈕。
+> Context 是「**這一步模型能用什麼**」。  
+> Durable project state 是正式依據；product / harness Memory 是可選的長期 context 來源。
 
----
 
-## Slide 4 — LLM 做推理；Agent/App 維持工作循環
+## Slide 4 — LLM 做這一步推理；Agent/App 維持工作循環
 
 **Eyebrow**
 
-> 為什麼它可以繼續做？
+> Agent loop
 
 **Title**
 
-> **LLM（Large Language Model，大型語言模型）**做這一步推理；  
-> Agent/App 維持工作循環，把下一輪需要的資訊組回來
+> **LLM 做這一步推理**；  
+> Agent/App 把下一輪需要的東西組回來
 
 **Main flow**
 
 > **目前輸入（Current Input）**  
-> 這一步需要的資訊
+> task + instructions + relevant context
 >
 > → **LLM**  
 > 判斷下一步
 >
-> → **下一步輸出 / 工具請求**
+> → **工具 / 行動（Tool / Action）**  
+> 呼叫工具或執行動作
 >
-> → **執行動作（Action）**
+> → **觀察結果（Observation）**  
+> 工具 / 環境回傳結果
 >
-> → **觀察結果（Observation）**
->
-> ↺ 回到下一輪輸入
+> ↺ 回到下一輪 Input
 
-**Same LUT micro-demo**
+**Input can come from**
 
-> 同一個目標  
-> → Agent 讀專案 / 現有介面  
-> → 發現「目前只能逐顆找 LUT」  
-> → 把這個觀察結果帶進下一步
+> Instructions · Conversation / Session · Files / Knowledge · Durable state / optional Memory · Tool results
 
 **Bottom line**
 
-> 模型只對**這一步拿到的工作脈絡（context）**做推理。  
-> Agent/App 會把相關指令、檔案、查回來的資料、工具結果等帶進下一輪；  
-> **不代表每一輪都逐字重送全部歷史。**
+> 模型只對**這一步拿到的 context**做推理。  
+> Agent/App 可能挑選、摘要、取回或引用相關狀態；  
+> **不代表每輪逐字重送全部歷史。**
 
----
 
-## Slide 5 — Agent 決定；執行環境（Environment）執行
+## Slide 5 — 這些概念在 Codex / ChatGPT 裡長什麼樣？
 
 **Eyebrow**
 
-> Agent 與執行環境
+> Product mapping
 
 **Title**
 
-> Agent 決定下一步；  
-> **執行環境（Environment）決定動作在哪裡發生**
+> 先懂 Agent，再看產品：  
+> **Codex / ChatGPT 只是把同一套概念落到不同介面**
 
-**Main comparison**
+**Concept → product**
 
-> **本機（Local）**  
-> 你的電腦 / 專案 / 終端機（shell）
+> **工作對話 / Session**  
+> Codex：chat / window / thread  
+> ChatGPT：Chat / Work task
 >
-> **雲端（Cloud）**  
-> 平台提供的隔離環境（sandbox）/ 虛擬機（VM）/ 瀏覽器（browser）
-
-**Permission gate**
-
-> **能用工具 ≠ 有操作權限（Permission）**
+> **專案邊界（Project boundary）**  
+> Codex：repo / project  
+> ChatGPT：Work workspace / files / connected sources
 >
-> 看得到工具  
-> ≠  
-> 這次就可以直接修改、發送或部署
+> **指令（Instructions）**  
+> Codex：`AGENTS.md` + task instructions  
+> ChatGPT：workspace / task instructions + 你的指令
+>
+> **目前工作脈絡（Current Context）**  
+> 目前 conversation + relevant files + tool results
+>
+> **工具（Tools）**  
+> Codex：terminal / files / code / allowed integrations  
+> ChatGPT：built-in tools + Plugins / Connectors
+>
+> **執行環境 / 權限（Environment / Permissions）**  
+> 執行在哪裡 + 哪些 action 需要 approval
+>
+> **正式專案狀態 + 可選記憶（Durable state + optional Memory）**  
+> Codex：repo docs / issues / files；harness 可另外帶 memory  
+> ChatGPT：files / docs / connected sources / optional product Memory
+
+**Start here**
+
+> **Codex**：開 project / repo → 開工作對話 → 給 task  
+> **ChatGPT Work**：開 Work → 給 task + 需要的 files / tools
+
+**Small note**
+
+> 這是概念對照，不是一對一產品標準。  
+> Claude Code 也可用同樣方式理解：project + `CLAUDE.md` / rules + tools + work conversation。
 
 **Bottom line**
 
-> Agent = 決策與工作循環  
-> 執行環境 = 動作真正發生的位置
+> **新對話 / 新視窗 ≠ 新 Agent。**  
+> `AGENTS.md` 是專案指令（project instructions）的一種實作；`MEMORY.md` 不是通用標準。  
+> Product Memory 可以提供 context，但不是專案的正式依據。  
+> **能用工具 ≠ 有操作權限（Permission）。**
 
----
 
-## Slide 6 — 想：先發散，再收斂
+## Slide 6 — Discover：先發散，再收斂
 
 **Eyebrow**
 
-> 想 · 腦力激盪（Brainstorm）
+> Discover · Brainstorm
 
 **Title**
 
 > 先讓 AI 發散，  
 > **再由 Human 收斂**
 
+**Running example**
+
+> **活動報名頁：手機版很難找到「立即報名」按鈕。**
+
 **Main flow**
 
 > **1 · 定義問題（Frame）**  
-> 「挑 LUT 太慢，我想降低比較成本。」
+> 「手機版很難找到立即報名，我想降低使用者找報名入口的成本。」
 >
 > **2 · 發散（Diverge）**  
-> 找相似 · 自動分群 · 並排比較 · 搜尋改善
+> 首屏 CTA · 固定底部 CTA · 導覽列入口 · 簡化報名步驟
 >
 > **3 · 挑戰 / 分群（Challenge / Cluster）**  
 > 哪些解同一個問題？  
@@ -253,13 +268,12 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > AI 幫你擴大選項；  
 > **不要在發散階段就急著選答案。**
 
----
 
-## Slide 7 — 腦力激盪的結果不是正式工作
+## Slide 7 — Brainstorm output 不是 Backlog
 
 **Eyebrow**
 
-> 想 → 做決策
+> Discover → Decide
 
 **Title**
 
@@ -268,17 +282,13 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Candidate side**
 
-> **候選方案**
->
-> 找相似（Find Similar）  
-> 自動分群（Auto-group）  
-> 並排比較（Compare）  
-> LUT Editor
+> 首屏放大 CTA  
+> 固定底部 CTA  
+> 導覽列放報名入口  
+> 簡化報名步驟
 
 **Human decision gate**
 
-> **Human 決策準則**
->
 > 預期效益  
 > 成本  
 > 風險  
@@ -288,23 +298,21 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 **Result**
 
 > **採用**  
-> Find Similar
+> 固定底部 CTA
 >
 > **暫放**  
-> Auto-group · Compare · LUT Editor
+> 首屏 CTA · 導覽列入口 · 簡化步驟
 
 **Bottom line**
 
-> **準則、取捨與最後決定都由 Human 負責。**  
-> 不是 AI 生很多方案，Human 就隨便挑一個。
+> **準則、取捨與最後決定都由 Human 負責。**
 
----
 
-## Slide 8 — 拆：Milestone → Epic → Story → Task
+## Slide 8 — Plan：Milestone → Epic → Story → Task
 
 **Eyebrow**
 
-> 拆 · 工作層級
+> Plan · Work Hierarchy
 
 **Title**
 
@@ -314,39 +322,34 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 **Hierarchy**
 
 > **Milestone｜里程碑 / 交付節點**  
-> 降低挑 LUT 的認知負荷
+> 降低手機版報名阻力
 >
 > ↓
 >
 > **Epic｜主要能力 / 大主題**  
-> 改善 LUT 探索
+> 改善報名入口
 >
 > ↓
 >
 > **Story｜使用者要得到的結果**  
-> 使用者可以從一個喜歡的 LUT 找到相似候選
+> 使用者在手機上能快速找到「立即報名」
 >
 > ↓
 >
 > **Task｜可以直接執行的工作**  
-> 加入「找相似」入口 + 候選結果列表
+> 加入固定底部「立即報名」CTA
 
 **Bottom line**
 
 > 工作層級回答：**「它屬於哪一層？」**  
 > 下一頁的工作狀態板才回答：**「它現在在哪？」**
 
-**Small note**
 
-> 團隊名稱可以不同；先學工作層級，不背一套固定名詞體系。
-
----
-
-## Slide 9 — 票：工作票（Ticket）+ AC 是工作契約
+## Slide 9 — Specify：工作票（Ticket）+ AC 是工作契約
 
 **Eyebrow**
 
-> 票 · 工作票（Ticket）+ 驗收條件（Acceptance Criteria）
+> Specify · Ticket + Acceptance Criteria
 
 **Title**
 
@@ -355,27 +358,27 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Ticket**
 
-> **#42 · 從喜歡的 LUT 找到相似 LUT**
+> **#42 · 手機版固定顯示「立即報名」CTA**
 >
 > **目標（Goal）**  
-> 降低使用者逐顆比較 LUT 的認知負荷。
+> 降低使用者在手機上找不到報名入口的阻力。
 >
 > **範圍（Scope）**  
-> 從既有 LUT 找相似候選。
+> 在手機版加入固定底部「立即報名」CTA。
 >
 > **明確不做（Non-goals）**  
-> 不做 Auto-group；不做 LUT Editor。
+> 不重做整份報名表；不改活動頁資訊架構。
 >
 > **驗收條件（Acceptance Criteria，AC）**  
-> ① 點「找相似」後會出現候選  
-> ② 資料不足時有明確空狀態（Empty State）  
-> ③ 390px 手機寬度沒有水平捲軸
+> ① 390px 手機寬度完整顯示「立即報名」  
+> ② 捲動時 CTA 固定在底部  
+> ③ CTA 不遮住主要內容，且沒有水平捲軸
 >
 > **負責人 / 優先順序 / 上層工作**  
-> Agent A · P1 · 改善 LUT 探索
+> Agent A · P1 · 改善報名入口
 >
 > **驗收證據（Evidence）**  
-> 可操作預覽（Preview）+ 桌機 / 手機截圖 + 自動檢查
+> 可操作預覽 + 桌機 / 手機截圖 + 自動檢查
 
 **Gate after the Ticket**
 
@@ -389,13 +392,12 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > **Evidence = 審查時 reviewer 要實際檢查的證據。**  
 > 工作票寫完整，**不代表現在就應該做**。
 
----
 
-## Slide 10 — 做：Kanban（工作狀態板）只回答「現在在哪」
+## Slide 10 — Execute：Kanban 只回答「現在在哪」
 
 **Eyebrow**
 
-> 做 · Kanban（工作狀態板）
+> Execute · Kanban
 
 **Title**
 
@@ -405,17 +407,17 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 **Board**
 
 > **待辦（Backlog）**  
-> #43 自動分群  
-> #44 並排比較
+> #43 導覽列報名入口  
+> #44 簡化報名步驟
 >
 > **進行中（Doing）· 同時進行 1/2（WIP）**  
-> #42 找相似 LUT · Agent A
+> #42 手機版報名 CTA · Agent A
 >
 > **審查（Review）**  
 > 下一站：送審 + 驗收證據 + AC
 >
 > **完成（Done）**  
-> #38 Collection filter
+> #38 活動資訊區塊
 
 **Bottom line**
 
@@ -423,13 +425,12 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > 審查也是正在進行的工作。  
 > 每個工作者同時進行中的工作（WIP）：**少於 2 件**。
 
----
 
-## Slide 11 — 同一張 Ticket 在 GitHub 裡一路走
+## Slide 11 — Execute：同一張 Ticket 在 GitHub 裡一路走
 
 **Eyebrow**
 
-> 做 · GitHub
+> Execute · GitHub
 
 **Title**
 
@@ -441,42 +442,28 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > **專案看板（Project）**  
 > 看整體工作與狀態
 >
-> →
->
-> **工作票（Issue）#42**  
+> → **工作票（Issue）#42**  
 > 工作契約 / AC
 >
-> →
+> → **工作分支（Branch）**  
+> `feat/42-mobile-cta`
 >
-> **工作分支（Branch）**  
-> 隔離這張票的改動
->
-> →
->
-> **提交紀錄（Commit）**  
+> → **提交紀錄（Commit）**  
 > 可追蹤的版本節點
 >
-> →
->
-> **Pull Request（PR）#71｜送審入口**  
-> 進入審查 / 驗收
+> → **Pull Request（PR）#71｜送審入口**
 
 **Bottom line**
 
 > PR 在這裡只有一個定義：  
 > **送交審查 / 驗收的入口。**
 
-**Small note**
 
-> 一般功能開發不要直接改 main（主分支）。
-
----
-
-## Slide 12 — 審：Agent 說「完成」= 可以開始審查
+## Slide 12 — Review：Agent 說「完成」= 可以開始審查
 
 **Eyebrow**
 
-> 審 · 審查 / 驗收（Review / Acceptance）
+> Review · Acceptance
 
 **Title**
 
@@ -489,16 +476,16 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > 可操作預覽 + 截圖 + 自動檢查 ✅
 >
 > **AC 1**  
-> 點「找相似」會出候選 ✅
+> 390px 完整顯示「立即報名」 ✅
 >
 > **AC 2**  
-> 資料不足有空狀態 ✅
+> 捲動時 CTA 固定底部 ✅
 >
 > **AC 3**  
-> 390px 沒有水平捲軸 ❌
+> CTA 遮住主要內容 ❌
 >
 > **已知限制**  
-> 尚未做自動分群；符合明確不做的範圍
+> 尚未簡化報名步驟；符合明確不做的範圍
 
 **Audience decision — show before answer**
 
@@ -510,22 +497,18 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 **Reveal after audience answers**
 
 > **退回修改（Request Changes）**
->
-> 一條已約定的 AC 失敗，  
-> 就還不能過。
 
 **Bottom line**
 
 > 審查要看：**驗收證據 + AC + 範圍 + 已知限制 + Human 決定**。  
 > Agent 自己說完成、自動檢查通過，都不等於自動驗收。
 
----
 
-## Slide 13 — 合：接受 → 合併 → 完成
+## Slide 13 — Deliver：接受 → 合併 → 完成
 
 **Eyebrow**
 
-> 合 · 合併 / 上線（Merge / Deploy）
+> Deliver · Merge / Deploy
 
 **Title**
 
@@ -534,15 +517,15 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 **Main flow**
 
-> 審查  
+> Review  
 > → **Human 接受**  
-> → **合併（Merge）**  
-> → **完成（Done）**  
-> → 部署 / 發布（需要時）
+> → **Merge**  
+> → **Done**  
+> → Deploy / Release（需要時）
 
 **Running example**
 
-> PR #71 修完手機版 AC  
+> PR #71 修完 CTA 遮擋 AC  
 > → Human 接受  
 > → 合併  
 > → GitHub Pages 更新
@@ -551,12 +534,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 > **AGENT 101 核心課程完成**
 >
-> 到這裡，你已經能跑一個小型「人 + Agent」專案：  
-> **想 → 拆 → 票 → 做 → 審 → 合**
-
----
-
-# Optional / light advanced
+> **Discover → Plan → Specify → Execute → Review → Deliver**
 
 ## Slide 14 — 先定 Human 責任，再談 Agent 角色
 
@@ -613,7 +591,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > **Reviewer Subagent**
 >
 > 角色：Reviewer  
-> 工作票：#42 找相似 LUT  
+> 工作票：#42 手機版報名 CTA  
 > 邊界：不改程式碼，只驗 AC  
 > 工具：可操作預覽 · 測試 · 差異（Diff）  
 > 驗收：交付獨立的通過 / 不通過證據
@@ -707,7 +685,8 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 
 ---
 
-## Slide 18 — 最後只記：想 → 拆 → 票 → 做 → 審 → 合
+
+## Slide 18 — 最後只記：Discover → Plan → Specify → Execute → Review → Deliver
 
 **Eyebrow**
 
@@ -716,32 +695,32 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 **Title**
 
 > 最後只記：  
-> **想 → 拆 → 票 → 做 → 審 → 合**
+> **Discover → Plan → Specify → Execute → Review → Deliver**
 
 **Six-step summary**
 
-> **想**  
+> **Discover**  
 > AI 發散，Human 決定
 >
-> **拆**  
+> **Plan**  
 > 把大方向拆成可執行工作
 >
-> **票**  
+> **Specify**  
 > 目標 · 範圍 · AC · 驗收證據
 >
-> **做**  
+> **Execute**  
 > 低同時進行量（WIP）· 範圍清楚的工作 · GitHub
 >
-> **審**  
+> **Review**  
 > PR · 驗收證據 · AC · Human 審查
 >
-> **合**  
+> **Deliver**  
 > 接受 → 合併 → 完成 / 上線
 
-**One-line LUT trace**
+**One-line example trace**
 
-> 挑 LUT 太慢  
-> → 找相似（Find Similar）  
+> 手機版找不到「立即報名」  
+> → 固定底部 CTA  
 > → #42 Ticket  
 > → PR #71  
 > → AC Review  
@@ -760,16 +739,15 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 > 不是追求「最會寫程式碼的 Agent」，  
 > 而是建立**可以放心委派工作的系統**。
 
----
-
 # Canonical teaching-location check
 
 | Concept | Canonical slide | Later use |
 |---|---:|---|
 | Agent definition | 2 | Applied, never redefined |
-| How to start Agent work | 3 | No second product-entry chapter |
+| Human delegation → Agent intuition | 2 | Used as the beginner bridge; never equate Agent with a human |
+| Agent anatomy / context / session / tools / durable state | 3 | Slide 16 re-anchors without redefining |
 | LLM vs Agent/App loop | 4 | Slide 16 maps capabilities back to it |
-| Agent vs Environment / permission | 5 | Slide 16 references the same distinction |
+| Product mapping / how to start | 5 | Codex / ChatGPT mapping only after abstract model is known |
 | Brainstorm / Human convergence | 6–7 | Later work starts from committed direction |
 | Work hierarchy | 8 | Kanban does not redefine hierarchy |
 | Ticket / AC / Evidence definition | 9 | Slide 12 only checks the existing AC/Evidence |
@@ -789,7 +767,7 @@ Inputs: merged #8 inventory, #9 storyboard, #10 five-perspective review
 | Disposition | Terms | Rule applied |
 |---|---|---|
 | **Keep — industry term to learn** | Agent, AI, LLM, Ticket, AC, Kanban, WIP, GitHub, Issue, Branch, Commit, Pull Request / PR, Merge, Milestone, Epic, Story, Task, Subagent, Skill, RAG, MCP, Connector / Plugin, SDD / BMAD | Keep the industry term, but give a plain-language Chinese hook at first sight when the audience may not know it. |
-| **Keep — product / proper name** | Codex, Claude Code, ChatGPT Work, LUT Gallery, GitHub Pages, Supabase, PostHog, Cloudflare, Resend, AGENTS.md, CLAUDE.md | Keep as names; explain what they are used for instead of translating the name itself. |
+| **Keep — product / proper name** | Codex, Claude Code, ChatGPT Work, GitHub Pages, Supabase, PostHog, Cloudflare, Resend, AGENTS.md, CLAUDE.md | Keep as names; explain what they are used for instead of translating the name itself. |
 | **Translate — Chinese first** | Goal / Act / Observe / Continue, Context, Output / Tool Request, Action, Observation, Environment, Permission, Local / Cloud, Frame / Diverge / Challenge / Cluster / Converge, Benefit / Cost / Risk / Reversibility, Backlog / Doing / Review / Done, Owner / Priority / Parent, Evidence / Preview, Approve / Request Changes, role / responsibility / accountability, Instructions / Tools / Permissions, Need / Capability | Chinese meaning is primary; English is secondary or omitted when it adds no learning value. |
 | **Remove — not a learning objective** | mental model, bounded work, durable work, checkpoint, feature work, automated checks, multi-agent, planning discipline, glossary, capability gap, source of truth | Replace with plain Chinese; do not require the learner to acquire this extra jargon. |
 | **Translate when retained for technical orientation** | shell, sandbox, VM, browser, API, SaaS, Diff | Keep only where it helps recognize a real tool/system term, with Chinese meaning first. |
@@ -801,8 +779,12 @@ This audit applies to **all learner-visible copy in Slides 1–18**, not only th
 - [x] Actual on-slide content exists for all 18 approved live slides.
 - [x] One concept has one canonical teaching location.
 - [x] No new glossary page or random card-wall content model is introduced.
-- [x] LUT Gallery remains one coherent example from brainstorm → #42 → PR #71 → Review → Merge.
-- [x] Slides 2–4 use one continuous LUT Gallery micro-demo.
+- [x] Slides 2–5 teach Agent fundamentals without a running product example.
+- [x] The activity-registration example begins on Slide 6 and runs coherently through #42 → PR #71 → Review → Merge.
+- [x] Product mapping appears only after Agent definition/anatomy/loop.
+- [x] Chat/window/session is separated from Agent identity.
+- [x] AGENTS.md is project instructions; MEMORY.md is not taught as a universal standard.
+- [x] Plugins / Connectors map under Tools / integrations.
 - [x] Agent-loop wording does not claim every prior token is literally resent.
 - [x] AC is observable Pass/Fail and is defined on Slide 9, then reused on Slide 12.
 - [x] Slide 12 contains an audience decision moment before the answer is revealed.
