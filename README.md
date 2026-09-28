@@ -8,11 +8,16 @@
 
 ## Web Slides
 
+**Live GitHub Pages：<https://world4jason.github.io/agent101/>**
+
+直接進投影片：**<https://world4jason.github.io/agent101/slides/>**
+
 這個 repository 內建一份可直接播放的 HTML 簡報：
 
-**[開啟投影片原始頁面](slides/index.html)**
+- [開啟 repository 內的投影片原始頁面](slides/index.html)
+- [開啟 GitHub Pages 線上版](https://world4jason.github.io/agent101/)
 
-合併到 `main` 並啟用 GitHub Pages 後，root `index.html` 會導向 `/slides/`。
+root `index.html` 會導向 `/slides/`。
 
 投影片支援：
 
